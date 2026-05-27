@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/doctors",
+  "title": "Doctors Block",
+  "category": "layout",
+  "icon": "groups",
+  "description": "Блок с врачами отделения",
+  "keywords": [
+    "doctors",
+    "врачи",
+    "команда"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}

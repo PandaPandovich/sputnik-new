@@ -1,0 +1,176 @@
+{
+    "key": "group_684a1b2c3d4e5",
+    "title": "Цены на услуги",
+    "fields": [
+        {
+            "key": "field_684a1b2c3d001",
+            "label": "Категории услуг",
+            "name": "price_categories",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Каждая категория — отдельный прайс-лист (например, «Услуги ветеринарной хирургии»).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_684a1b2c3d002",
+            "button_label": "Добавить категорию",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_684a1b2c3d007a",
+                    "label": "Отделение",
+                    "name": "department",
+                    "aria-label": "",
+                    "type": "post_object",
+                    "instructions": "К какому отделению относится эта категория услуг",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": ["branch"],
+                    "post_status": ["publish"],
+                    "taxonomy": "",
+                    "return_format": "id",
+                    "multiple": 0,
+                    "allow_null": 1,
+                    "bidirectional": 0,
+                    "ui": 1,
+                    "allow_in_bindings": 0
+                },
+                {
+                    "key": "field_684a1b2c3d002",
+                    "label": "Название категории",
+                    "name": "name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "Название категории услуг"
+                },
+                {
+                    "key": "field_684a1b2c3d003",
+                    "label": "Прайс-лист",
+                    "name": "prices",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Добавить услугу",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_684a1b2c3d004",
+                            "label": "Услуга",
+                            "name": "price_category",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "Название услуги"
+                        },
+                        {
+                            "key": "field_684a1b2c3d005",
+                            "label": "Цена",
+                            "name": "price",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "0"
+                        },
+                        {
+                            "key": "field_684a1b2c3d006",
+                            "label": "Описание",
+                            "name": "desc",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings-prices"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": 1,
+    "ai_description": "",
+    "modified": 1779926400
+}

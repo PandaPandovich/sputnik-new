@@ -1,0 +1,26 @@
+{
+  "name": "sputnik-plus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "postbuild": "wp-scripts build-blocks-manifest --input=build/blocks --output=build/blocks-manifest.php",
+    "start": "wp-scripts start",
+    "prestart": "wp-scripts build-blocks-manifest --input=build/blocks --output=build/blocks-manifest.php"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@valinor.wwzrds.ru:2222/root/sputnik-plus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^31.4.0"
+  },
+  "dependencies": {
+    "swiper": "^12.1.3",
+    "viewerjs": "^1.11.7"
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sputnik/reviews",
+    "title": "Reviews Block",
+    "category": "layout",
+    "icon": "format-chat",
+    "description": "Блок отзывов с каруселью",
+    "keywords": ["reviews", "отзывы", "carousel"],
+    "acf": {
+        "blockVersion": 3,
+        "autoInlineEditing": true,
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "style": "file:./style-index.css",
+    "editorStyle": "file:./index.css",
+    "editorScript": "file:./index.js",
+    "viewScript": "file:./view.js"
+}

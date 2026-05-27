@@ -1,0 +1,62 @@
+@use '../../scss/ui/button.scss' as *;
+@use '../../scss/ui/text.scss' as *;
+
+.principles {
+  padding: 5rem 0;
+  padding-top: 13rem;
+  background: var(--color-blue);
+  mask-image: url('../../img/wave.png');
+  mask-repeat: no-repeat;
+  mask-size: cover;
+
+  @media (max-width:768px) {
+   padding-top: 10rem;
+  }
+
+  &__title {
+    @include h2;
+    color: white;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin-top: 3.75rem;
+
+    @media (max-width:768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    color: white;
+    padding: 1.5rem 5rem;
+    border-right: 1px solid white;
+    text-align: center;
+
+    @media (max-width:768px) {
+      border-top: 1px solid white;
+      border-right: 0;
+      text-align: left;
+      padding: 1rem 0;
+    }
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      border-right: 0;
+    }
+
+    &-text {
+      @include h4;
+    }
+
+    &-text {
+      @include p-sm;
+      font-weight: 400;
+    }
+  }
+}

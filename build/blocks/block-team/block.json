@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/team",
+  "title": "Team Block",
+  "category": "layout",
+  "icon": "groups",
+  "description": "Блок команды — сетка сотрудников",
+  "keywords": [
+    "team",
+    "команда",
+    "врачи"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js"
+}

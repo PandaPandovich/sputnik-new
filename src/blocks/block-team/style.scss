@@ -1,0 +1,404 @@
+@use '../../scss/mixins/vars' as *;
+
+.team {
+  padding: var(--section-padding) 0;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+
+    @media (max-width: $tablet) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 120%;
+    color: #103559;
+    margin: 0;
+
+    @media (max-width: $tablet) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    line-height: 140%;
+    color: #555;
+    margin: 0;
+    max-width: 37.5rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: $desktop-small) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $tablet) {
+      gap: 1rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  &__photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 0.375rem;
+    background: #E9EEF3;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.03);
+    }
+  }
+
+  &__info {
+    padding: 0.75rem 0;
+  }
+
+  &__name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #103559;
+    margin: 0 0 0.25rem;
+  }
+
+  &__position {
+    font-size: 0.875rem;
+    color: #555;
+    margin: 0;
+  }
+}
+
+/* Модальное окно сотрудника */
+.team-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(185, 185, 185, 0.55);
+    backdrop-filter: blur(2.5px);
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 0.375rem;
+    border: 1px solid #E4E9F0;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #fff;
+    }
+
+    &--prev {
+      left: calc(50% - 36.25rem);
+
+      @media (max-width: $desktop-small) {
+        left: 0.5rem;
+      }
+    }
+
+    &--next {
+      right: calc(50% - 36.25rem);
+
+      @media (max-width: $desktop-small) {
+        right: 0.5rem;
+      }
+    }
+  }
+
+  &__window {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 70rem;
+    max-width: calc(100vw - 4rem);
+    max-height: calc(100vh - 4rem);
+    background: #fff;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 1.875rem 4.375rem rgba(20, 51, 88, 0.25);
+
+    @media (max-width: $desktop-small) {
+      flex-direction: column;
+      max-height: calc(100vh - 2rem);
+      max-width: calc(100vw - 2rem);
+    }
+  }
+
+  &__left {
+    width: 27.5rem;
+    flex-shrink: 0;
+    background: #E8EDF3;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 2.5rem;
+
+    @media (max-width: $desktop-small) {
+      width: 100%;
+      height: 16rem;
+      padding: 1.5rem;
+    }
+  }
+
+  &__photo {
+    width: 22.75rem;
+    height: auto;
+    border-radius: 0.625rem;
+    object-fit: cover;
+
+    @media (max-width: $desktop-small) {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  &__right {
+    flex: 1;
+    position: relative;
+    overflow-y: auto;
+  }
+
+  &__close {
+    position: absolute;
+    top: 1.75rem;
+    right: 1.75rem;
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 0.375rem;
+    border: 1px solid #E4E9F0;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #fff;
+    }
+  }
+
+  &__content {
+    padding: 3.5rem;
+
+    @media (max-width: $tablet) {
+      padding: 1.5rem;
+    }
+  }
+
+  &__tag {
+    display: inline-block;
+    background: #F5F8FB;
+    border: 1px solid #F5F8FB;
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    color: #1E4976;
+    margin-bottom: 1rem;
+  }
+
+  &__name {
+    font-family: 'Onest', sans-serif;
+    font-size: 2.125rem;
+    font-weight: 700;
+    line-height: 115%;
+    letter-spacing: -0.03rem;
+    color: #1E4976;
+    margin: 0 0 0.5rem;
+
+    @media (max-width: $tablet) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__position {
+    font-size: 1.0625rem;
+    color: #4A5568;
+    margin: 0 0 1.5rem;
+  }
+
+  /* Стаж / Образование / Филиал */
+  &__stats {
+    display: flex;
+    gap: 2rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid #E4E9F0;
+    border-bottom: 1px solid #E4E9F0;
+    margin-bottom: 2rem;
+
+    @media (max-width: $tablet) {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    &-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.03rem;
+      color: #6B7A8F;
+    }
+
+    &-value {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #1E4976;
+    }
+  }
+
+  /* Секции: Образование, Опыт работы, Квалификация */
+  &__section {
+    margin-bottom: 1.75rem;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    &-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.075rem;
+      color: #1E4976;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    &-line {
+      flex: 1;
+      height: 1px;
+      background: #E4E9F0;
+    }
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    line-height: 165%;
+    color: #4A5568;
+    margin: 0;
+  }
+
+  /* Списки опыта */
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #E4E9F0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &-period,
+    &-date {
+      flex-shrink: 0;
+      width: 7rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1E4976;
+    }
+
+    &-date {
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: #6B7A8F;
+    }
+
+    &-text {
+      font-size: 0.9rem;
+      line-height: 155%;
+      color: #4A5568;
+    }
+  }
+
+  /* Личная заметка */
+  &__note {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #F5F8FB;
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    margin-top: 1.5rem;
+
+    &-icon {
+      width: 2rem;
+      height: 2rem;
+      background: #fff;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    &-text {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #1E4976;
+    }
+  }
+}

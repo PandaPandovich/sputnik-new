@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/department-services",
+  "title": "Department Services Block",
+  "category": "layout",
+  "icon": "list-view",
+  "description": "Блок списка услуг отделения с изображением",
+  "keywords": [
+    "услуги",
+    "отделение",
+    "department",
+    "services"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js"
+}

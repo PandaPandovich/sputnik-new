@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/symptoms",
+  "title": "Symptoms Block",
+  "category": "layout",
+  "icon": "heart",
+  "description": "Блок с симптомами — когда нужно показать питомца",
+  "keywords": [
+    "symptoms",
+    "симптомы",
+    "онкология"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}

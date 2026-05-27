@@ -1,0 +1,111 @@
+.faq {
+  padding: var(--section-padding) 0;
+
+  &__title {
+    font-family: 'Onest', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 0.0625rem;
+    color: #1A2042;
+    margin: 0 0 2.5rem;
+
+    @media (max-width: 800px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__list {
+    max-width: 72.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  &__item {
+    border: 1px solid #EAEAEA;
+    border-radius: 0.625rem;
+    overflow: hidden;
+  }
+
+  &__question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.875rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+
+    span:first-child {
+      font-family: 'Onest', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 143.75%;
+      color: #103559;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 2.125rem;
+    height: 2.125rem;
+    background: #EEF2F4;
+    border-radius: 0.375rem;
+    position: relative;
+    opacity: 0.8;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: #1D3658;
+      transition: transform 0.3s ease;
+    }
+
+    &::before {
+      width: 0.625rem;
+      height: 1.5px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      width: 1.5px;
+      height: 0.625rem;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__answer {
+    max-height: 0;
+    overflow-x: scroll;
+    transition: max-height 0.3s ease;
+
+    p {
+      font-family: 'Onest', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 160%;
+      color: #3C4C5B;
+      padding: 0 1.75rem 1.75rem;
+      margin: 0;
+    }
+  }
+
+  &__item.is-active {
+    .faq__icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .faq__answer {
+      max-height: 20rem;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@use './mixins/vars' as v;
+
+:root {
+    --color-dark: #{v.$dark};
+    --color-blue: #113659;
+    --color-brand-blue: #1074BC;
+    --color-ink-800: #1D3658;
+    --color-ink-900: #1A2042;
+    --color-red: #FF6060;
+    --color-brand-tint: #ECF6FD;
+    --color-brand-tint-2: #DAECF8;
+    --color-text-primary: #1D3658;
+    --color-text-secondary: #627384;
+    --color-text-tertiary: #9BA8B5;
+    --color-border: #DDE4ED;
+    --color-line: #EEEDEE;
+    --color-surface-50: #F6F6F6;
+
+    --color-dark-blue: #{v.$dark-blue};
+    --color-white: #{v.$white};
+    --color-accent: #1074BC;
+
+    --section-padding: 6rem;
+
+    @media (max-width:800px) {
+        --section-padding: 2.5rem;
+    }
+}

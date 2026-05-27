@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/values",
+  "title": "Values Block",
+  "category": "layout",
+  "icon": "heart",
+  "description": "Блок ценностей клиники — сетка карточек",
+  "keywords": [
+    "values",
+    "ценности",
+    "о нас"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}

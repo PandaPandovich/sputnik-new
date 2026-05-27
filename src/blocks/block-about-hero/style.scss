@@ -1,0 +1,72 @@
+@use '../../scss/mixins/vars' as *;
+
+.about-hero {
+  position: relative;
+  background: #F1F1F3;
+  overflow: hidden;
+
+  .container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 35.3125rem;
+
+    @media (max-width: $desktop-small) {
+      min-height: 20rem;
+    }
+
+    @media (max-width: 568px) {
+      min-height: 26.25rem;
+      align-items: flex-start;
+      padding-top: 1.875rem;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    font-size: 4.4375rem;
+    font-weight: 700;
+    line-height: 110%;
+    color: #103559;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 31.5rem;
+
+    @media (max-width: $desktop-small) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: $tablet) {
+      font-size: 2rem;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 1;
+
+    @media (max-width: $desktop-small) {
+      right: 3rem;
+    }
+
+     @media (max-width: 568px) {
+      width: 100%;
+      height: 70%;
+      top: auto;
+      bottom: 0;
+      right: 0;
+     }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

@@ -1,0 +1,213 @@
+@use '../ui/text.scss' as *;
+
+.single-post {
+  // Шапка статьи
+  &__header {
+    padding-top: var(--section-padding);
+    padding-bottom: 2rem;
+  }
+
+  &__title {
+    font-family: "Onest", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-blue);
+    max-width: 720px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 1.25rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__subtitle {
+    font-family: "Onest", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.55;
+    color: #4a5568;
+    margin: 0;
+    max-width: 560px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      font-size: 1.0625rem;
+    }
+  }
+
+  // Обложка
+  &__hero {
+    padding-bottom: 2.5rem;
+  }
+
+  &__hero-image {
+    margin: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    max-width: 880px;
+    margin: 0 auto;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 28.125rem;
+      object-fit: cover;
+    }
+  }
+
+  // Контент
+  &__body {
+    padding-bottom: var(--section-padding);
+  }
+
+  &__content {
+    max-width: 720px;
+    font-family: "Onest", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #2e3e55;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+
+    // Типографика контента
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--color-blue);
+      margin: 2.5rem 0 1rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.375rem;
+      }
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-blue);
+      margin: 2rem 0 0.75rem;
+    }
+
+    p {
+      margin: 0 0 1.25rem;
+    }
+
+    ul, ol {
+      margin: 0 0 1.25rem;
+      padding-left: 1.5rem;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    blockquote {
+      margin: 2rem 0;
+      padding: 2rem 2.75rem;
+      border-left: 4px solid #e63946;
+      background: none;
+
+      p {
+        font-family: Georgia, serif;
+        font-size: 1.325rem;
+        font-style: italic;
+        line-height: 1.64;
+        color: var(--color-blue);
+        margin-bottom: 0.75rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      cite {
+        display: block;
+        font-family: "Onest", sans-serif;
+        font-size: 0.8125rem;
+        font-style: normal;
+        font-weight: 500;
+        color: #6b7a8f;
+        letter-spacing: 0.02em;
+        margin-top: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        padding: 1.25rem 1.5rem;
+
+        p {
+          font-size: 1.125rem;
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  // Похожие статьи
+  &__related {
+    background: #f1f1f3;
+    padding: var(--section-padding) 0;
+  }
+
+  &__related-title {
+    font-family: "Onest", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-blue);
+    margin: 0 0 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 568px) {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+}
+
+// Карточка-ссылка (без кнопки, вся карточка кликабельна)
+.blog-archive__card--link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+}

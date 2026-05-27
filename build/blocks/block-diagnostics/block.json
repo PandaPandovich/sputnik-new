@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/diagnostics",
+  "title": "Diagnostics Block",
+  "category": "layout",
+  "icon": "list-view",
+  "description": "Блок — как проходит диагностика (этапы)",
+  "keywords": [
+    "diagnostics",
+    "диагностика",
+    "этапы"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}

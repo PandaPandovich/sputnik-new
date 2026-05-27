@@ -1,0 +1,81 @@
+@use '../ui/text.scss' as *;
+
+.page-content {
+  padding: 3rem 0 5rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem 0 3rem;
+  }
+
+  &__title {
+    @include h1;
+    color: #1A2042;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  &__body {
+    max-width: 50rem;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 auto;
+
+    h2 {
+      @include h2;
+      color: #1A2042;
+      margin: 2rem 0 1rem;
+    }
+
+    h3 {
+      @include h3;
+      color: #1A2042;
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    h4 {
+      @include h4;
+      color: #1A2042;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    ul, ol {
+      margin: 0 0 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: #1074BC;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+
+      th, td {
+        border: 1px solid #E0E0E0;
+        padding: 0.75rem 1rem;
+        text-align: left;
+      }
+
+      th {
+        background: #F5F5F5;
+        font-weight: 600;
+      }
+    }
+  }
+}

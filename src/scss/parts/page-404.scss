@@ -1,0 +1,45 @@
+@use '../mixins/vars' as *;
+@use '../ui/text' as *;
+@use '../ui/button' as *;
+
+.page-404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 4rem 0;
+
+    &__content {
+        text-align: center;
+        max-width: 36rem;
+        margin: 0 auto;
+    }
+
+    &__code {
+        display: block;
+        font-size: 10rem;
+        font-weight: 800;
+        line-height: 1;
+        color: var(--color-brand-tint);
+        margin-bottom: 1rem;
+
+        @media (max-width: $tablet) {
+            font-size: 7rem;
+        }
+    }
+
+    &__title {
+        @include h1;
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        @include p-lg;
+        color: var(--color-text-secondary);
+        margin-bottom: 2rem;
+    }
+
+    &__button {
+        @include button;
+    }
+}

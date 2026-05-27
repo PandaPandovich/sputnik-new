@@ -1,0 +1,76 @@
+@use '../../scss/ui/button.scss' as *;
+@use '../../scss/ui/text.scss' as *;
+
+.blog {
+  padding: 4rem 0;
+  background: #F7F0EA;
+  mask-image: url('../../img/wave-bottom.svg');
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  overflow: hidden;
+
+  @media (max-width:568px) {
+    padding: 2rem 0;
+    padding-bottom: 8rem;
+  }
+
+  &__slider {
+    margin-top: 3.75rem;
+
+    @media (max-width:568px) {
+     margin-top: 1rem;
+    }
+
+  }
+
+  &__card {
+    background: white;
+    border-radius: 0.625rem;
+    overflow: hidden;
+
+    &-image {
+      width: 100%;
+      height: 11.625rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1.25rem 1rem;
+    }
+
+    &-date {
+      display: flex;
+      justify-content: flex-end;
+      @include p-sm;
+      color: var(--color-text-secondary);
+    }
+
+    &-title {
+      @include h4;
+      margin-bottom: 1rem;
+    }
+
+    &-text {
+      @include p;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &-link {
+      @include button;
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
+  }
+}

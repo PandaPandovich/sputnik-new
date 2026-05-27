@@ -1,0 +1,19 @@
+@use './mixins/vars' as v;
+
+:root {
+    --color-dark: #{v.$dark};
+    --color-blue: #{v.$blue};
+    --color-dark-blue: #{v.$dark-blue};
+    --color-white: #{v.$white};
+
+    --section-padding: 6rem;
+}
+
+html :where(.wp-block) {
+    max-width: 90%;
+    font-family: "Onest", sans-serif;
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}

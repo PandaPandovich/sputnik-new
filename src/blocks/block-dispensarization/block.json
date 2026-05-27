@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sputnik/dispensarization",
+    "title": "Dispensarization Block",
+    "category": "layout",
+    "icon": "calendar-alt",
+    "description": "Блок диспансеризации с CTA",
+    "keywords": ["dispensarization", "диспансеризация", "cta"],
+    "acf": {
+        "blockVersion": 3,
+        "autoInlineEditing": true,
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "style": "file:./style-index.css",
+    "editorStyle": "file:./index.css",
+    "editorScript": "file:./index.js"
+}

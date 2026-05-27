@@ -1,0 +1,19 @@
+.hero {
+    &__bg {
+        right: 0;
+    }
+}
+
+// В редакторе отключаем Swiper и показываем сеткой
+.services__items {
+    .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        transform: none !important;
+    }
+
+    .swiper-slide {
+        width: auto !important;
+    }
+}

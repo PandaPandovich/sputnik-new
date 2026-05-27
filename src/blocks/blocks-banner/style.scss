@@ -1,0 +1,59 @@
+@use '../../scss/ui/button.scss' as *;
+@use '../../scss/ui/text.scss' as *;
+
+.banner {
+  position: relative;
+  padding: 5rem 0;
+
+  @media (max-width:568px) {
+    padding: 2rem 0;
+  }
+
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+
+      @media (max-width:768px) {
+        object-position: left;
+      }
+
+      @media (max-width:568px) {
+        object-position: revert;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.625rem;
+    max-width: 27.75rem;
+    color: white;
+
+    @media (max-width:568px) {
+      width: 50%;
+    }
+  }
+
+  &__title {
+    @include h2;
+
+    @media (max-width:568px) {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__link {
+    @include button;
+    text-align: center;
+  }
+}

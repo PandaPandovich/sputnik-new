@@ -1,0 +1,448 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "logo 9:00–21:00, без выходных" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "logo" [ref=e8]
+          - generic [ref=e9]: 9:00–21:00, без выходных
+        - generic [ref=e10]:
+          - link "ул. Шереметьевская, 34" [ref=e11] [cursor=pointer]:
+            - /url: "#"
+          - link "ул. Шереметьевская, 34" [ref=e12] [cursor=pointer]:
+            - /url: "#"
+      - navigation [ref=e14]:
+        - list [ref=e15]:
+          - listitem [ref=e16]:
+            - link "Услуги и цены" [ref=e17] [cursor=pointer]:
+              - /url: http://localhost:10008/services
+          - listitem [ref=e18]:
+            - link "Отделения" [ref=e19] [cursor=pointer]:
+              - /url: http://localhost:10008/branches
+            - list:
+              - listitem:
+                - link "Терапия":
+                  - /url: http://localhost:10008/branch/terapiya
+              - listitem:
+                - link "Онкология":
+                  - /url: http://localhost:10008/branch/onkology
+              - listitem:
+                - link "Лаборатория":
+                  - /url: http://localhost:10008/branch/laboratoriya
+              - listitem:
+                - link "Ортопедия":
+                  - /url: http://localhost:10008/branch/ortopediya
+              - listitem:
+                - link "Вакцинация":
+                  - /url: http://localhost:10008/branch/vakcinaciya
+              - listitem:
+                - link "Стоматология":
+                  - /url: http://localhost:10008/branch/stomatologiya
+              - listitem:
+                - link "Диагностика":
+                  - /url: http://localhost:10008/branch/diagnostika
+              - listitem:
+                - link "Узкопрофильные специалисты":
+                  - /url: http://localhost:10008/branch/uzkie-specialisty
+              - listitem:
+                - link "Интенсивная терапия":
+                  - /url: http://localhost:10008/branch/intensivnaya-terapiya
+              - listitem:
+                - link "Хирургия":
+                  - /url: http://localhost:10008/branch/hirurgiya
+          - listitem [ref=e20]:
+            - link "О нас" [ref=e21] [cursor=pointer]:
+              - /url: http://localhost:10008/o-nas
+          - listitem [ref=e22]:
+            - link "Контакты" [ref=e23] [cursor=pointer]:
+              - /url: http://localhost:10008/contact
+      - search [ref=e24]:
+        - generic [ref=e25]:
+          - searchbox "Поиск" [ref=e26]
+          - button "Поиск" [ref=e27] [cursor=pointer]:
+            - img [ref=e28]
+      - link "Связаться" [ref=e31] [cursor=pointer]:
+        - /url: "#"
+  - generic [ref=e35]:
+    - generic [ref=e36]:
+      - heading "Профилактика, лечение и неотложная помощь для вашего питомца" [level=1] [ref=e37]
+      - paragraph [ref=e38]: Современная ветеринарная клиника с круглосуточным стационаром в Москве
+    - link "Записаться на консультацию" [ref=e39] [cursor=pointer]:
+      - /url: "#"
+  - generic [ref=e42]:
+    - heading "Мы оказываем полный спектр услуг" [level=2] [ref=e43]
+    - generic [ref=e45]:
+      - generic [ref=e47]:
+        - heading "Вакцинация" [level=4] [ref=e48]
+        - img [ref=e50]
+      - generic [ref=e53]:
+        - heading "Диагностика" [level=4] [ref=e54]
+        - img [ref=e56]
+      - generic [ref=e59]:
+        - heading "Интенсивная терапия" [level=4] [ref=e60]
+        - img [ref=e62]
+      - generic [ref=e65]:
+        - heading "Лаборатория" [level=4] [ref=e66]
+        - img [ref=e68]
+      - generic [ref=e71]:
+        - heading "Онкология" [level=4] [ref=e72]
+        - img [ref=e74]
+      - generic [ref=e77]:
+        - heading "Ортопедия" [level=4] [ref=e78]
+        - img [ref=e80]
+      - generic [ref=e83]:
+        - heading "Стоматология" [level=4] [ref=e84]
+        - img [ref=e86]
+      - generic [ref=e89]:
+        - heading "Терапия" [level=4] [ref=e90]
+        - img [ref=e92]
+      - generic [ref=e95]:
+        - heading "Узкопрофильные специалисты" [level=4] [ref=e96]
+        - img [ref=e98]
+      - generic [ref=e101]:
+        - heading "Хирургия" [level=4] [ref=e102]
+        - img [ref=e104]
+  - generic [ref=e107]:
+    - heading "Ветеринарная клиника рядом с вами" [level=2] [ref=e108]
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - generic [ref=e113]:
+          - generic [ref=e114]:
+            - generic [ref=e117]:
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                    - img
+                    - img
+                    - img
+                    - img
+                    - img
+                    - img
+            - img [ref=e120] [cursor=pointer]
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - text: © Яндекс
+              - link "Условия использования" [ref=e125] [cursor=pointer]:
+                - /url: https://yandex.ru/legal/maps_termsofuse/?lang=ru_RU
+            - link [ref=e126] [cursor=pointer]:
+              - /url: https://yandex.ru/maps/?from=api-maps&utm_source=jsapi&ll=37.617143999999996%2C55.80705999999364&origin=jsapi_3&z=15&l=map
+          - button "Открыть Яндекс Карты" [ref=e128] [cursor=pointer]:
+            - generic [ref=e129]: Открыть Яндекс Карты
+        - generic [ref=e130]:
+          - heading "Филиал на Шереметьевской" [level=4] [ref=e132]
+          - list [ref=e133]:
+            - listitem [ref=e134]:
+              - paragraph [ref=e135]:
+                - generic [ref=e136]: ул. Шереметьевская, 34
+            - listitem [ref=e137]:
+              - paragraph [ref=e138]:
+                - generic [ref=e139]: 9:00–21:00, без выходных
+            - listitem [ref=e140]:
+              - link "+7 (495) 445 — 01 — 20" [ref=e141] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e142]: +7 (495) 445 — 01 — 20
+          - link "Построить маршртут" [ref=e143] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e144]
+            - text: Построить маршртут
+      - generic [ref=e146]:
+        - generic [ref=e149]:
+          - generic [ref=e150]:
+            - generic [ref=e153]:
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                    - img
+                    - img
+                    - img
+                    - img
+            - img [ref=e156] [cursor=pointer]
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - text: © Яндекс
+              - link "Условия использования" [ref=e161] [cursor=pointer]:
+                - /url: https://yandex.ru/legal/maps_termsofuse/?lang=ru_RU
+            - link [ref=e162] [cursor=pointer]:
+              - /url: https://yandex.ru/maps/?from=api-maps&utm_source=jsapi&ll=37.58814400000001%2C55.73384199999373&origin=jsapi_3&z=15&l=map
+          - button "Открыть Яндекс Карты" [ref=e164] [cursor=pointer]:
+            - generic [ref=e165]: Открыть Яндекс Карты
+        - generic [ref=e166]:
+          - generic [ref=e167]:
+            - generic [ref=e168]: Новое отделение
+            - heading "Филиал на Алтуфьевском шоссе" [level=4] [ref=e169]
+          - list [ref=e170]:
+            - listitem [ref=e171]:
+              - paragraph [ref=e172]:
+                - generic [ref=e173]: Алтуфьевское шоссе, 48, к.2
+            - listitem [ref=e174]:
+              - paragraph [ref=e175]:
+                - generic [ref=e176]: 9:00–21:00, без выходных
+            - listitem [ref=e177]:
+              - link "+7 (495) 445 — 01 — 20" [ref=e178] [cursor=pointer]:
+                - /url: tel:+74954450120
+                - generic [ref=e179]: +7 (495) 445 — 01 — 20
+          - link "Построить маршртут" [ref=e180] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e181]
+            - text: Построить маршртут
+  - generic [ref=e184]:
+    - heading "Почему выбирают «Спутник»" [level=2] [ref=e185]
+    - generic [ref=e186]:
+      - link "Записаться на прием" [ref=e188] [cursor=pointer]:
+        - /url: tel:+74954450120
+      - generic [ref=e189]:
+        - generic [ref=e192]:
+          - heading "Квалифицированные ветеринарные врачи" [level=4] [ref=e193]
+          - paragraph [ref=e194]: Все наши специалисты с высшим образованием и опытом работы от 3-х лет
+        - generic [ref=e197]:
+          - heading "Собственная лаборатория" [level=4] [ref=e198]
+          - paragraph [ref=e199]: Основные виды исследований делаем за 20 минут
+        - generic [ref=e202]:
+          - heading "Круглосуточный ветеринарный стационар" [level=4] [ref=e203]
+          - paragraph [ref=e204]: Ваш питомец под наблюдением дежурного врача
+        - generic [ref=e207]:
+          - heading "Прием ветеринара без очередей" [level=4] [ref=e208]
+          - paragraph [ref=e209]: Работаем по предварительной записи, за исключением срочных случаев
+  - generic [ref=e211]:
+    - heading "Наши принципы" [level=2] [ref=e212]
+    - generic [ref=e213]:
+      - generic [ref=e214]:
+        - heading "Доказательная медицина" [level=4] [ref=e215]
+        - paragraph [ref=e216]: Лечим по актуальным протоколам, без устаревших схем и лишних процедур
+      - generic [ref=e217]:
+        - heading "Гуманный подход" [level=4] [ref=e218]
+        - paragraph [ref=e219]: Минимум стресса для животного на каждом этапе — от приёма до выписки
+      - generic [ref=e220]:
+        - heading "Высокое качество" [level=4] [ref=e221]
+        - paragraph [ref=e222]: Современное оборудование и врачи с опытом от 3 лет в каждом отделении
+  - generic [ref=e227]:
+    - heading "Клинику «Спутник» открыли ветеринарные врачи, которые любят животных и умеют их лечить" [level=3] [ref=e228]
+    - paragraph [ref=e230]: "Ветеринарная клиника «Спутник» в Москве — современный центр диагностики и лечения животных. Мы оказываем полный спектр ветеринарных услуг: прием ветеринара, анализы, диагностика, хирургические операции, стационар и лечение сложных заболеваний у кошек и собак. Мы помогаем питомцам оставаться здоровыми, а их хозяевам — правильно о них заботиться. Доказательная медицина, гуманный подход, собственная лаборатория."
+    - link "Подробнее" [ref=e231] [cursor=pointer]:
+      - /url: /
+  - heading "Как мы работаем" [level=2] [ref=e234]
+  - generic [ref=e264]:
+    - generic [ref=e266]:
+      - heading "Блог" [level=2] [ref=e267]
+      - paragraph [ref=e268]: Советы ветеринаров по лечению, уходу и профилактике заболеваний у кошек и собак
+    - generic [ref=e270]:
+      - generic [ref=e274]:
+        - generic [ref=e275]: 27.05.2026
+        - heading "Липидоз печени у кошек" [level=4] [ref=e276]
+        - paragraph [ref=e277]: Липидоз печени — это опасное состояние, связанное с избыточным накоплением жира в клетках печени (гепатоцитах). Чаще всего оно развивается у животных с ожирением или при резкой потере веса, а также при нарушениях обмена веществ. Это заболевание требует своевременной диагностики и правильного лечения, поскольку при запущенной стадии может привести к тяжелым осложнениям, включая печеночную недостаточность и гибель.
+        - link "Читать статью" [ref=e278] [cursor=pointer]:
+          - /url: http://localhost:10008/%d0%bb%d0%b8%d0%bf%d0%b8%d0%b4%d0%be%d0%b7-%d0%bf%d0%b5%d1%87%d0%b5%d0%bd%d0%b8-%d1%83-%d0%ba%d0%be%d1%88%d0%b5%d0%ba
+      - generic [ref=e282]:
+        - generic [ref=e283]: 27.05.2026
+        - heading "Гипертиреоз у кошек" [level=4] [ref=e284]
+        - paragraph [ref=e285]: Гипертиреоз у кошек — это одно из наиболее распространенных возрастных заболеваний эндокринной системы, которое встречается преимущественно у пожилых кошек (старше 8-10 лет). Заболевание возникает из-за избыточной выработки гормонов щитовидной железы, что приводит к ускорению метаболизма и развитию состояния, известного как тиреотоксикоз. Если не начать лечение гипертиреоза, это может привести к серьезным осложнениям, включая поражение сердца, почек и других внутренних органов.
+        - link "Читать статью" [ref=e286] [cursor=pointer]:
+          - /url: http://localhost:10008/%d0%b3%d0%b8%d0%bf%d0%b5%d1%80%d1%82%d0%b8%d1%80%d0%b5%d0%be%d0%b7-%d1%83-%d0%ba%d0%be%d1%88%d0%b5%d0%ba
+      - generic [ref=e290]:
+        - generic [ref=e291]: 27.05.2026
+        - heading "Демодекоз у собак" [level=4] [ref=e292]
+        - paragraph [ref=e293]: Демодекоз у собак — это распространенное паразитарное заболевание кожи, вызываемое микроскопическим клещом Demodex canis. Этот клещ является частью нормальной микрофлоры кожи у большинства собак. Однако при ослаблении иммунитета его численность резко возрастает, что приводит к развитию клинических признаков болезни.
+        - link "Читать статью" [ref=e294] [cursor=pointer]:
+          - /url: http://localhost:10008/%d0%b4%d0%b5%d0%bc%d0%be%d0%b4%d0%b5%d0%ba%d0%be%d0%b7-%d1%83-%d1%81%d0%be%d0%b1%d0%b0%d0%ba
+  - generic [ref=e296]:
+    - heading "Отзывы" [level=2] [ref=e297]
+    - generic [ref=e298]:
+      - iframe [ref=e299]:
+        - generic [ref=f1e2]:
+          - generic [ref=f1e3]:
+            - link "Спутник" [ref=f1e4] [cursor=pointer]:
+              - /url: https://yandex.ru/maps/org/sputnik/192757229546?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=org-name
+            - generic [ref=f1e5]:
+              - paragraph [ref=f1e6]: 4,9
+              - generic [ref=f1e7]:
+                - list [ref=f1e9]:
+                  - listitem [ref=f1e10]
+                  - listitem [ref=f1e11]
+                  - listitem [ref=f1e12]
+                  - listitem [ref=f1e13]
+                  - listitem [ref=f1e14]
+                - link "462 отзыва • 995 оценок" [ref=f1e15] [cursor=pointer]:
+                  - /url: https://yandex.ru/maps/org/sputnik/192757229546/reviews?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=rating
+            - link [ref=f1e17] [cursor=pointer]:
+              - /url: https://yandex.ru/maps?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=logo
+          - generic [ref=f1e18]:
+            - paragraph [ref=f1e19]: Поставьте нам оценку
+            - link "Оставить отзыв" [ref=f1e20] [cursor=pointer]:
+              - /url: https://yandex.ru/maps/org/sputnik/192757229546/reviews?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=add_review&add-review
+          - generic [ref=f1e21]:
+            - generic [ref=f1e22]:
+              - generic [ref=f1e24]:
+                - paragraph [ref=f1e25]: Isolka
+                - paragraph [ref=f1e26]: 17 января
+              - list [ref=f1e28]:
+                - listitem [ref=f1e29]
+                - listitem [ref=f1e30]
+                - listitem [ref=f1e31]
+                - listitem [ref=f1e32]
+                - listitem [ref=f1e33]
+              - paragraph [ref=f1e34]:
+                - text: Моему коту потребовалась операция, долго искала клинику. В «Спутник» обратилась по рекомендации. Переживала, но с первой минуты в клинике успокоила дружелюбная и профессиональная атмосфера, а также образцовая чистота. Врачи и ассистенты быстро и профессионально провели все обследования и манипуляции, с большой заботой отнеслись к котику и подробно объяснили мне каждый этап. Мне заранее озвучили полную стоимость, а после врач сам позвонил, рассказал, как всё прошло. Замечательная клиника, где любят животных и умеют о них заботиться!
+                - paragraph [ref=f1e35]:
+                  - text: ...
+                  - link "ещё" [ref=f1e36] [cursor=pointer]:
+                    - /url: https://yandex.ru/maps/org/sputnik/192757229546/reviews?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=read-more
+            - generic [ref=f1e37]:
+              - generic [ref=f1e39]:
+                - paragraph [ref=f1e40]: Дмитрий Мусин
+                - paragraph [ref=f1e41]: 3 декабря 2025
+              - list [ref=f1e43]:
+                - listitem [ref=f1e44]
+                - listitem [ref=f1e45]
+                - listitem [ref=f1e46]
+                - listitem [ref=f1e47]
+                - listitem [ref=f1e48]
+              - paragraph [ref=f1e49]:
+                - text: Рекомендую клинику «Спутник»! Остались очень довольны визитом. В клинике хорошие специалисты, которые точно знают своё дело. Приятный персонал, все очень вовлеченные и любящие животных. Несмотря на то что коллектив все молодые, видна их профессионализм и искренняя забота. Ценник средний, полностью соответствует качеству. Очень радует, что есть возможность и операции провести, и оставить питомца в стационаре под наблюдением. В самой клинике внутри чисто, опрятно. Для клиентов есть удобная парковка. Однозначно рекомендую эту ветклинику
+                - paragraph [ref=f1e50]:
+                  - text: ...
+                  - link "ещё" [ref=f1e51] [cursor=pointer]:
+                    - /url: https://yandex.ru/maps/org/sputnik/192757229546/reviews?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=read-more
+            - generic [ref=f1e52]:
+              - generic [ref=f1e54]:
+                - paragraph [ref=f1e55]: Dilnoza
+                - paragraph [ref=f1e56]: 16 февраля 2025
+              - list [ref=f1e58]:
+                - listitem [ref=f1e59]
+                - listitem [ref=f1e60]
+                - listitem [ref=f1e61]
+                - listitem [ref=f1e62]
+                - listitem [ref=f1e63]
+              - paragraph [ref=f1e64]:
+                - text: "Прекрасная клиника! Врачи, администраторы, помещение на высоте! Всех питомцев вожу. Всегда спокойна за них. А когда пришлось паллиативную помощь получить, так вообще один из самых важных опытов, который стал одним из самых трогательных в моей жизни. Очень благодарна за мою кошку Лалаге. И она ушла достойно, и меня поддержали все (от врачей до администраторов). Я сама работаю в хосписе и знаю теперь на себе, как это важно.... Кота Филю спасли от уретростомии, которую чуть не сделали в другой клинике. У кота Леона моментально обнаружили абсцесс, который в другой клинике даже не подумали предположить. На моих глазах за минуту нашли как волшебники, его вскрыли и все вылечили. Теперь вожу туда щенка Куки. Почему-то не записываемся к конкретному доктору, поэтому была возможность за несколько лет получить помощь чуть ли не от всех. И всегда на 5 с плюсом. Огромное спасибо вам! А еще очень спокойно от общения онлайн с администраторами. Несмотря на расстояние (ездим с другого конца Москвы), всегда только к вам. Успехов! Все-таки хочу поделиться своим постом, который я писала в день усыпления кошки. (сейчас узнала имя администратора - Наталия) \"Расплатившись с администраторами клиники, я отошла от стойки надеть куртку. Плáчу, постоянно оборачиваюсь на стеклянную дверь кабинета, где сквозь жалюзи на столе вижу оставшуюся Лалаге. Я завернула ее в розовый плед конвертиком… В холле никого из посетителей кроме меня. Девушки осторожно продолжают работать. Это чувствовалось, что именно не хотели задеть мои чувства своей закрутившейся рутиной. У одной из них зазвонил телефон, и она повторяла за кем-то, перепроверяя, наверное, названия медикаментов (что-ли). А вторая еле заметно шикнула ей: «Тише». Меньше секунды, 4 буквы, и такой бальзам на разрывающееся сердце. Я весь день согреваюсь, вспоминая это слово и движение. Я не подала виду, но, уходя, сказала, что, не дай Боже, заболеют, у меня есть ещё Леон и Филя. Филю, оказывается, помнят. А когда по телефону я говорила, что звоню насчёт Лалаге, тоже сразу тон становился ещё теплее, как будто услышала о принцессе: «О! Лалаге, да-да. Как она?» Вообще же очень внимательные и деликатные сотрудники. Сегодняшняя ситуация стала для меня большим уроком. И ещё я всегда обращала внимание на то (и мне это всегда нравилось), что у них нет никакой музыки\""
+                - paragraph [ref=f1e65]:
+                  - text: ...
+                  - link "ещё" [ref=f1e66] [cursor=pointer]:
+                    - /url: https://yandex.ru/maps/org/sputnik/192757229546/reviews?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=read-more
+            - generic [ref=f1e67]:
+              - generic [ref=f1e69]:
+                - paragraph [ref=f1e70]: Елена
+                - paragraph [ref=f1e71]: 12 декабря 2025
+              - list [ref=f1e73]:
+                - listitem [ref=f1e74]
+                - listitem [ref=f1e75]
+                - listitem [ref=f1e76]
+                - listitem [ref=f1e77]
+                - listitem [ref=f1e78]
+              - paragraph [ref=f1e79]:
+                - text: "Спасли моего кота от неминуемой смерти, которого довела другая ветклиника (Ветскорая 24) до предсмертного состояния, счёт жизни котика шёл уже на часы… Но благодаря рукам специалистов, НАИВЫСШЕГО УРОВНЯ КВАЛИФИКАЦИИ , ветклиники «Спутник», мой котик выжил, и быстро пошёл на поправку ❤️‍🩹 Огромное спасибо хирургам за кропотливую и ювелирную работу 🙏 Шрамов не видно, от слова совсем, как будто и не было операций. Спасибо огромное глав. врачу Светлане Андреевне, за помощь, за заботу 🙏 Спасибо огромное врачам: Ольге Игоревне и Екатерине Сергеевне за понимание, за отличное отношение к котику 🙏 🙏 Спасибо огромное всем, кто был причастен к спасению, и выхаживанию Симбы 🙏🙏🙏❤️❤️❤️"
+                - paragraph [ref=f1e80]:
+                  - text: ...
+                  - link "ещё" [ref=f1e81] [cursor=pointer]:
+                    - /url: https://yandex.ru/maps/org/sputnik/192757229546/reviews?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=read-more
+            - generic [ref=f1e82]:
+              - generic [ref=f1e84]:
+                - paragraph [ref=f1e85]: Andruha
+                - paragraph [ref=f1e86]: 27 апреля
+              - list [ref=f1e88]:
+                - listitem [ref=f1e89]
+                - listitem [ref=f1e90]
+                - listitem [ref=f1e91]
+                - listitem [ref=f1e92]
+                - listitem [ref=f1e93]
+              - paragraph [ref=f1e94]:
+                - text: В клинику "Спутник" обратились по рекомендации ветврача из ветпункта в Останкино,поскольку у собаки возникли весьма серьёзные проблемы со здоровьем,требующие специального оборудования и высокой квалификации врачей. Имея богатый опыт,ожидал обычного формального отношения...Но! Отношение ветврача Татьяны Шипиловой меня поразило! Впервые встретил ветврача,который к чужому животному отнёсся как к своему. Очень грамотно и обстоятельно была проведена диагностика,доходчиво разъяснены все нюансы,назначено предварительное лечение до консультации невролога и,что важно,во время всех длительных манипуляций собака почти не стрессовала. Теперь продолжим лечиться у невролога. И хочется надеяться,что врач будет примерно таким же. Ну а Татьяне и всему коллективу клиники хочу выразить огромную благодарность и пожелать всего самого лучшего. Ну и,конечно,неоспоримые 5⭐!
+                - paragraph [ref=f1e95]:
+                  - text: ...
+                  - link "ещё" [ref=f1e96] [cursor=pointer]:
+                    - /url: https://yandex.ru/maps/org/sputnik/192757229546/reviews?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=read-more
+          - link "Больше отзывов на Яндекс Картах" [ref=f1e98] [cursor=pointer]:
+            - /url: https://yandex.ru/maps/org/sputnik/192757229546/reviews?utm_source=maps-reviews-widget&utm_medium=reviews&utm_content=more-reviews
+      - link "Спутник на карте Москвы — Яндекс Карты" [ref=e300] [cursor=pointer]:
+        - /url: https://yandex.ru/maps/org/sputnik/192757229546/
+  - heading "Наши врачи в СМИ" [level=2] [ref=e303]
+  - generic [ref=e312]:
+    - heading "Запишитесь на прием к ветеринарному врачу в Москве" [level=2] [ref=e313]
+    - link "Записаться" [ref=e314] [cursor=pointer]:
+      - /url: tel:+74954450120
+  - contentinfo [ref=e315]:
+    - generic [ref=e316]:
+      - generic [ref=e317]:
+        - link [ref=e318] [cursor=pointer]:
+          - /url: http://localhost:10008/
+        - iframe [ref=e320]:
+          - link [ref=f2e2] [cursor=pointer]:
+            - /url: //yandex.ru/maps/org/192757229546/reviews?utm_source=badge&utm_medium=rating&utm_campaign=v1
+      - generic [ref=e321]:
+        - generic [ref=e322]:
+          - generic [ref=e323]:
+            - link "+7 (495) 445 -01 -20" [ref=e324] [cursor=pointer]:
+              - /url: tel:+74954450120
+            - paragraph [ref=e325]: 9:00–21:00, без выходных
+          - generic [ref=e326]:
+            - generic [ref=e327]:
+              - link "Филиал на Алтуфьевском шоссе" [ref=e328] [cursor=pointer]:
+                - /url: https://ya.ru/?npr=1&utm_referrer=https%3A%2F%2Fwww.google.com%2F
+              - paragraph [ref=e329]: Алтуфьевское шоссе, 48, к.2
+            - generic [ref=e330]:
+              - link "Филиал на Шереметьевской" [ref=e331] [cursor=pointer]:
+                - /url: https://ya.ru/?npr=1&utm_referrer=https%3A%2F%2Fwww.google.com%2F
+              - paragraph [ref=e332]: ул. Шереметьевская, 34
+        - generic [ref=e333]:
+          - generic [ref=e334]:
+            - heading "О клинике" [level=4] [ref=e335]
+            - list [ref=e336]:
+              - listitem [ref=e337]:
+                - link "Услуги" [ref=e338] [cursor=pointer]:
+                  - /url: http://localhost:10008/services
+              - listitem [ref=e339]:
+                - link "Отделения" [ref=e340] [cursor=pointer]:
+                  - /url: http://localhost:10008/branches
+              - listitem [ref=e341]:
+                - link "О нас" [ref=e342] [cursor=pointer]:
+                  - /url: http://localhost:10008/o-nas
+              - listitem [ref=e343]:
+                - link "Наша команда" [ref=e344] [cursor=pointer]:
+                  - /url: http://localhost:10008/team
+              - listitem [ref=e345]:
+                - link "Владельцам" [ref=e346] [cursor=pointer]:
+                  - /url: http://localhost:10008/vladelcam
+              - listitem [ref=e347]:
+                - link "Контакты" [ref=e348] [cursor=pointer]:
+                  - /url: http://localhost:10008/contact
+          - generic [ref=e349]:
+            - heading "Услуги и цены" [level=4] [ref=e350]
+            - list [ref=e351]:
+              - listitem [ref=e352]:
+                - link "Вакцинация" [ref=e353] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/vakcinaciya
+              - listitem [ref=e354]:
+                - link "Диагностика" [ref=e355] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/diagnostika
+              - listitem [ref=e356]:
+                - link "Интенсивная терапия" [ref=e357] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/intensivnaya-terapiya
+              - listitem [ref=e358]:
+                - link "Лаборатория" [ref=e359] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/laboratoriya
+              - listitem [ref=e360]:
+                - link "Онкология" [ref=e361] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/onkology
+              - listitem [ref=e362]:
+                - link "Ортопедия" [ref=e363] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/ortopediya
+              - listitem [ref=e364]:
+                - link "Стоматология" [ref=e365] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/stomatologiya
+              - listitem [ref=e366]:
+                - link "Терапия" [ref=e367] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/terapiya
+              - listitem [ref=e368]:
+                - link "Узкопрофильные специалисты" [ref=e369] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/uzkie-specialisty
+              - listitem [ref=e370]:
+                - link "Хирургия" [ref=e371] [cursor=pointer]:
+                  - /url: http://localhost:10008/branch/hirurgiya
+      - generic [ref=e372]:
+        - link "Политика конфиденциальности" [ref=e373] [cursor=pointer]:
+          - /url: /
+        - link "Реквизиты" [ref=e374] [cursor=pointer]:
+          - /url: /

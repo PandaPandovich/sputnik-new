@@ -1,0 +1,150 @@
+@use '../ui/button.scss' as *;
+@use '../ui/text.scss' as *;
+
+.blog-archive {
+  background: #f1f1f3;
+  padding: var(--section-padding) 0;
+
+  &__title {
+    @include h2;
+    color: var(--color-ink-900);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 3rem;
+
+    @media (max-width: 568px) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 568px) {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  &__card {
+    background: #fff;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    &-image {
+      width: 100%;
+      height: 11.625rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1.25rem 1rem;
+    }
+
+    &-date {
+      display: flex;
+      justify-content: flex-end;
+      @include p-xs;
+      color: var(--color-text-secondary);
+    }
+
+    &-heading {
+      @include h4;
+      color: var(--color-text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    &-text {
+      @include p-sm;
+      color: var(--color-text-primary);
+      line-height: 1.4;
+    }
+
+    &-link {
+      @include button;
+      align-self: flex-end;
+      margin-top: 0.75rem;
+
+      background: transparent;
+      border: 1px solid var(--color-text-primary);
+      color: var(--color-text-primary);
+
+      &:hover {
+        background: var(--color-text-primary);
+        color: #fff;
+      }
+    }
+  }
+
+  // Пагинация
+  &__pagination {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+
+    .page-numbers {
+      list-style: none;
+      display: flex;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+
+      li {
+        .page-numbers {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.125rem;
+          height: 2rem;
+          border-radius: 0.375rem;
+          font-size: 1rem;
+          font-family: "Onest", sans-serif;
+          text-decoration: none;
+          color: var(--color-text-primary);
+          transition: 0.2s ease all;
+
+          &:hover {
+            background: #fff;
+          }
+
+          &.current {
+            background: #fff;
+            font-weight: 600;
+          }
+
+          &.prev,
+          &.next {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__empty {
+    @include p;
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: 4rem 0;
+  }
+}

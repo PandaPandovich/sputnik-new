@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/about-hero",
+  "title": "About Hero Block",
+  "category": "layout",
+  "icon": "groups",
+  "description": "Hero баннер для страницы О нас",
+  "keywords": [
+    "about",
+    "hero",
+    "о нас"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}

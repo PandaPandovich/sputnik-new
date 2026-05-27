@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/hero-contacts",
+  "title": "Hero Contacts Block",
+  "category": "layout",
+  "icon": "phone",
+  "description": "Hero баннер для страницы контактов",
+  "keywords": [
+    "hero",
+    "contacts",
+    "контакты"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}

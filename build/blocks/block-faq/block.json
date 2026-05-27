@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/faq",
+  "title": "FAQ Block",
+  "category": "layout",
+  "icon": "editor-help",
+  "description": "Блок часто задаваемых вопросов (аккордеон)",
+  "keywords": [
+    "faq",
+    "вопросы",
+    "аккордеон"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js"
+}

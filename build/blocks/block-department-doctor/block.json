@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/department-doctor",
+  "title": "Department Doctor Block",
+  "category": "layout",
+  "icon": "businessman",
+  "description": "Блок врача отделения с описанием и карточками докторов",
+  "keywords": [
+    "врач",
+    "доктор",
+    "отделение",
+    "department",
+    "doctor"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js"
+}

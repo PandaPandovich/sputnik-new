@@ -1,0 +1,87 @@
+{
+    "key": "group_688a1b2c3d4e5",
+    "title": "Блок «Прайс-лист»",
+    "fields": [
+        {
+            "key": "field_688a1b2c3d001",
+            "label": "Отображение",
+            "name": "display_mode",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "all": "Все отделения",
+                "selected": "Выбранные отделения"
+            },
+            "default_value": "all",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_688a1b2c3d002",
+            "label": "Отделения",
+            "name": "departments",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Выберите отделения для отображения",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_688a1b2c3d001",
+                        "operator": "==",
+                        "value": "selected"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": ["branch"],
+            "post_status": ["publish"],
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 1,
+            "allow_null": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "sputnik/price-list"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": 1,
+    "ai_description": "",
+    "modified": 1779926500
+}

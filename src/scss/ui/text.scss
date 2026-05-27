@@ -1,0 +1,64 @@
+@mixin h1 {
+    font-size: 3.75rem;
+    line-height: 100%;
+    color: var(--color-dark-blue);
+    margin: 0;
+
+    @media (max-width: 800px) {
+        font-size: 2.1875rem;
+    }
+}
+
+@mixin h2 {
+    font-size: 2.25rem;
+    line-height: 100%;
+    margin: 0;
+
+    @media (max-width: 800px) {
+        font-size: 1.5rem;
+    }
+}
+
+
+@mixin h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 100%;
+    margin: 0;
+}
+
+@mixin h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 100%;
+    margin: 0;
+}
+
+
+@mixin p {
+    font-size: 1rem;
+    line-height: 110%;
+    margin: 0;
+
+    @media (max-width: 568px) {
+        font-size: .875rem;
+    }
+}
+
+
+@mixin p-lg {
+    font-size: 1.125rem;
+    line-height: 110%;
+    color: rgba($color: #040404, $alpha: .8);
+    margin: 0;
+}
+
+@mixin p-sm {
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+@mixin p-xs {
+    font-size: 0.75rem;
+    margin: 0;
+}

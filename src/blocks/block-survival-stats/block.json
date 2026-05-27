@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sputnik/survival-stats",
+    "title": "Survival Stats Block",
+    "category": "layout",
+    "icon": "chart-bar",
+    "description": "Блок статистики выживаемости по стадиям",
+    "keywords": ["stats", "статистика", "выживаемость"],
+    "acf": {
+        "blockVersion": 3,
+        "autoInlineEditing": true,
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "style": "file:./style-index.css",
+    "editorStyle": "file:./index.css",
+    "editorScript": "file:./index.js"
+}

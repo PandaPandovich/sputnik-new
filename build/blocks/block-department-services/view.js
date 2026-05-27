@@ -1,0 +1,1 @@
+document.querySelectorAll(".dept-services__item-header").forEach(e=>{e.addEventListener("click",()=>{const s=e.closest(".dept-services__item"),t=s.classList.contains("is-active");s.closest(".dept-services__list").querySelectorAll(".dept-services__item").forEach(e=>e.classList.remove("is-active")),t||s.classList.add("is-active")})});

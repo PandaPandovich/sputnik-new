@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "wordpress": {
+      "command": "/Users/ilarybakov/Local Sites/sputnik/wp-cli-local.sh",
+      "args": [
+        "--path=/Users/ilarybakov/Local Sites/sputnik/app/public",
+        "mcp-adapter",
+        "serve",
+        "--server=mcp-adapter-default-server",
+        "--user=admin"
+      ]
+    }
+  }
+}

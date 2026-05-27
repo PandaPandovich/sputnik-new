@@ -1,0 +1,129 @@
+@use '../ui/text.scss' as *;
+
+.footer {
+    padding: 2.1875rem 0;
+    background: var(--color-text-primary);
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 1.875rem;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        padding: 1.125rem 0;
+        padding-bottom: 2.5rem;
+        color: white;
+
+        @media (max-width:768px) {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    }
+
+    &__info {
+        display: flex;
+        gap: 5.625rem;
+
+        @media (max-width:768px) {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-phone {
+            @include p-lg;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+        }
+
+        &-time {
+            @include p-sm;
+            color: rgba($color: white, $alpha: 0.6);
+        }
+
+        &-adresses {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        &-adress-link {
+            @include p-sm;
+            color: rgba($color: white, $alpha: 0.6);
+        }
+
+        &-adress-text {
+            @include p-sm;
+        }
+    }
+
+    &__navs {
+        display: flex;
+        gap: 4.375rem;
+
+        @media (max-width:768px) {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2.8125rem;
+        padding-top: 1rem;
+        font-size: 0.75rem;
+    }
+
+    &__copyrights {
+        color: rgba($color: white, $alpha: 0.6);
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+        gap: 2.8125rem;
+        padding-top: 1rem;
+        font-size: 0.75rem;
+
+        a {
+            color: rgba($color: white, $alpha: 0.6);
+        }
+    }
+
+    &__nav {
+        &-title {
+            @include p;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.625rem;
+            list-style: none;
+            padding-left: 0;
+
+            a {
+                @include p-sm;
+                color: rgba($color: white, $alpha: 0.6);
+                text-decoration: none;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+}

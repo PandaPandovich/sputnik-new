@@ -1,0 +1,117 @@
+@use '../../scss/mixins/vars' as *;
+@use '../../scss/ui/button.scss' as *;
+
+.hero-contacts {
+  padding: 1.125rem 0 0;
+
+  &__wrapper {
+    position: relative;
+    background-color: #667B99;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.625rem;
+    min-height: 26.0625rem;
+    overflow: hidden;
+
+    @media (max-width: $tablet) {
+      min-height: auto;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 5rem 0 0 5.125rem;
+
+    @media (max-width: $desktop-small) {
+      padding: 3rem 0 0 3rem;
+    }
+
+    @media (max-width: $tablet) {
+      padding: 2rem 1.5rem;
+      height: 25rem;
+    }
+  }
+
+  &__title {
+    font-family: 'Onest', sans-serif;
+    font-size: 3.625rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.09375rem;
+    color: #fff;
+    margin: 0;
+
+    @media (max-width: $desktop-small) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: $tablet) {
+      font-size: 2rem;
+    }
+  }
+
+  &__phone-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__label {
+    font-family: 'Onest', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #8BA5C9;
+    text-transform: uppercase;
+  }
+
+  &__phone {
+    font-family: 'Onest', sans-serif;
+    font-size: 2.75rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.09375rem;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s ease opacity;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: $desktop-small) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: $tablet) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__button {
+    @include button;
+    background: #FF4D4D;
+    font-family: 'Onest', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem 1.4375rem;
+    border-radius: 0.3125rem;
+    align-self: flex-start;
+    min-width: 18.25rem;
+    text-align: center;
+
+    &:hover {
+      background: #e64444;
+    }
+
+    @media (max-width: $tablet) {
+      min-width: auto;
+    }
+  }
+
+}

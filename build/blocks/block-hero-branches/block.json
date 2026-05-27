@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/hero-branches",
+  "title": "Hero Branches Block",
+  "category": "layout",
+  "icon": "welcome-comments",
+  "description": "Hero баннер для страниц с отделениями",
+  "keywords": [
+    "hero",
+    "banner",
+    "header"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}
