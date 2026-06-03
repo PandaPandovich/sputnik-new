@@ -50,47 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('deptModalTag').textContent = m.tag;
         document.getElementById('deptModalName').textContent = m.name;
         document.getElementById('deptModalPosition').textContent = m.position;
-        document.getElementById('deptModalExperience').textContent = m.experience;
-        document.getElementById('deptModalEducation').textContent = m.education;
-        document.getElementById('deptModalBranch').textContent = m.branch;
-
-        // Скрываем stats если все пустые
-        const statsEl = modal.querySelector('.team-modal__stats');
-        if (statsEl) {
-            statsEl.style.display = (m.experience || m.education || m.branch) ? '' : 'none';
-        }
 
         // Образование
         const eduText = document.getElementById('deptModalEduText');
         eduText.innerHTML = m.edu_text || '';
         toggle('deptModalEduSection', !!m.edu_text);
-
-        // Опыт работы
-        const workEl = document.getElementById('deptModalWork');
-        const workItems = m.work || [];
-        toggle('deptModalWorkSection', workItems.length > 0);
-        workEl.innerHTML = workItems.map(item =>
-            `<div class="team-modal__list-item">
-                <span class="team-modal__list-period">${item.period || ''}</span>
-                <span class="team-modal__list-text">${item.text || ''}</span>
-            </div>`
-        ).join('');
-
-        // Повышение квалификации
-        const coursesEl = document.getElementById('deptModalCourses');
-        const courseItems = m.courses || [];
-        toggle('deptModalCoursesSection', courseItems.length > 0);
-        coursesEl.innerHTML = courseItems.map(item =>
-            `<div class="team-modal__list-item">
-                <span class="team-modal__list-date">${item.date || ''}</span>
-                <span class="team-modal__list-text">${item.text || ''}</span>
-            </div>`
-        ).join('');
-
-        // Заметка
-        const noteText = document.getElementById('deptModalNoteText');
-        noteText.textContent = m.note || '';
-        toggle('deptModalNote', !!m.note);
 
         // Тег
         toggle('deptModalTag', !!m.tag);

@@ -79,7 +79,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -87,30 +87,6 @@
                     "maxlength": "",
                     "allow_in_bindings": 0,
                     "placeholder": "Название услуги"
-                },
-                {
-                    "key": "field_685a1b2c3d007",
-                    "label": "Категория прайса",
-                    "name": "price_category",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "Привязка к категории из настроек цен — цена подставится автоматически",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": [],
-                    "default_value": "",
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 1,
-                    "ui": 1,
-                    "ajax": 0,
-                    "placeholder": "Выберите категорию",
-                    "allow_in_bindings": 0
                 },
                 {
                     "key": "field_685a1b2c3d006",
@@ -157,5 +133,5 @@
     "display_title": "",
     "allow_ai_access": 1,
     "ai_description": "",
-    "modified": 1779800200
+    "modified": 1780617700
 }

@@ -104,48 +104,12 @@ if ( $doctor_ids ) {
                         <h2 class="team-modal__name" id="deptModalName"></h2>
                         <p class="team-modal__position" id="deptModalPosition"></p>
 
-                        <div class="team-modal__stats">
-                            <div class="team-modal__stat">
-                                <span class="team-modal__stat-label">Стаж</span>
-                                <span class="team-modal__stat-value" id="deptModalExperience"></span>
-                            </div>
-                            <div class="team-modal__stat">
-                                <span class="team-modal__stat-label">Образование</span>
-                                <span class="team-modal__stat-value" id="deptModalEducation"></span>
-                            </div>
-                            <div class="team-modal__stat">
-                                <span class="team-modal__stat-label">Филиал</span>
-                                <span class="team-modal__stat-value" id="deptModalBranch"></span>
-                            </div>
-                        </div>
-
                         <div class="team-modal__section" id="deptModalEduSection">
                             <div class="team-modal__section-header">
                                 <span class="team-modal__section-title">Образование</span>
                                 <span class="team-modal__section-line"></span>
                             </div>
                             <p class="team-modal__text" id="deptModalEduText"></p>
-                        </div>
-
-                        <div class="team-modal__section" id="deptModalWorkSection">
-                            <div class="team-modal__section-header">
-                                <span class="team-modal__section-title">Опыт работы</span>
-                                <span class="team-modal__section-line"></span>
-                            </div>
-                            <div class="team-modal__list" id="deptModalWork"></div>
-                        </div>
-
-                        <div class="team-modal__section" id="deptModalCoursesSection">
-                            <div class="team-modal__section-header">
-                                <span class="team-modal__section-title">Повышение квалификации</span>
-                                <span class="team-modal__section-line"></span>
-                            </div>
-                            <div class="team-modal__list team-modal__list--compact" id="deptModalCourses"></div>
-                        </div>
-
-                        <div class="team-modal__note" id="deptModalNote">
-                            <span class="team-modal__note-icon">✿</span>
-                            <span class="team-modal__note-text" id="deptModalNoteText"></span>
                         </div>
                     </div>
                 </div>
@@ -160,17 +124,11 @@ if ( $doctor_ids ) {
                 $photo_url = wp_get_attachment_image_url( $m['photo'], 'large' );
             }
             return [
-                'name'       => $m['name'] ?? '',
-                'position'   => $m['specialization'] ?? '',
-                'photo'      => $photo_url,
-                'tag'        => $m['tag'] ?? '',
-                'experience' => $m['experience'] ?? '',
-                'education'  => $m['education_short'] ?? '',
-                'branch'     => $m['branch'] ?? '',
-                'edu_text'   => $m['description'] ?? '',
-                'work'       => $m['work'] ?? [],
-                'courses'    => $m['courses'] ?? [],
-                'note'       => $m['note'] ?? '',
+                'name'     => $m['name'] ?? '',
+                'position' => $m['specialization'] ?? '',
+                'photo'    => $photo_url,
+                'tag'      => $m['tag'] ?? '',
+                'edu_text' => $m['description'] ?? '',
             ];
         }, $doctors );
         ?>

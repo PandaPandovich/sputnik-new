@@ -495,23 +495,6 @@ function sputnik_plus_branch_block_template() {
 add_action( 'init', 'sputnik_plus_branch_block_template', 100 );
 
 /**
- * Динамическое заполнение поля «Категория прайса» в блоке услуг отделения.
- * Берёт названия категорий из ACF options (Настройки темы → Цены на услуги).
- */
-add_filter( 'acf/load_field/key=field_685a1b2c3d007', function( $field ) {
-	$categories = get_field( 'price_categories', 'option' );
-	$field['choices'] = [];
-
-	if ( $categories ) {
-		foreach ( $categories as $index => $cat ) {
-			$field['choices'][ $index ] = $cat['name'];
-		}
-	}
-
-	return $field;
-} );
-
-/**
  * Динамическое заполнение поля «Врачи» в блоке врача отделения.
  * Берёт список сотрудников из ACF options (Настройки темы → Команда).
  */

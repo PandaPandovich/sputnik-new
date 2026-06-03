@@ -85,6 +85,10 @@
         gap: 2.8125rem;
         padding-top: 1rem;
         font-size: 0.75rem;
+
+        @media (max-width:568px) {
+            flex-direction: column;
+        }
     }
 
     &__copyrights {

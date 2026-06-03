@@ -28,47 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modalTag').textContent = m.tag;
         document.getElementById('modalName').textContent = m.name;
         document.getElementById('modalPosition').textContent = m.position;
-        document.getElementById('modalExperience').textContent = m.experience;
-        document.getElementById('modalEducation').textContent = m.education;
-        document.getElementById('modalBranch').textContent = m.branch;
-
-        // Скрываем stats если все пустые
-        const statsEl = modal.querySelector('.team-modal__stats');
-        if (statsEl) {
-            statsEl.style.display = (m.experience || m.education || m.branch) ? '' : 'none';
-        }
 
         // Образование
         const eduText = document.getElementById('modalEduText');
         eduText.innerHTML = m.edu_text || '';
         toggle('modalEduSection', !!m.edu_text);
-
-        // Опыт работы
-        const workEl = document.getElementById('modalWork');
-        const workItems = m.work || [];
-        toggle('modalWorkSection', workItems.length > 0);
-        workEl.innerHTML = workItems.map(item =>
-            `<div class="team-modal__list-item">
-                <span class="team-modal__list-period">${item.period || ''}</span>
-                <span class="team-modal__list-text">${item.text || ''}</span>
-            </div>`
-        ).join('');
-
-        // Повышение квалификации
-        const coursesEl = document.getElementById('modalCourses');
-        const courseItems = m.courses || [];
-        toggle('modalCoursesSection', courseItems.length > 0);
-        coursesEl.innerHTML = courseItems.map(item =>
-            `<div class="team-modal__list-item">
-                <span class="team-modal__list-date">${item.date || ''}</span>
-                <span class="team-modal__list-text">${item.text || ''}</span>
-            </div>`
-        ).join('');
-
-        // Заметка
-        const noteText = document.getElementById('modalNoteText');
-        noteText.textContent = m.note || '';
-        toggle('modalNote', !!m.note);
 
         // Тег
         toggle('modalTag', !!m.tag);

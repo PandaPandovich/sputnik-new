@@ -56,48 +56,12 @@ if (empty($members)) return;
                     <h2 class="team-modal__name" id="modalName"></h2>
                     <p class="team-modal__position" id="modalPosition"></p>
 
-                    <div class="team-modal__stats">
-                        <div class="team-modal__stat">
-                            <span class="team-modal__stat-label">Стаж</span>
-                            <span class="team-modal__stat-value" id="modalExperience"></span>
-                        </div>
-                        <div class="team-modal__stat">
-                            <span class="team-modal__stat-label">Образование</span>
-                            <span class="team-modal__stat-value" id="modalEducation"></span>
-                        </div>
-                        <div class="team-modal__stat">
-                            <span class="team-modal__stat-label">Филиал</span>
-                            <span class="team-modal__stat-value" id="modalBranch"></span>
-                        </div>
-                    </div>
-
                     <div class="team-modal__section" id="modalEduSection">
                         <div class="team-modal__section-header">
                             <span class="team-modal__section-title">Образование</span>
                             <span class="team-modal__section-line"></span>
                         </div>
                         <p class="team-modal__text" id="modalEduText"></p>
-                    </div>
-
-                    <div class="team-modal__section" id="modalWorkSection">
-                        <div class="team-modal__section-header">
-                            <span class="team-modal__section-title">Опыт работы</span>
-                            <span class="team-modal__section-line"></span>
-                        </div>
-                        <div class="team-modal__list" id="modalWork"></div>
-                    </div>
-
-                    <div class="team-modal__section" id="modalCoursesSection">
-                        <div class="team-modal__section-header">
-                            <span class="team-modal__section-title">Повышение квалификации</span>
-                            <span class="team-modal__section-line"></span>
-                        </div>
-                        <div class="team-modal__list team-modal__list--compact" id="modalCourses"></div>
-                    </div>
-
-                    <div class="team-modal__note" id="modalNote">
-                        <span class="team-modal__note-icon">✿</span>
-                        <span class="team-modal__note-text" id="modalNoteText"></span>
                     </div>
                 </div>
             </div>
@@ -112,17 +76,11 @@ if (empty($members)) return;
             $photo_url = wp_get_attachment_image_url($m['photo'], 'large');
         }
         return [
-            'name'       => $m['name'] ?? '',
-            'position'   => $m['specialization'] ?? '',
-            'photo'      => $photo_url,
-            'tag'        => $m['tag'] ?? '',
-            'experience' => $m['experience'] ?? '',
-            'education'  => $m['education_short'] ?? '',
-            'branch'     => $m['branch'] ?? '',
-            'edu_text'   => $m['description'] ?? '',
-            'work'       => $m['work'] ?? [],
-            'courses'    => $m['courses'] ?? [],
-            'note'       => $m['note'] ?? '',
+            'name'     => $m['name'] ?? '',
+            'position' => $m['specialization'] ?? '',
+            'photo'    => $photo_url,
+            'tag'      => $m['tag'] ?? '',
+            'edu_text' => $m['description'] ?? '',
         ];
     }, $members);
     ?>

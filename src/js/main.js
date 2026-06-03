@@ -10,6 +10,13 @@ console.log('Sputnik Plus theme loaded');
 	const results = document.querySelector('.header__search-results');
 	if (!input || !results) return;
 
+	const form = input.closest('form');
+	if (form) {
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+		});
+	}
+
 	let timer = null;
 
 	input.addEventListener('input', function () {

@@ -60,6 +60,43 @@
             "placeholder": "+7 (495) 445 - 01 - 20"
         },
         {
+            "key": "field_686a1b2c3d007",
+            "label": "Подпись почты",
+            "name": "email_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Например: ПОЧТА ДЛЯ СВЯЗИ",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ПОЧТА ДЛЯ СВЯЗИ",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_686a1b2c3d008",
+            "label": "Почта",
+            "name": "email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "Email для отображения",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "info@sputnikplus.ru",
+            "placeholder": "info@sputnikplus.ru",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_686a1b2c3d004",
             "label": "Кнопка",
             "name": "button",
@@ -150,5 +187,5 @@
     "display_title": "",
     "allow_ai_access": 1,
     "ai_description": "",
-    "modified": 1748188800
+    "modified": 1780617600
 }

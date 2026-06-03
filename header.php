@@ -1,3 +1,6 @@
+<?php
+$header_info_links = get_field('header_info_links', 'option');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,15 +20,24 @@
         <div class="header__row">
             <div class="header__info">
                 <div class="header__info-block">
-                    <a href="/" class="header__logo" target="_blank">
+                    <a href="/" class="header__logo">
                         <img src="<?php echo get_template_directory_uri(); ?>/build/img/logo.png" alt="logo">
                         <span class="header__logo-text">9:00–21:00, без выходных</span>
                     </a>
                 </div>
-                <div class="header__info-links">
-                    <a href="#" class="header__info-link">ул. Шереметьевская, 34</a>
-                    <a href="#" class="header__info-link">ул. Шереметьевская, 34</a>
-                </div>
+                <?php if ($header_info_links): ?>
+                    <div class="header__info-links">
+                        <?php foreach ($header_info_links as $item):
+                            $text = $item['text'] ?? '';
+                            if ($text === '') {
+                                continue;
+                            }
+                            $href = !empty($item['link']) ? $item['link'] : '#';
+                        ?>
+                            <a href="<?php echo esc_url($href); ?>" class="header__info-link"><?php echo esc_html($text); ?></a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="header__menu">
                 <?php echo wp_nav_menu([
@@ -49,7 +61,7 @@
                     <div class="header__search-results"></div>
                 </div>
             </form>
-            <a href="#" class="header__button">Связаться</a>
+            <a href="tel:+74954450120" class="header__button">Связаться</a>
             <div class="header__func">
                 <!-- Мобильные кнопки -->
                 <button class="header__mobile-search" type="button" aria-label="Поиск">
@@ -86,7 +98,7 @@
             ]); ?>
         </div>
         <div class="header__mobile-menu-footer">
-            <a href="#" class="header__mobile-menu-cta">Записаться на консультацию</a>
+            <a href="tel:+74954450120" class="header__mobile-menu-cta">Записаться на консультацию</a>
             <a href="tel:+74954450120" class="header__mobile-menu-phone">+7 (495) 445 - 01 - 20</a>
             <span class="header__mobile-menu-hours">9:00–21:00, без выходных</span>
             <div class="header__mobile-menu-addresses">

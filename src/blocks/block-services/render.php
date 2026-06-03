@@ -8,7 +8,21 @@ $image = get_field('image');
 
 <section class="services">
     <div class="container">
-        <h2 class="services__title">Мы оказываем полный спектр услуг</h2>
+        <div class="services__header">
+            <h2 class="services__title">Мы оказываем полный спектр услуг</h2>
+            <div class="services__nav">
+                <button class="services__nav-btn services__nav-prev" type="button" aria-label="Назад">
+                    <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 1L1.5 4.5L6 8" stroke="#1d3658" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="services__nav-btn services__nav-next" type="button" aria-label="Вперёд">
+                    <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 1L6.5 4.5L2 8" stroke="#1d3658" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
         <?php
         $args = array(
             'post_type' => 'branch',
@@ -26,7 +40,7 @@ $image = get_field('image');
                     <?php while ($services_query->have_posts()):
                         $services_query->the_post();
                         ?>
-                        <div class="services__item swiper-slide">
+                        <a href="<?php the_permalink(); ?>" class="services__item swiper-slide">
                             <div class="services__item-header">
                                 <h4 class="services__item-title">
                                     <?php the_title(); ?>
@@ -48,7 +62,7 @@ $image = get_field('image');
                                 }
                                 ?>
                             </div>
-                        </div>
+                        </a>
                         <?php
                     endwhile;
 

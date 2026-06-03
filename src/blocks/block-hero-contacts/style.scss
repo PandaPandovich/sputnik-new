@@ -25,10 +25,10 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding: 5rem 0 0 5.125rem;
+    padding: 5rem 5.125rem;
 
     @media (max-width: $desktop-small) {
-      padding: 3rem 0 0 3rem;
+      padding: 3rem 3rem;
     }
 
     @media (max-width: $tablet) {

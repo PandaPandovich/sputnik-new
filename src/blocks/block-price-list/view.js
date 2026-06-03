@@ -101,13 +101,26 @@ if (block) {
         });
     }
 
-    // «Показать все»
+    // «Показать все» / «Свернуть»
     block.querySelectorAll('.price-list__show-all').forEach((btn) => {
+        if (!btn.dataset.collapsedText) {
+            btn.dataset.collapsedText = btn.innerHTML;
+        }
+
         btn.addEventListener('click', () => {
             const table = btn.closest('.price-list__table');
-            const hiddenRows = table.querySelectorAll('.price-list__row.is-hidden');
-            hiddenRows.forEach((row) => row.classList.remove('is-hidden'));
-            btn.classList.add('is-expanded');
+            const rows = table.querySelectorAll('.price-list__row');
+            const isExpanded = btn.classList.toggle('is-expanded');
+
+            if (isExpanded) {
+                rows.forEach((row) => row.classList.remove('is-hidden'));
+                btn.innerHTML = 'Свернуть ↑';
+            } else {
+                rows.forEach((row, i) => {
+                    if (i >= 6) row.classList.add('is-hidden');
+                });
+                btn.innerHTML = btn.dataset.collapsedText;
+            }
         });
     });
 

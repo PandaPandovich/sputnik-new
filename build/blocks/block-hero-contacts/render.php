@@ -5,6 +5,8 @@
 $title = get_field('title');
 $phone_label = get_field('phone_label');
 $phone = get_field('phone');
+$email_label = get_field('email_label');
+$email = get_field('email');
 $button = get_field('button');
 $image = get_field('image');
 $image_mobile = get_field('image_mobile');
@@ -33,6 +35,14 @@ $bg_mobile = $image_mobile ? wp_get_attachment_image_url($image_mobile, 'full') 
                             <span class="hero-contacts__label"><?php echo esc_html($phone_label); ?></span>
                         <?php endif; ?>
                         <a href="tel:<?php echo esc_attr(preg_replace('/[^+\d]/', '', $phone)); ?>" class="hero-contacts__phone"><?php echo esc_html($phone); ?></a>
+                    </div>
+                <?php endif; ?>
+                <?php if ($email): ?>
+                    <div class="hero-contacts__phone-block">
+                        <?php if ($email_label): ?>
+                            <span class="hero-contacts__label"><?php echo esc_html($email_label); ?></span>
+                        <?php endif; ?>
+                        <a href="mailto:<?php echo esc_attr(antispambot($email)); ?>" class="hero-contacts__phone"><?php echo esc_html(antispambot($email)); ?></a>
                     </div>
                 <?php endif; ?>
                 <?php if (is_array($button) && !empty($button['url'])): ?>

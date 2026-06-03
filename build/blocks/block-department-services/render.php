@@ -7,9 +7,6 @@
 $title    = get_field( 'title' );
 $image    = get_field( 'image' );
 $services = get_field( 'services' );
-
-// Загружаем прайс-лист из настроек один раз
-$price_categories = get_field( 'price_categories', 'option' ) ?: [];
 ?>
 
 <section class="dept-services">
@@ -28,27 +25,11 @@ $price_categories = get_field( 'price_categories', 'option' ) ?: [];
             <?php if ( $services ) : ?>
                 <div class="dept-services__list">
                     <?php foreach ( $services as $item ) :
-                        $name           = $item['name'] ?? '';
-                        $description    = $item['description'] ?? '';
-                        $cat_index      = $item['price_category'] ?? '';
+                        $name        = $item['name'] ?? '';
+                        $description = $item['description'] ?? '';
 
                         if ( ! $name ) {
                             continue;
-                        }
-
-                        // Получаем первую цену из привязанной категории
-                        $price_text = '';
-                        $price_name = '';
-                        if ( $cat_index !== '' && isset( $price_categories[ $cat_index ] ) ) {
-                            $cat    = $price_categories[ $cat_index ];
-                            $prices = $cat['prices'] ?? [];
-                            if ( ! empty( $prices[0] ) ) {
-                                $p          = $prices[0]['price'];
-                                $price_name = $prices[0]['price_category'] ?? $name;
-                                $price_text = is_numeric( $p )
-                                    ? 'от ' . number_format( (float) $p, 0, '', ' ' ) . ' ₽'
-                                    : $p;
-                            }
                         }
                     ?>
                         <div class="dept-services__item">
@@ -65,14 +46,6 @@ $price_categories = get_field( 'price_categories', 'option' ) ?: [];
                                 <?php if ( $description ) : ?>
                                     <p class="dept-services__item-desc"><?php echo esc_html( $description ); ?></p>
                                 <?php endif; ?>
-
-                                <div class="dept-services__item-footer">
-                                    <span class="dept-services__item-footer-name"><?php echo esc_html( $price_name ?: $name ); ?></span>
-                                    <?php if ( $price_text ) : ?>
-                                        <span class="dept-services__item-price"><?php echo esc_html( $price_text ); ?></span>
-                                    <?php endif; ?>
-                                    <a href="#" class="dept-services__item-button">Записаться</a>
-                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>
