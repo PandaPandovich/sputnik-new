@@ -1,0 +1,31 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.9.2
+2 info using node@v22.14.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/ilarybakov/Local Sites/sputnik/app/public/wp-content/themes/sputnik-new/.npmrc
+5 silly config load:file:/Users/ilarybakov/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm run dev
+8 verbose argv "run" "dev"
+9 verbose logfile logs-max:10 dir:/Users/ilarybakov/Local Sites/sputnik/app/public/wp-content/themes/sputnik-new/.npm-cache/_logs/2026-06-09T11_37_36_048Z-
+10 verbose logfile /Users/ilarybakov/Local Sites/sputnik/app/public/wp-content/themes/sputnik-new/.npm-cache/_logs/2026-06-09T11_37_36_048Z-debug-0.log
+11 silly logfile start cleaning logs, removing 23 files
+12 verbose stack Error: Missing script: "dev"
+12 verbose stack
+12 verbose stack To see a list of scripts, run:
+12 verbose stack   npm run
+12 verbose stack     at #run (/usr/local/lib/node_modules/npm/lib/commands/run-script.js:111:13)
+12 verbose stack     at async RunScript.exec (/usr/local/lib/node_modules/npm/lib/commands/run-script.js:40:7)
+12 verbose stack     at async Npm.exec (/usr/local/lib/node_modules/npm/lib/npm.js:207:9)
+12 verbose stack     at async module.exports (/usr/local/lib/node_modules/npm/lib/cli/entry.js:74:5)
+13 error Missing script: "dev"
+13 error
+13 error To see a list of scripts, run:
+13 error   npm run
+14 verbose cwd /Users/ilarybakov/Local Sites/sputnik/app/public/wp-content/themes/sputnik-new
+15 verbose os Darwin 25.2.0
+16 verbose node v22.14.0
+17 verbose npm  v10.9.2
+18 verbose exit 1
+19 verbose code 1
+20 error A complete log of this run can be found in: /Users/ilarybakov/Local Sites/sputnik/app/public/wp-content/themes/sputnik-new/.npm-cache/_logs/2026-06-09T11_37_36_048Z-debug-0.log
