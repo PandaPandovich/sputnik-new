@@ -3,85 +3,6 @@
     "title": "Настройки темы",
     "fields": [
         {
-            "key": "field_683b9a0cd1200",
-            "label": "Шапка",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_683b9a0cd1201",
-            "label": "Ссылки в шапке (адреса)",
-            "name": "header_info_links",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Ссылки-адреса, отображаются в верхней панели сайта (header__info-link).",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Добавить ссылку",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_683b9a0cd1202",
-                    "label": "Текст",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "ул. Шереметьевская, 34"
-                },
-                {
-                    "key": "field_683b9a0cd1203",
-                    "label": "Ссылка",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "Необязательно. Если пусто — будет отрисован как обычный текст внутри ссылки на «#».",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "https://..."
-                }
-            ]
-        },
-        {
             "key": "field_683b9a0cd1100",
             "label": "Футер",
             "name": "",
@@ -126,6 +47,27 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_6a2747892dcbb",
+            "label": "Почта",
+            "name": "footer_email",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_683b9a0cd1002",
             "label": "Телефон",
             "name": "footer_phone",
@@ -142,7 +84,9 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
-            "placeholder": "+7 (495) 445-01-20"
+            "placeholder": "+7 (495) 445-01-20",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_683b9a0cd1003",
@@ -161,7 +105,9 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
-            "placeholder": "9:00–21:00, без выходных"
+            "placeholder": "9:00–21:00, без выходных",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_683b9a0cd1004",
@@ -202,7 +148,10 @@
                     "default_value": "",
                     "maxlength": "",
                     "allow_in_bindings": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_683b9a0cd1004"
                 },
                 {
                     "key": "field_683b9a0cd1006",
@@ -221,7 +170,10 @@
                     "default_value": "",
                     "maxlength": "",
                     "allow_in_bindings": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_683b9a0cd1004"
                 },
                 {
                     "key": "field_683b9a0cd1007",
@@ -239,7 +191,8 @@
                     },
                     "default_value": "",
                     "allow_in_bindings": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_683b9a0cd1004"
                 }
             ]
         },
@@ -280,7 +233,8 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "allow_in_bindings": 0
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_683b9a0cd1008"
                 }
             ]
         }
@@ -306,5 +260,5 @@
     "display_title": "",
     "allow_ai_access": 1,
     "ai_description": "",
-    "modified": 1780523789
+    "modified": 1780959207
 }

@@ -15,6 +15,14 @@
     grid-template-rows: repeat(4, 17.5rem);
     gap: 1.25rem;
     margin-top: 4.375rem;
+
+    @media (max-width:1023px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width:568px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__item {
@@ -26,6 +34,18 @@
 
     &:nth-of-type(3) {
       grid-row: span 2;
+
+      @media (max-width:1023px) {
+        grid-row: span 1;
+      }
+
+      .branches__item-image {
+        height: 18.75rem;
+      }
+    }
+
+    @media (max-width:768px) {
+      min-height: 18.75rem;
     }
 
     &-info {
@@ -56,6 +76,8 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
+      height: 12.5rem;
+      overflow: hidden;
     }
   }
 }

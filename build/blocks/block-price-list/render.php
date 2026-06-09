@@ -39,13 +39,13 @@ foreach ($categories as $index => $cat) {
         }
         $departments[$dept_id]['categories'][] = [
             'index' => $index,
-            'data'  => $cat,
+            'data' => $cat,
         ];
     } else {
         if ($display_mode === 'all') {
             $no_department[] = [
                 'index' => $index,
-                'data'  => $cat,
+                'data' => $cat,
             ];
         }
     }
@@ -93,8 +93,11 @@ $first_dept = true;
                 <!-- Поиск -->
                 <div class="price-list__search">
                     <input type="text" class="price-list__search-input" placeholder="Поиск">
-                    <svg class="price-list__search-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z" fill="#B5B5B5"/>
+                    <svg class="price-list__search-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z"
+                            fill="#B5B5B5" />
                     </svg>
                 </div>
 
@@ -102,13 +105,13 @@ $first_dept = true;
                 <?php $first_dept = true; ?>
                 <?php foreach ($departments as $dept_id => $dept): ?>
                     <div class="price-list__dept-group <?php echo $first_dept ? 'is-active' : ''; ?>"
-                         data-department="<?php echo esc_attr($dept_id); ?>">
+                        data-department="<?php echo esc_attr($dept_id); ?>">
 
                         <?php foreach ($dept['categories'] as $cat_entry):
                             $cat = $cat_entry['data'];
                             $prices = $cat['prices'] ?? [];
                             $total = count($prices);
-                        ?>
+                            ?>
                             <div class="price-list__table">
                                 <!-- Заголовок категории -->
                                 <div class="price-list__table-header">
@@ -116,17 +119,17 @@ $first_dept = true;
                                         <?php echo esc_html($cat['name']); ?>
                                     </span>
                                     <span class="price-list__table-count">
-                                        <?php echo $total; ?> <?php
-                                        $mod10 = $total % 10;
-                                        $mod100 = $total % 100;
-                                        if ($mod10 === 1 && $mod100 !== 11) {
-                                            echo 'услуга';
-                                        } elseif ($mod10 >= 2 && $mod10 <= 4 && ($mod100 < 12 || $mod100 > 14)) {
-                                            echo 'услуги';
-                                        } else {
-                                            echo 'услуг';
-                                        }
-                                        ?> ↓
+                                        <?php echo $total; ?>         <?php
+                                                    $mod10 = $total % 10;
+                                                    $mod100 = $total % 100;
+                                                    if ($mod10 === 1 && $mod100 !== 11) {
+                                                        echo 'услуга';
+                                                    } elseif ($mod10 >= 2 && $mod10 <= 4 && ($mod100 < 12 || $mod100 > 14)) {
+                                                        echo 'услуги';
+                                                    } else {
+                                                        echo 'услуг';
+                                                    }
+                                                    ?> ↓
                                     </span>
                                 </div>
 
@@ -152,15 +155,15 @@ $first_dept = true;
                                 <!-- Кнопка «Показать все» -->
                                 <?php if ($total > $preview_count): ?>
                                     <button class="price-list__show-all" type="button">
-                                        Показать все <?php echo $total; ?> <?php
-                                        if ($mod10 === 1 && $mod100 !== 11) {
-                                            echo 'позицию';
-                                        } elseif ($mod10 >= 2 && $mod10 <= 4 && ($mod100 < 12 || $mod100 > 14)) {
-                                            echo 'позиции';
-                                        } else {
-                                            echo 'позиций';
-                                        }
-                                        ?> →
+                                        Показать все <?php echo $total; ?>             <?php
+                                                        if ($mod10 === 1 && $mod100 !== 11) {
+                                                            echo 'позицию';
+                                                        } elseif ($mod10 >= 2 && $mod10 <= 4 && ($mod100 < 12 || $mod100 > 14)) {
+                                                            echo 'позиции';
+                                                        } else {
+                                                            echo 'позиций';
+                                                        }
+                                                        ?> →
                                     </button>
                                 <?php endif; ?>
                             </div>
@@ -177,7 +180,7 @@ $first_dept = true;
                 <!-- CTA -->
                 <div class="price-list__cta">
                     <span class="price-list__cta-text">Не нашли нужную услугу?</span>
-                    <a href="#contacts" class="price-list__cta-button">Напишите нам</a>
+                    <a href="tel:+74954450120" class="price-list__cta-button">Свяжитесь с нами</a>
                 </div>
             </div>
         </div>

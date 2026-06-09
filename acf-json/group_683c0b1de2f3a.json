@@ -63,11 +63,37 @@
         },
         {
             "key": "field_683c0b1de2004",
-            "label": "Картинка",
+            "label": "Картинка (десктоп)",
             "name": "image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_683c0b1de2005",
+            "label": "Картинка (мобильная)",
+            "name": "image_mobile",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Изображение для мобильных устройств (до 1024px)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {

@@ -33,7 +33,7 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      top: 3rem;
+      top: 2rem;
     }
 
     img {
@@ -64,6 +64,8 @@
     @media (max-width: 768px) {
       margin: 1rem;
       max-width: 100%;
+      padding: 2rem 1rem;
+      margin: 0;
     }
   }
 
@@ -133,8 +135,14 @@
     text-align: center;
     align-self: flex-start;
     min-width: 18.25rem;
+    max-width: 100%;
     margin-top: 1.5rem;
     transition: background 0.3s ease;
+
+    @media (max-width: 768px) {
+      min-width: 0;
+      align-self: stretch;
+    }
 
     &:hover {
       background: #e64444;

@@ -84,5 +84,19 @@
       height: 100%;
       object-fit: cover;
     }
+
+    &--desktop {
+      @media (max-width:1024px) {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: none;
+
+      @media (max-width:1024px) {
+        display: block;
+      }
+    }
   }
 }

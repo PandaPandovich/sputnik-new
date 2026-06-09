@@ -1,6 +1,7 @@
 <?php
 $footer_logo = get_field('footer_logo', 'option');
 $footer_phone = get_field('footer_phone', 'option');
+$footer_email = get_field('footer_email', 'option');
 $footer_worktime = get_field('footer_worktime', 'option');
 $footer_branches = get_field('footer_branches', 'option');
 $footer_links = get_field('footer_links', 'option');
@@ -21,14 +22,24 @@ $footer_links = get_field('footer_links', 'option');
         </div>
         <div class="footer__content">
             <div class="footer__info">
-                <div class="footer__info-item">
-                    <?php if ($footer_phone): ?>
-                        <a href="tel:<?php echo esc_attr(preg_replace('/[^\d+]/', '', $footer_phone)); ?>"
-                            class="footer__info-phone"><?php echo esc_html($footer_phone); ?></a>
-                    <?php endif; ?>
-                    <?php if ($footer_worktime): ?>
-                        <p class="footer__info-time"><?php echo esc_html($footer_worktime); ?></p>
-                    <?php endif; ?>
+                <div class="footer__info-items">
+                    <div class="footer__info-item">
+                        <?php if ($footer_phone): ?>
+                            <a href="tel:<?php echo esc_attr(preg_replace('/[^\d+]/', '', $footer_phone)); ?>"
+                                class="footer__info-phone"><?php echo esc_html($footer_phone); ?></a>
+                        <?php endif; ?>
+                        <?php if ($footer_worktime): ?>
+                            <p class="footer__info-time"><?php echo esc_html($footer_worktime); ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="footer__info-item">
+                        <?php if ($footer_email): ?>
+                            <a href="mailto:<?php echo esc_attr(preg_replace('/[^\d+]/', '', $footer_email)); ?>"
+                                class="footer__info-phone">
+                                <?php echo esc_html($footer_email); ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
                 </div>
                 <?php if ($footer_branches): ?>
                     <div class="footer__info-adresses">

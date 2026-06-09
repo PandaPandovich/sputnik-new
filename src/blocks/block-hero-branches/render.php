@@ -1,8 +1,9 @@
 <?php
-$title  = get_field('title');
-$text   = get_field('text');
-$button = get_field('button');
-$image  = get_field('image');
+$title        = get_field('title');
+$text         = get_field('text');
+$button       = get_field('button');
+$image        = get_field('image');
+$image_mobile = get_field('image_mobile');
 ?>
 
 <section class="branches-hero">
@@ -19,11 +20,16 @@ $image  = get_field('image');
                     </a>
                 <?php endif; ?>
             </div>
-            <div class="branches-hero__image">
-                <?php if ($image): ?>
+            <?php if ($image): ?>
+                <div class="branches-hero__image branches-hero__image--desktop">
                     <?php echo wp_get_attachment_image($image, 'full'); ?>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($image_mobile): ?>
+                <div class="branches-hero__image branches-hero__image--mobile">
+                    <?php echo wp_get_attachment_image($image_mobile, 'full'); ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>

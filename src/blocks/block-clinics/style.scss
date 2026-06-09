@@ -34,6 +34,12 @@
     border: 1px solid #E0E7EB;
     overflow: hidden;
 
+    &:last-of-type {
+      .clinics__item-map-logo {
+        height: 2.375rem;
+      }
+    }
+
     &-content {
       display: flex;
       flex-direction: column;

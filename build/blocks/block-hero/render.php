@@ -14,7 +14,11 @@ $image = get_field('image');
                     <h1 class="hero__title"><?php echo $title; ?></h1>
                     <p class="hero__desc"><?php echo $desc; ?></p>
                 </div>
-                <a href="#" class="hero__button hero__button--red">Записаться на консультацию</a>
+                <?php if (is_array($button) && !empty($button['url'])): ?>
+                    <a href="<?php echo esc_url($button['url']); ?>" class="hero__button hero__button--red" <?php echo !empty($button['target']) ? 'target="' . esc_attr($button['target']) . '"' : ''; ?>>
+                        <?php echo esc_html(!empty($button['title']) ? $button['title'] : 'Записаться на консультацию'); ?>
+                    </a>
+                <?php endif; ?>
             </div>
             <div class="hero__image">
                 <?php echo wp_get_attachment_image($image, 'full'); ?>
