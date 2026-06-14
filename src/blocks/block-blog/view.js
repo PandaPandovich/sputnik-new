@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new Swiper(el, {
             slidesPerView: 1.2,
             spaceBetween: 20,
+            loop: true,
             breakpoints: {
                 768: {
                     slidesPerView: 3,

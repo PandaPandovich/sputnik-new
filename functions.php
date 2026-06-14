@@ -514,3 +514,60 @@ add_filter( 'acf/load_field/key=field_685b2c3d4e009', function( $field ) {
 
 	return $field;
 } );
+
+/**
+ * URL страницы блога (любая страница, использующая шаблон home.php).
+ * Если такой страницы нет, возвращает главную.
+ */
+function sputnik_plus_get_blog_url() {
+	$cached = wp_cache_get( 'sputnik_blog_url' );
+	if ( false !== $cached ) {
+		return $cached;
+	}
+
+	$pages = get_pages( [
+		'meta_key'    => '_wp_page_template',
+		'meta_value'  => 'home.php',
+		'number'      => 1,
+		'post_status' => 'publish',
+	] );
+
+	$url = ! empty( $pages ) ? get_permalink( $pages[0]->ID ) : home_url( '/' );
+	wp_cache_set( 'sputnik_blog_url', $url );
+
+	return $url;
+}
+
+/**
+ * Хлебные крошки. Принимает массив пар [url, title] и финальный текущий пункт.
+ * Последний пункт без ссылки. Поддерживает schema.org BreadcrumbList.
+ */
+function sputnik_plus_breadcrumbs( array $items ) {
+	if ( empty( $items ) ) {
+		return;
+	}
+
+	$last = count( $items ) - 1;
+	?>
+	<nav class="breadcrumbs" aria-label="Хлебные крошки">
+		<ol class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+			<?php foreach ( $items as $i => $item ):
+				$title = $item['title'] ?? '';
+				$url   = $item['url']   ?? '';
+				$pos   = $i + 1;
+				?>
+				<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<?php if ( $i === $last || empty( $url ) ): ?>
+						<span class="breadcrumbs__current" itemprop="name"><?php echo esc_html( $title ); ?></span>
+					<?php else: ?>
+						<a class="breadcrumbs__link" href="<?php echo esc_url( $url ); ?>" itemprop="item">
+							<span itemprop="name"><?php echo esc_html( $title ); ?></span>
+						</a>
+					<?php endif; ?>
+					<meta itemprop="position" content="<?php echo (int) $pos; ?>">
+				</li>
+			<?php endforeach; ?>
+		</ol>
+	</nav>
+	<?php
+}

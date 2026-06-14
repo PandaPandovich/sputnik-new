@@ -64,6 +64,13 @@ $header_info_links = get_field('header_info_links', 'option');
             <a href="tel:+74954450120" class="header__button">Связаться</a>
             <div class="header__func">
                 <!-- Мобильные кнопки -->
+                <button class="header__mobile-phone" type="button" aria-label="Позвонить"
+                    onclick="window.location.href='tel:+74954450120'">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.69 9.87v1.75a1.17 1.17 0 0 1-1.27 1.17 11.55 11.55 0 0 1-5.04-1.79 11.38 11.38 0 0 1-3.5-3.5A11.55 11.55 0 0 1 1.09 2.45 1.17 1.17 0 0 1 2.24 1.17h1.75a1.17 1.17 0 0 1 1.17 1.01c.07.56.21 1.1.4 1.62a1.17 1.17 0 0 1-.26 1.22l-.74.74a9.33 9.33 0 0 0 3.5 3.5l.74-.74a1.17 1.17 0 0 1 1.22-.26c.52.19 1.06.33 1.62.4a1.17 1.17 0 0 1 1.01 1.21Z"
+                            stroke="#1D3658" stroke-width="1.12" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
                 <button class="header__mobile-search" type="button" aria-label="Поиск">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <circle cx="5.83" cy="5.83" r="4.73" stroke="#1D3658" stroke-width="1.12" />

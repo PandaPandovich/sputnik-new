@@ -1,6 +1,10 @@
 <?php
 $title  = get_field('title');
 $slides = get_field('slides');
+
+if (is_array($slides) && count($slides) > 1) {
+    shuffle($slides);
+}
 ?>
 
 <section class="works">

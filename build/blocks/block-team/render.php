@@ -58,7 +58,6 @@ if (empty($members)) return;
 
                     <div class="team-modal__section" id="modalEduSection">
                         <div class="team-modal__section-header">
-                            <span class="team-modal__section-title">Образование</span>
                             <span class="team-modal__section-line"></span>
                         </div>
                         <p class="team-modal__text" id="modalEduText"></p>

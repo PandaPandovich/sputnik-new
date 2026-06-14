@@ -82,6 +82,23 @@
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_682f7e8ab9005",
+            "label": "Ссылка на все статьи",
+            "name": "all_articles_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Если задана, в шапке блока появится кнопка-ссылка на страницу со всеми статьями.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
         }
     ],
     "location": [

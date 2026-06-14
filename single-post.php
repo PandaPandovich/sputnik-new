@@ -14,6 +14,11 @@ while ( have_posts() ) : the_post();
 	<!-- Шапка статьи -->
 	<div class="single-post__header">
 		<div class="container">
+			<?php sputnik_plus_breadcrumbs( [
+				[ 'url' => home_url( '/' ), 'title' => 'Главная' ],
+				[ 'url' => sputnik_plus_get_blog_url(), 'title' => 'Блог' ],
+				[ 'title' => get_the_title() ],
+			] ); ?>
 			<h1 class="single-post__title"><?php the_title(); ?></h1>
 			<?php if ( has_excerpt() ) : ?>
 				<p class="single-post__subtitle"><?php echo get_the_excerpt(); ?></p>

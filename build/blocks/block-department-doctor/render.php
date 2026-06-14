@@ -106,7 +106,6 @@ if ( $doctor_ids ) {
 
                         <div class="team-modal__section" id="deptModalEduSection">
                             <div class="team-modal__section-header">
-                                <span class="team-modal__section-title">Образование</span>
                                 <span class="team-modal__section-line"></span>
                             </div>
                             <p class="team-modal__text" id="deptModalEduText"></p>

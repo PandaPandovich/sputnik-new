@@ -112,12 +112,14 @@ if (block) {
             const rows = table.querySelectorAll('.price-list__row');
             const isExpanded = btn.classList.toggle('is-expanded');
 
+            const previewCount = parseInt(table.dataset.previewCount, 10) || 3;
+
             if (isExpanded) {
                 rows.forEach((row) => row.classList.remove('is-hidden'));
                 btn.innerHTML = 'Свернуть ↑';
             } else {
                 rows.forEach((row, i) => {
-                    if (i >= 6) row.classList.add('is-hidden');
+                    if (i >= previewCount) row.classList.add('is-hidden');
                 });
                 btn.innerHTML = btn.dataset.collapsedText;
             }
@@ -130,10 +132,11 @@ if (block) {
             const tables = group.querySelectorAll('.price-list__table');
             tables.forEach((table) => {
                 table.style.display = '';
+                const previewCount = parseInt(table.dataset.previewCount, 10) || 3;
                 const rows = table.querySelectorAll('.price-list__row');
                 rows.forEach((row, i) => {
                     row.style.display = '';
-                    if (i >= 6) {
+                    if (i >= previewCount) {
                         const showAllBtn = table.querySelector('.price-list__show-all');
                         if (showAllBtn && !showAllBtn.classList.contains('is-expanded')) {
                             row.classList.add('is-hidden');

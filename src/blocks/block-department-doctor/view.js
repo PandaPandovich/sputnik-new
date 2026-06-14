@@ -7,6 +7,7 @@ if ( doctorSlider ) {
         modules: [ Navigation ],
         slidesPerView: 1.3,
         spaceBetween: 24,
+        loop: true,
         navigation: {
             prevEl: '.dept-doctor__nav-prev',
             nextEl: '.dept-doctor__nav-next',

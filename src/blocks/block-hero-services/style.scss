@@ -22,6 +22,8 @@
     @media (max-width: 640px) {
       padding: 2rem 1.25rem;
       min-height: 20rem;
+      align-items: flex-start;
+      justify-content: center;
     }
   }
 
@@ -95,7 +97,6 @@
 
     @media (max-width: 1024px) {
       height: 70%;
-      opacity: 0.4;
     }
 
     @media (max-width: 640px) {

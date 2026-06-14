@@ -320,11 +320,12 @@ return array(
 		'title' => 'Hero Block',
 		'category' => 'layout',
 		'icon' => 'welcome-comments',
-		'description' => 'Hero баннер с заголовком, текстом и кнопкой',
+		'description' => 'Hero баннер-слайдер с заголовком, текстом и кнопкой',
 		'keywords' => array(
 			'hero',
 			'banner',
-			'header'
+			'header',
+			'slider'
 		),
 		'acf' => array(
 			'blockVersion' => 3,
@@ -334,7 +335,8 @@ return array(
 		),
 		'style' => 'file:./style-index.css',
 		'editorStyle' => 'file:./index.css',
-		'editorScript' => 'file:./index.js'
+		'editorScript' => 'file:./index.js',
+		'viewScript' => 'file:./view.js'
 	),
 	'block-hero-branches' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',

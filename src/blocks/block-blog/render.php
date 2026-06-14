@@ -1,15 +1,16 @@
 <?php
-$title          = get_field('title');
-$subtitle       = get_field('subtitle');
-$posts_count    = get_field('posts_count') ?: 6;
-$read_more_text = get_field('read_more_text') ?: 'Читать статью';
+$title             = get_field('title');
+$subtitle          = get_field('subtitle');
+$posts_count       = get_field('posts_count') ?: 6;
+$read_more_text    = get_field('read_more_text') ?: 'Читать статью';
+$all_articles_link = get_field('all_articles_link');
+$has_all_link      = is_array($all_articles_link) && !empty($all_articles_link['url']);
 
 $blog_query = new WP_Query([
     'post_type'      => 'post',
     'posts_per_page' => $posts_count,
     'post_status'    => 'publish',
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'orderby'        => 'rand',
 ]);
 ?>
 
@@ -22,6 +23,13 @@ $blog_query = new WP_Query([
                     <p><?php echo $subtitle; ?></p>
                 <?php endif; ?>
             </div>
+            <?php if ($has_all_link): ?>
+                <a class="blog__all-link"
+                   href="<?php echo esc_url($all_articles_link['url']); ?>"
+                   <?php if (!empty($all_articles_link['target'])): ?>target="<?php echo esc_attr($all_articles_link['target']); ?>" rel="noopener"<?php endif; ?>>
+                    <?php echo esc_html(!empty($all_articles_link['title']) ? $all_articles_link['title'] : 'Все статьи'); ?>
+                </a>
+            <?php endif; ?>
         </div>
         <?php if ($blog_query->have_posts()): ?>
             <div class="blog__slider">

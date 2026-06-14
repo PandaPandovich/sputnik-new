@@ -9,6 +9,7 @@ if (servicesSlider) {
         speed: 400,
         slidesPerView: 'auto',
         spaceBetween: 8,
+        loop: true,
         navigation: {
             prevEl: '.services__nav-prev',
             nextEl: '.services__nav-next',

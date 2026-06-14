@@ -63,7 +63,7 @@ if (empty($departments)) {
     return;
 }
 
-$preview_count = 6;
+$preview_count = 3;
 $first_dept = true;
 ?>
 
@@ -112,7 +112,7 @@ $first_dept = true;
                             $prices = $cat['prices'] ?? [];
                             $total = count($prices);
                             ?>
-                            <div class="price-list__table">
+                            <div class="price-list__table" data-preview-count="<?php echo (int) $preview_count; ?>">
                                 <!-- Заголовок категории -->
                                 <div class="price-list__table-header">
                                     <span class="price-list__table-name">
