@@ -55,7 +55,7 @@ $footer_links = get_field('footer_links', 'option');
             </div>
             <div class="footer__navs">
                 <div class="footer__nav">
-                    <h4 class="footer__nav-title">О клинике</h4>
+                    <h4 class="footer__nav-title">Цены и услуги</h4>
                     <?php wp_nav_menu([
                         'theme_location' => 'footer_menu_about',
                         'container' => false,
@@ -65,7 +65,7 @@ $footer_links = get_field('footer_links', 'option');
                     ]); ?>
                 </div>
                 <div class="footer__nav">
-                    <h4 class="footer__nav-title">Услуги и цены</h4>
+                    <h4 class="footer__nav-title">Отделения</h4>
                     <?php wp_nav_menu([
                         'theme_location' => 'footer_menu_services',
                         'container' => false,

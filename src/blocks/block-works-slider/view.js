@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modules: [Grid, Navigation],
             slidesPerView: 1,
             spaceBetween: 20,
+            loop: true,
             navigation: prevEl && nextEl ? { prevEl, nextEl } : false,
             breakpoints: {
                 768: {

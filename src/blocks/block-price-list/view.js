@@ -122,6 +122,12 @@ if (block) {
                     if (i >= previewCount) row.classList.add('is-hidden');
                 });
                 btn.innerHTML = btn.dataset.collapsedText;
+
+                // При сворачивании скроллим к началу таблицы с учётом sticky-хедера
+                const header = document.querySelector('.header');
+                const offset = header ? header.offsetHeight : 0;
+                const top = table.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
             }
         });
     });
