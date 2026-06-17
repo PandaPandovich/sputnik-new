@@ -3,6 +3,30 @@ import '../scss/main.scss';
 console.log('Sputnik Plus theme loaded');
 
 /**
+ * Cookie-баннер ФЗ-152.
+ */
+(function () {
+	const banner = document.getElementById('cookie-banner');
+	if (!banner) return;
+
+	const STORAGE_KEY = 'sputnik_cookie_consent';
+
+	if (localStorage.getItem(STORAGE_KEY)) return;
+
+	banner.hidden = false;
+	requestAnimationFrame(() => banner.classList.add('is-visible'));
+
+	banner.addEventListener('click', function (e) {
+		const btn = e.target.closest('[data-cookie-action]');
+		if (!btn) return;
+
+		localStorage.setItem(STORAGE_KEY, btn.dataset.cookieAction);
+		banner.classList.remove('is-visible');
+		setTimeout(() => { banner.hidden = true; }, 400);
+	});
+})();
+
+/**
  * AJAX-поиск в хедере.
  */
 (function () {
