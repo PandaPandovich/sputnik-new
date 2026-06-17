@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+add_theme_support( 'title-tag' );
+
 add_filter( 'acf/settings/enable_acf_ai', '__return_true' );
 
 /**
