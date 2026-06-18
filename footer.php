@@ -95,7 +95,8 @@ $footer_links = get_field('footer_links', 'option');
 </footer>
 
 <?php $privacy_url = function_exists('get_privacy_policy_url') ? get_privacy_policy_url() : ''; ?>
-<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Уведомление об использовании cookie" hidden>
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite"
+    aria-label="Уведомление об использовании cookie" hidden>
     <div class="container">
         <div class="cookie-banner__inner">
             <p class="cookie-banner__text">
@@ -104,17 +105,35 @@ $footer_links = get_field('footer_links', 'option');
                 вы даёте согласие на обработку cookie и персональных данных в соответствии
                 с Федеральным законом № 152-ФЗ
                 <?php if ($privacy_url): ?>
-                    и <a href="<?php echo esc_url($privacy_url); ?>" class="cookie-banner__link">Политикой конфиденциальности</a>.
+                    и <a href="<?php echo esc_url($privacy_url); ?>" class="cookie-banner__link">Политикой
+                        конфиденциальности</a>.
                 <?php else: ?>
                     .
                 <?php endif; ?>
             </p>
             <div class="cookie-banner__actions">
-                <button type="button" class="cookie-banner__btn cookie-banner__btn--decline" data-cookie-action="decline">Отклонить</button>
-                <button type="button" class="cookie-banner__btn cookie-banner__btn--accept" data-cookie-action="accept">Принять</button>
+                <button type="button" class="cookie-banner__btn cookie-banner__btn--decline"
+                    data-cookie-action="decline">Отклонить</button>
+                <button type="button" class="cookie-banner__btn cookie-banner__btn--accept"
+                    data-cookie-action="accept">Принять</button>
             </div>
         </div>
     </div>
 </div>
 </body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i]function() { (m[i].a = m[i].a[]).push(arguments) };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(49604095, 'init', { webvisor: true, clickmap: true, referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/49604095" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
 <?php wp_footer() ?>

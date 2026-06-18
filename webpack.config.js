@@ -49,7 +49,8 @@ config.plugins = defaultConfig.plugins
 		return plugin;
 	} );
 
-// Копирование картинок, иконок и блоков из src в build
+// Копирование картинок, иконок и блоков из src в build.
+// Шрифты подключаются через @font-face в SCSS и обрабатываются asset-модулем webpack.
 config.plugins.push(
 	new CopyWebpackPlugin( {
 		patterns: [

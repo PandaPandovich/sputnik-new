@@ -8,10 +8,6 @@ $header_info_links = get_field('header_info_links', 'option');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap"
-        rel="stylesheet">
     <script src="https://api-maps.yandex.ru/v3/?apikey=60f47ff7-063f-474f-8e9a-712c74327c38&lang=ru_RU"></script>
     <?php wp_head() ?>
 </head>

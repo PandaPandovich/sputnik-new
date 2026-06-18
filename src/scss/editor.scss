@@ -1,4 +1,5 @@
 @use './mixins/vars' as v;
+@use './global/fonts.scss';
 
 :root {
     --color-dark: #{v.$dark};

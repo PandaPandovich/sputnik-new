@@ -1,5 +1,6 @@
 // Основные стили темы Sputnik Plus
 @use './mixins/vars' as *;
+@use './global/fonts.scss';
 @use './root.scss';
 
 @forward './global/container.scss';
