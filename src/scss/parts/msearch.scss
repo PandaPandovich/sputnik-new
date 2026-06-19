@@ -61,7 +61,7 @@
         border: none;
         background: none;
         font-family: 'Onest', sans-serif;
-        font-size: 0.875rem;
+        font-size: 1rem; // 16px — не даём iOS зумить страницу при фокусе
         color: #1d3658;
         outline: none;
 
