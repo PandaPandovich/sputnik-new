@@ -32,6 +32,16 @@
         }
     }
 
+    &__logo {
+        width: 10.9375rem;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
     &__info {
         display: flex;
         gap: 5.625rem;
@@ -40,7 +50,7 @@
             flex-direction: column;
             gap: 1.5rem;
         }
-        
+
         &-items {
             display: flex;
             flex-direction: column;
