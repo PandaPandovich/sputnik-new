@@ -136,4 +136,5 @@ $footer_links = get_field('footer_links', 'option');
     <div><img src="https://mc.yandex.ru/watch/49604095" style="position:absolute; left:-9999px;" alt="" /></div>
 </noscript>
 <!-- /Yandex.Metrika counter -->
+<script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8" defer></script>
 <?php wp_footer() ?>
