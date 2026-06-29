@@ -34,7 +34,7 @@ $footer_links = get_field('footer_links', 'option');
                     </div>
                     <div class="footer__info-item">
                         <?php if ($footer_email): ?>
-                            <a href="mailto:<?php echo esc_attr(preg_replace('/[^\d+]/', '', $footer_email)); ?>"
+                            <a href="mailto:<?php echo esc_attr(antispambot($footer_email)); ?>"
                                 class="footer__info-phone">
                                 <?php echo esc_html($footer_email); ?>
                             </a>
