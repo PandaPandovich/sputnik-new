@@ -1,20 +1,26 @@
-.wp-block-quote.is-style-sputnik {
+.quote {
   margin: 2rem 0;
   padding: 0 0 0 2rem;
   border-left: 4px solid #e63946;
-  background: none;
-  font-style: normal;
 
-  p {
+  &__body {
+    margin: 0;
     font-family: 'Georgia', serif;
     font-style: italic;
     font-size: 1.3125rem;
     line-height: 1.64;
     color: #143358;
+
+    p {
+      margin: 0 0 0.75rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
-  cite {
-    display: block;
+  &__author {
     margin-top: 1.25rem;
     font-family: 'Onest', sans-serif;
     font-style: normal;

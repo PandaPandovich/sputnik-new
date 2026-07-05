@@ -18,30 +18,3 @@ html :where(.wp-block) {
         padding-right: 1rem !important;
     }
 }
-
-.wp-block-quote.is-style-sputnik {
-  margin: 2rem 0;
-  padding: 0 0 0 2rem;
-  border-left: 4px solid #e63946;
-  background: none;
-  font-style: normal;
-
-  p {
-    font-family: 'Georgia', serif;
-    font-style: italic;
-    font-size: 1.3125rem;
-    line-height: 1.64;
-    color: #143358;
-  }
-
-  cite {
-    display: block;
-    margin-top: 1.25rem;
-    font-family: 'Onest', sans-serif;
-    font-style: normal;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    color: #6b7a8f;
-  }
-}
