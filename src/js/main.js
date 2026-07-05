@@ -34,13 +34,6 @@ console.log('Sputnik Plus theme loaded');
 	const results = document.querySelector('.header__search-results');
 	if (!input || !results) return;
 
-	const form = input.closest('form');
-	if (form) {
-		form.addEventListener('submit', function (e) {
-			e.preventDefault();
-		});
-	}
-
 	let timer = null;
 
 	input.addEventListener('input', function () {
@@ -259,5 +252,34 @@ console.log('Sputnik Plus theme loaded');
 					renderResults(items, query);
 				});
 		}, 300);
+	});
+})();
+
+/**
+ * Клиентская фильтрация результатов поиска по категориям.
+ */
+(function () {
+	const root = document.querySelector('.search');
+	if (!root) return;
+
+	const chips = root.querySelectorAll('[data-filter]');
+	const results = root.querySelectorAll('.search__result');
+	const empty = root.querySelector('.search__filter-empty');
+	if (!chips.length) return;
+
+	chips.forEach((chip) => {
+		chip.addEventListener('click', () => {
+			const type = chip.dataset.filter;
+			chips.forEach((c) => c.classList.toggle('is-active', c === chip));
+
+			let visible = 0;
+			results.forEach((r) => {
+				const show = type === 'all' || r.dataset.type === type;
+				r.hidden = !show;
+				if (show) visible += 1;
+			});
+
+			if (empty) empty.hidden = visible !== 0;
+		});
 	});
 })();
