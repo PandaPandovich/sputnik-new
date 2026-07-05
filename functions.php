@@ -324,20 +324,28 @@ add_action( 'enqueue_block_editor_assets', 'sputnik_plus_enqueue_editor_script' 
  * Подключение стилей и скриптов темы.
  */
 function sputnik_plus_enqueue_assets() {
+	$theme_dir = get_template_directory();
 	$theme_uri = get_template_directory_uri();
+
+	// Версия по времени изменения файла — сбрасывает кеш браузера при каждой пересборке.
+	$style_path = $theme_dir . '/build/styles/main.css';
+	$style_ver  = file_exists( $style_path ) ? filemtime( $style_path ) : SPUTNIK_PLUS_VERSION;
 
 	wp_enqueue_style(
 		'sputnik-plus-style',
 		$theme_uri . '/build/styles/main.css',
 		array(),
-		SPUTNIK_PLUS_VERSION
+		$style_ver
 	);
+
+	$script_path = $theme_dir . '/build/main.js';
+	$script_ver  = file_exists( $script_path ) ? filemtime( $script_path ) : SPUTNIK_PLUS_VERSION;
 
 	wp_enqueue_script(
 		'sputnik-plus-script',
 		$theme_uri . '/build/main.js',
 		array(),
-		SPUTNIK_PLUS_VERSION,
+		$script_ver,
 		true
 	);
 }
