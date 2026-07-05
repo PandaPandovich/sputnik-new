@@ -32,7 +32,7 @@ $results_word = sputnik_plural( $total, 'результат', 'результа�
 <section class="search">
 	<div class="container">
 		<header class="search__head">
-			<h1 class="search__title">Результаты по запросу «<?php echo esc_html( $query ); ?>»</h1>
+			<h1 class="search__title">Результаты по запросу «<span class="search__title-query"><?php echo esc_html( $query ); ?></span>»</h1>
 			<p class="search__count">Найдено <?php echo esc_html( $total . ' ' . $results_word ); ?></p>
 		</header>
 
@@ -103,7 +103,7 @@ $results_word = sputnik_plural( $total, 'результат', 'результа�
 		<?php else : ?>
 			<div class="search__empty">
 				<div class="search__empty-title">Ничего не нашлось</div>
-				<p class="search__empty-text">По запросу «<?php echo esc_html( $query ); ?>» ничего не найдено. Попробуйте переформулировать или свяжитесь с нами — подберём врача.</p>
+				<p class="search__empty-text">По запросу «<?php echo esc_html( $query ); ?>» ничего не найдено. Попробуйте переформулировать или свяжитесь с нами</p>
 				<?php if ( $phone ) : ?>
 					<a class="search__empty-btn" href="tel:<?php echo esc_attr( $phone ); ?>">Связаться с клиникой</a>
 				<?php endif; ?>
