@@ -371,37 +371,22 @@ function sputnik_plus_ajax_search() {
 		wp_send_json( [] );
 	}
 
-	$results = new WP_Query( [
-		'post_type'      => [ 'post', 'page', 'branch', 'services' ],
-		'post_status'    => 'publish',
-		's'              => $query,
-		'posts_per_page' => 8,
-	] );
+	// Общий источник с той же страницей результатов: статьи, отделения, врачи, услуги, страницы.
+	$results     = array_slice( sputnik_collect_search_results( $query ), 0, 10 );
+	$results_url = home_url( '/?s=' . rawurlencode( $query ) );
 
 	$items = [];
-	while ( $results->have_posts() ) {
-		$results->the_post();
-		$pt        = get_post_type();
-		$pt_obj    = get_post_type_object( $pt );
-		$type_name = $pt_obj->labels->name;
-
-		// Мета-информация: тип · дата для статей
-		$meta = '';
-		if ( $pt === 'post' ) {
-			$meta = $pt_obj->labels->singular_name . ' · ' . get_the_date( 'j F Y' );
-		} elseif ( $pt === 'page' ) {
-			$meta = $pt_obj->labels->singular_name;
-		}
-
+	foreach ( $results as $r ) {
 		$items[] = [
-			'title'     => get_the_title(),
-			'url'       => get_permalink(),
-			'type'      => $type_name,
-			'post_type' => $pt,
-			'meta'      => $meta,
+			'title'    => $r['title'],
+			// Врачи и услуги не имеют своей страницы — ведём на страницу результатов.
+			'url'      => ! empty( $r['url'] ) ? $r['url'] : $results_url,
+			'type'     => $r['type_label'],
+			'type_key' => $r['type'],
+			'meta'     => $r['breadcrumb'] ?? '',
+			'icon'     => sputnik_search_icon( $r['type'] ),
 		];
 	}
-	wp_reset_postdata();
 
 	wp_send_json( $items );
 }

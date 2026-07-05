@@ -127,15 +127,17 @@
             justify-content: center;
             flex-shrink: 0;
 
-            // Услуги — розовый фон
-            &--service {
-                background: #faefe8;
+            svg {
+                width: 1.25rem;
+                height: 1.25rem;
             }
 
-            // Статьи — голубой фон
-            &--post {
-                background: #f0f4f9;
-            }
+            // Цвета плашек и иконок совпадают со страницей результатов поиска.
+            &--article { background: #ECF6FD; color: #1074BC; }
+            &--branch { background: #DAECF8; color: #1D3658; }
+            &--doctor { background: #E9F7EF; color: #2E9E5B; }
+            &--service { background: #FDECEC; color: #FF6060; }
+            &--page { background: #F6F6F6; color: #627384; }
         }
 
         &-content {

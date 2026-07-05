@@ -63,7 +63,7 @@ console.log('Sputnik Plus theme loaded');
 								</svg>
 							</div>
 							<div class="header__search-empty-title">Ничего не нашлось</div>
-							<div class="header__search-empty-text">По запросу «${query}» у нас нет страниц. Попробуйте переформулировать или свяжитесь с нами — подберём врача.</div>
+							<div class="header__search-empty-text">По запросу «${query}» у нас нет страниц. Попробуйте переформулировать или свяжитесь с нами</div>
 							<a href="#" class="header__search-empty-btn">
 								<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M2.43 6.86L5.14 9.57L9.57 3.43" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/>
@@ -163,17 +163,6 @@ console.log('Sputnik Plus theme loaded');
 		input.focus();
 	});
 
-	// Иконки для типов записей
-	const typeIcons = {
-		service: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 5L8 8L11 5" stroke="#ff6060" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-		post: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="1.5" stroke="#9ba8b5" stroke-width="1.2"/><line x1="5.5" y1="5.5" x2="10.5" y2="5.5" stroke="#9ba8b5" stroke-width="1.2" stroke-linecap="round"/><line x1="5.5" y1="8" x2="10.5" y2="8" stroke="#9ba8b5" stroke-width="1.2" stroke-linecap="round"/></svg>`,
-	};
-
-	function getIconClass(postType) {
-		if (postType === 'services' || postType === 'branch') return 'service';
-		return 'post';
-	}
-
 	// Группировка по типу
 	function groupByType(items) {
 		const groups = {};
@@ -212,11 +201,10 @@ console.log('Sputnik Plus theme loaded');
 			html += `<div class="msearch__group-title">${type} · ${groupItems.length}</div>`;
 
 			groupItems.forEach(function (item) {
-				const iconType = getIconClass(item.post_type);
 				html += `
 					<a href="${item.url}" class="msearch__result">
-						<div class="msearch__result-icon msearch__result-icon--${iconType}">
-							${typeIcons[iconType]}
+						<div class="msearch__result-icon msearch__result-icon--${item.type_key}">
+							${item.icon}
 						</div>
 						<div class="msearch__result-content">
 							<div class="msearch__result-title">${item.title}</div>
