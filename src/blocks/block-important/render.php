@@ -18,7 +18,7 @@ if ( ! $title && ! $content ) {
             <p class="imp__title"><?php echo esc_html( $title ); ?></p>
         <?php endif; ?>
         <?php if ( $content ) : ?>
-            <div class="imp__text"><?php echo wp_kses_post( wpautop( $content ) ); ?></div>
+            <div class="imp__text"><?php echo wp_kses_post( $content ); ?></div>
         <?php endif; ?>
     </div>
 </div>

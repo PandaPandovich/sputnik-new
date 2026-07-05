@@ -26,7 +26,7 @@ if ( ! $heading && ! $myth_text && ! $reality_text ) {
                 <span class="myth__label myth__label--myth"><?php echo esc_html( $myth_label ); ?></span>
             <?php endif; ?>
             <?php if ( $myth_text ) : ?>
-                <div class="myth__text"><?php echo wp_kses_post( wpautop( $myth_text ) ); ?></div>
+                <div class="myth__text"><?php echo wp_kses_post( $myth_text ); ?></div>
             <?php endif; ?>
         </div>
 
@@ -36,7 +36,7 @@ if ( ! $heading && ! $myth_text && ! $reality_text ) {
                 <span class="myth__label myth__label--reality"><?php echo esc_html( $reality_label ); ?></span>
             <?php endif; ?>
             <?php if ( $reality_text ) : ?>
-                <div class="myth__text"><?php echo wp_kses_post( wpautop( $reality_text ) ); ?></div>
+                <div class="myth__text"><?php echo wp_kses_post( $reality_text ); ?></div>
             <?php endif; ?>
         </div>
     </div>
