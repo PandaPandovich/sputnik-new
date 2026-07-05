@@ -287,6 +287,7 @@ console.log('Sputnik Plus theme loaded');
 	const fill = toc.querySelector('[data-toc-fill]');
 	const current = toc.querySelector('[data-toc-current]');
 	const toggle = toc.querySelector('[data-toc-toggle]');
+	const line = toc.querySelector('[data-toc-line]');
 
 	const headings = links
 		.map((l) => {
@@ -299,8 +300,17 @@ console.log('Sputnik Plus theme loaded');
 	function setActive(i) {
 		if (i === activeIndex) return;
 		activeIndex = i;
-		links.forEach((l, idx) => l.classList.toggle('is-active', idx === i));
+		links.forEach((l, idx) => {
+			l.classList.toggle('is-active', idx === i);
+			l.classList.toggle('is-read', idx <= i);
+		});
 		if (current) current.textContent = String(i + 1);
+	}
+
+	function paintLine() {
+		if (!line) return;
+		const link = links[activeIndex];
+		line.style.height = link ? link.offsetTop + link.offsetHeight + 'px' : '0px';
 	}
 
 	function update() {
@@ -325,6 +335,7 @@ console.log('Sputnik Plus theme loaded');
 			}
 		}
 		setActive(idx);
+		paintLine();
 	}
 
 	let ticking = false;

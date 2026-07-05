@@ -655,6 +655,7 @@ function sputnik_plus_render_toc( array $items ) {
 		</button>
 		<p class="toc__heading">В этой статье</p>
 		<nav class="toc__list">
+			<span class="toc__list-line" data-toc-line aria-hidden="true"></span>
 			<?php foreach ( $items as $item ) : ?>
 				<a class="toc__link" href="#<?php echo esc_attr( $item['id'] ); ?>" data-toc-link><?php echo esc_html( $item['text'] ); ?></a>
 			<?php endforeach; ?>
