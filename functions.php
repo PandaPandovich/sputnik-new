@@ -568,6 +568,102 @@ function sputnik_plus_breadcrumbs( array $items ) {
 }
 
 /**
+ * Строит оглавление из заголовков <h2> статьи.
+ * Проставляет id-якоря там, где их нет.
+ *
+ * @param string $html Отрендеренный контент (результат the_content).
+ * @return array{items: array<int, array{id: string, text: string}>, html: string}
+ */
+function sputnik_plus_build_toc( $html ) {
+	$min = 3;
+	if ( trim( (string) $html ) === '' ) {
+		return [ 'items' => [], 'html' => $html ];
+	}
+
+	libxml_use_internal_errors( true );
+	$dom = new DOMDocument();
+	$dom->loadHTML(
+		'<?xml encoding="UTF-8"?><div id="sputnik-toc-root">' . $html . '</div>',
+		LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+	);
+	libxml_clear_errors();
+
+	$headings = $dom->getElementsByTagName( 'h2' );
+	if ( $headings->length < $min ) {
+		return [ 'items' => [], 'html' => $html ];
+	}
+
+	$items = [];
+	$used  = [];
+	foreach ( $headings as $h ) {
+		$text = trim( $h->textContent );
+		if ( $text === '' ) {
+			continue;
+		}
+		$id = $h->getAttribute( 'id' );
+		if ( $id === '' ) {
+			$base = sanitize_title( $text );
+			if ( $base === '' ) {
+				$base = 'section';
+			}
+			$id = $base;
+			$n  = 2;
+			while ( isset( $used[ $id ] ) ) {
+				$id = $base . '-' . $n;
+				$n++;
+			}
+			$h->setAttribute( 'id', $id );
+		}
+		$used[ $id ] = true;
+		$items[]     = [ 'id' => $id, 'text' => $text ];
+	}
+
+	if ( count( $items ) < $min ) {
+		return [ 'items' => [], 'html' => $html ];
+	}
+
+	$root = $dom->getElementById( 'sputnik-toc-root' );
+	$out  = '';
+	foreach ( $root->childNodes as $child ) {
+		$out .= $dom->saveHTML( $child );
+	}
+
+	return [ 'items' => $items, 'html' => $out ];
+}
+
+/**
+ * Выводит сайдбар «Содержание» на основе списка разделов.
+ *
+ * @param array<int, array{id: string, text: string}> $items
+ */
+function sputnik_plus_render_toc( array $items ) {
+	if ( empty( $items ) ) {
+		return;
+	}
+	$total = count( $items );
+	$noun  = sputnik_plural( $total, 'раздела', 'разделов', 'разделов' );
+	?>
+	<aside class="toc" data-toc>
+		<div class="toc__progress">
+			<span class="toc__progress-label">Прогресс чтения</span>
+			<span class="toc__progress-count" data-toc-count><span data-toc-current>1</span> из <?php echo esc_html( (string) $total ); ?> <?php echo esc_html( $noun ); ?></span>
+			<div class="toc__progress-bar"><span class="toc__progress-fill" data-toc-fill></span></div>
+		</div>
+		<button type="button" class="toc__toggle" data-toc-toggle aria-expanded="false">
+			<span>Содержание</span>
+			<svg class="toc__chevron" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 5.25 7 8.75l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+		</button>
+		<p class="toc__heading">В этой статье</p>
+		<nav class="toc__list">
+			<?php foreach ( $items as $item ) : ?>
+				<a class="toc__link" href="#<?php echo esc_attr( $item['id'] ); ?>" data-toc-link><?php echo esc_html( $item['text'] ); ?></a>
+			<?php endforeach; ?>
+		</nav>
+	</aside>
+	<?php
+}
+
+/**
  * Русская плюрализация числительных.
  */
 function sputnik_plural( $n, $one, $few, $many ) {

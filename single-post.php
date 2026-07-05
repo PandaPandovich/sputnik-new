@@ -38,10 +38,18 @@ while ( have_posts() ) : the_post();
 	<?php endif; ?>
 
 	<!-- Контент статьи -->
+	<?php
+	$sputnik_rendered = apply_filters( 'the_content', get_the_content() );
+	$sputnik_toc      = sputnik_plus_build_toc( $sputnik_rendered );
+	$sputnik_has_toc  = ! empty( $sputnik_toc['items'] );
+	?>
 	<div class="single-post__body">
 		<div class="container">
-			<div class="single-post__content">
-				<?php the_content(); ?>
+			<div class="single-post__layout<?php echo $sputnik_has_toc ? '' : ' single-post__layout--full'; ?>">
+				<?php if ( $sputnik_has_toc ) { sputnik_plus_render_toc( $sputnik_toc['items'] ); } ?>
+				<div class="single-post__content">
+					<?php echo $sputnik_toc['html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</div>
 			</div>
 		</div>
 	</div>

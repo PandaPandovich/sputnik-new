@@ -1,0 +1,132 @@
+// Сайдбар «Содержание»
+.toc {
+  font-family: "Onest", sans-serif;
+
+  &__progress {
+    background: #f5f8fb;
+    border-radius: 10px;
+    padding: 0.875rem 1rem 1.125rem;
+    margin-bottom: 1.75rem;
+  }
+
+  &__progress-label {
+    display: block;
+    font-size: 0.6875rem;
+    letter-spacing: 0.03em;
+    color: #6b7a8f;
+    margin-bottom: 0.375rem;
+  }
+
+  &__progress-count {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #1e4976;
+    margin-bottom: 0.75rem;
+  }
+
+  &__progress-bar {
+    height: 4px;
+    border-radius: 2px;
+    background: #e4e9f0;
+    overflow: hidden;
+  }
+
+  &__progress-fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 2px;
+    background: #1e4976;
+    transition: width 0.15s linear;
+  }
+
+  &__heading {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7a8f;
+    margin: 0 0 0.75rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid #e4e9f0;
+  }
+
+  &__link {
+    display: block;
+    padding: 0.5rem 0 0.5rem 1.125rem;
+    margin-left: -2px;
+    border-left: 2px solid transparent;
+    font-size: 0.84375rem;
+    line-height: 1.4;
+    color: #4a5568;
+    text-decoration: none;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: #1e4976;
+    }
+
+    &.is-active {
+      color: #1e4976;
+      font-weight: 700;
+      border-left-color: #1e4976;
+    }
+  }
+
+  &__toggle {
+    display: none;
+  }
+
+  &__chevron {
+    transition: transform 0.2s ease;
+  }
+
+  // Мобильная гармошка
+  @media (max-width: 1024px) {
+    &__progress {
+      display: none;
+    }
+
+    &__heading {
+      display: none;
+    }
+
+    &__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background: #f5f8fb;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: #1e4976;
+      cursor: pointer;
+    }
+
+    &__list {
+      display: none;
+      margin-top: 0.75rem;
+    }
+  }
+
+  &.toc--open {
+    @media (max-width: 1024px) {
+      .toc__list {
+        display: flex;
+      }
+
+      .toc__chevron {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

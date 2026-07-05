@@ -271,3 +271,89 @@ console.log('Sputnik Plus theme loaded');
 		});
 	});
 })();
+
+/**
+ * Оглавление статьи: подсветка активного раздела,
+ * прогресс чтения и мобильная гармошка.
+ */
+(function () {
+	const toc = document.querySelector('[data-toc]');
+	if (!toc) return;
+
+	const links = Array.from(toc.querySelectorAll('[data-toc-link]'));
+	const content = document.querySelector('.single-post__content');
+	if (!links.length || !content) return;
+
+	const fill = toc.querySelector('[data-toc-fill]');
+	const current = toc.querySelector('[data-toc-current]');
+	const toggle = toc.querySelector('[data-toc-toggle]');
+
+	const headings = links
+		.map((l) => {
+			const id = decodeURIComponent(l.getAttribute('href').slice(1));
+			return document.getElementById(id);
+		})
+		.filter(Boolean);
+
+	let activeIndex = -1;
+	function setActive(i) {
+		if (i === activeIndex) return;
+		activeIndex = i;
+		links.forEach((l, idx) => l.classList.toggle('is-active', idx === i));
+		if (current) current.textContent = String(i + 1);
+	}
+
+	function update() {
+		const rect = content.getBoundingClientRect();
+		const scrollable = rect.height - window.innerHeight;
+		const passed = Math.min(Math.max(-rect.top, 0), Math.max(scrollable, 0));
+		let pct;
+		if (scrollable > 0) {
+			pct = (passed / scrollable) * 100;
+		} else {
+			pct = rect.bottom <= window.innerHeight ? 100 : 0;
+		}
+		if (fill) fill.style.width = pct.toFixed(1) + '%';
+
+		const offset = 120;
+		let idx = 0;
+		for (let i = 0; i < headings.length; i++) {
+			if (headings[i].getBoundingClientRect().top - offset <= 0) {
+				idx = i;
+			} else {
+				break;
+			}
+		}
+		setActive(idx);
+	}
+
+	let ticking = false;
+	function onScroll() {
+		if (ticking) return;
+		ticking = true;
+		requestAnimationFrame(() => {
+			update();
+			ticking = false;
+		});
+	}
+
+	window.addEventListener('scroll', onScroll, { passive: true });
+	window.addEventListener('resize', onScroll, { passive: true });
+	update();
+
+	if (toggle) {
+		toggle.addEventListener('click', function () {
+			const open = toc.classList.toggle('toc--open');
+			toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+		});
+	}
+
+	links.forEach((l) =>
+		l.addEventListener('click', function () {
+			if (toc.classList.contains('toc--open')) {
+				toc.classList.remove('toc--open');
+				if (toggle) toggle.setAttribute('aria-expanded', 'false');
+			}
+		})
+	);
+})();
