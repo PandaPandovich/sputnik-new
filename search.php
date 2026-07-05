@@ -60,7 +60,7 @@ $results_word = sputnik_plural( $total, 'результат', 'результа�
 						$tag     = $is_link ? 'a' : 'div';
 						?>
 						<<?php echo $tag; ?> class="search__result" data-type="<?php echo esc_attr( $r['type'] ); ?>"<?php echo $is_link ? ' href="' . esc_url( $r['url'] ) . '"' : ''; ?>>
-							<span class="search__result-icon search__result-icon--<?php echo esc_attr( $r['type'] ); ?>" aria-hidden="true"></span>
+							<span class="search__result-icon search__result-icon--<?php echo esc_attr( $r['type'] ); ?>" aria-hidden="true"><?php echo sputnik_search_icon( $r['type'] ); ?></span>
 							<div class="search__result-body">
 								<div class="search__result-meta">
 									<span class="search__result-type"><?php echo esc_html( $r['type_label'] ); ?></span>

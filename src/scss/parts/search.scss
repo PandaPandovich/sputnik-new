@@ -83,6 +83,11 @@
 		border-bottom: 1px solid var(--color-line);
 		text-decoration: none;
 		color: inherit;
+
+		// Перебивает display: flex, чтобы атрибут hidden (клиентская фильтрация) реально скрывал карточку.
+		&[hidden] {
+			display: none;
+		}
 	}
 
 	a.search__result:hover .search__result-title {
@@ -95,12 +100,21 @@
 		height: 40px;
 		border-radius: 10px;
 		background: var(--color-brand-tint);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-brand-blue);
 
-		&--article { background: var(--color-brand-tint); }
-		&--branch { background: var(--color-brand-tint-2); }
-		&--doctor { background: #E9F7EF; }
-		&--service { background: #FDECEC; }
-		&--page { background: var(--color-surface-50); }
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+
+		&--article { background: var(--color-brand-tint); color: var(--color-brand-blue); }
+		&--branch { background: var(--color-brand-tint-2); color: var(--color-ink-800); }
+		&--doctor { background: #E9F7EF; color: #2E9E5B; }
+		&--service { background: #FDECEC; color: var(--color-red); }
+		&--page { background: var(--color-surface-50); color: var(--color-text-secondary); }
 	}
 
 	&__result-body {

@@ -609,6 +609,22 @@ function sputnik_search_phone_link() {
 }
 
 /**
+ * Inline SVG-иконка для карточки результата поиска по её типу.
+ */
+function sputnik_search_icon( $type ) {
+	$paths = array(
+		'article' => '<path d="M5.5 3h6l3 3v11h-9z"/><path d="M11.5 3v3h3"/><path d="M7.5 10h5"/><path d="M7.5 13h5"/>',
+		'branch'  => '<path d="M4.5 16.5v-9l5.5-3 5.5 3v9"/><path d="M8.5 16.5v-3.5h3v3.5"/><path d="M10 6.5v2.5"/><path d="M8.75 7.75h2.5"/>',
+		'doctor'  => '<circle cx="10" cy="6.75" r="2.75"/><path d="M4.75 16.25a5.25 5.25 0 0 1 10.5 0"/>',
+		'service' => '<path d="M4 10.5 10.5 4H16v5.5L9.5 16z"/><circle cx="12.75" cy="7.25" r="1.1"/>',
+		'page'    => '<path d="M6 3h5l3 3v11H6z"/><path d="M11 3v3h3"/><path d="M8 10.5h4"/><path d="M8 13h4"/>',
+	);
+	$path = $paths[ $type ] ?? $paths['page'];
+
+	return '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $path . '</svg>';
+}
+
+/**
  * Сбор и нормализация результатов поиска из всех источников:
  * статьи (post), отделения (branch), врачи (опции team_members),
  * услуги (опции price_categories → prices).
