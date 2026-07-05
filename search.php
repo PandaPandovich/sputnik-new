@@ -75,12 +75,23 @@ $results_word = sputnik_plural( $total, 'результат', 'результа�
 							</div>
 							<div class="search__result-aside">
 								<?php if ( ! empty( $r['price'] ) ) : ?>
-									<span class="search__result-price"><?php echo esc_html( $r['price'] ); ?></span>
+									<span class="search__result-price"><?php echo esc_html( sputnik_format_price( $r['price'] ) ); ?></span>
 								<?php endif; ?>
 								<?php if ( ! empty( $r['bookable'] ) && $phone ) : ?>
 									<a class="search__result-book" href="tel:<?php echo esc_attr( $phone ); ?>">Записаться</a>
 								<?php elseif ( $is_link ) : ?>
-									<span class="search__result-arrow" aria-hidden="true">→</span>
+									<?php
+									$link_labels = array(
+										'article' => 'Читать',
+										'page'    => 'Перейти',
+										'branch'  => 'Перейти',
+									);
+									$link_label = isset( $link_labels[ $r['type'] ] ) ? $link_labels[ $r['type'] ] : 'Перейти';
+									?>
+									<span class="search__result-link">
+										<?php echo esc_html( $link_label ); ?>
+										<svg class="search__result-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 11 3M11 3H5.5M11 3v5.5"/></svg>
+									</span>
 								<?php endif; ?>
 							</div>
 						</<?php echo $tag; ?>>

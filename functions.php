@@ -625,6 +625,30 @@ function sputnik_search_icon( $type ) {
 }
 
 /**
+ * Форматирование цены услуги: разряды пробелом + символ ₽.
+ * Сохраняет текстовый префикс («от 1500» → «от 1 500 ₽») и нечисловые значения как есть.
+ */
+function sputnik_format_price( $price ) {
+	$price = trim( (string) $price );
+	if ( '' === $price ) {
+		return '';
+	}
+
+	// Числовая часть (цифры с возможными пробелами внутри).
+	if ( ! preg_match( '/\d[\d\s]*/u', $price, $m ) ) {
+		return $price; // Нечисловая цена («договорная») — возвращаем как есть.
+	}
+
+	$number    = (int) preg_replace( '/\D/', '', $m[0] );
+	$formatted = number_format( $number, 0, '', ' ' ) . ' ₽';
+
+	// Текст до числа (например «от»), без валютных символов.
+	$prefix = trim( mb_substr( $price, 0, mb_strpos( $price, $m[0] ) ) );
+
+	return trim( $prefix . ' ' . $formatted );
+}
+
+/**
  * Сбор и нормализация результатов поиска из всех источников:
  * статьи (post), отделения (branch), врачи (опции team_members),
  * услуги (опции price_categories → prices).
