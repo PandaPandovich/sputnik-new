@@ -34,7 +34,15 @@
     }
   }
 
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
   &__badge {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,8 +65,6 @@
   }
 
   &__label {
-    display: block;
-    margin: 0.75rem 0 0.5rem;
     font-family: 'Onest', sans-serif;
     font-size: 0.6875rem;
     font-weight: 700;
