@@ -9,7 +9,7 @@ $query   = get_search_query();
 $results = function_exists( 'sputnik_collect_search_results' ) ? sputnik_collect_search_results( $query ) : array();
 $total   = count( $results );
 
-$counts = array( 'all' => $total, 'service' => 0, 'article' => 0, 'branch' => 0, 'doctor' => 0 );
+$counts = array( 'all' => $total, 'service' => 0, 'article' => 0, 'branch' => 0, 'doctor' => 0, 'page' => 0 );
 foreach ( $results as $r ) {
 	if ( isset( $counts[ $r['type'] ] ) ) {
 		$counts[ $r['type'] ]++;
@@ -22,6 +22,7 @@ $filters = array(
 	'article' => 'Статьи',
 	'branch'  => 'Клиники',
 	'doctor'  => 'Врачи',
+	'page'    => 'Страницы',
 );
 
 $phone       = sputnik_search_phone_link();

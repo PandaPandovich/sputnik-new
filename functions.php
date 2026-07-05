@@ -620,6 +620,7 @@ function sputnik_collect_search_results( $query ) {
 	$post_map = array(
 		'post'   => array( 'type' => 'article', 'label' => 'Статья' ),
 		'branch' => array( 'type' => 'branch', 'label' => 'Отделение' ),
+		'page'   => array( 'type' => 'page', 'label' => 'Страница' ),
 	);
 	foreach ( $post_map as $pt => $meta ) {
 		if ( ! post_type_exists( $pt ) ) {
