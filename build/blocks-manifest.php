@@ -432,6 +432,53 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'editorScript' => 'file:./index.js'
 	),
+	'block-important' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/important',
+		'title' => 'Важно знать',
+		'category' => 'layout',
+		'icon' => 'info-outline',
+		'description' => 'Информационная плашка (callout) для тела статьи',
+		'keywords' => array(
+			'важно',
+			'callout',
+			'инфо',
+			'заметка'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js'
+	),
+	'block-myth' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/myth',
+		'title' => 'Миф и реальность',
+		'category' => 'layout',
+		'icon' => 'editor-contract',
+		'description' => 'Заголовок мифа и две карточки: миф и реальность',
+		'keywords' => array(
+			'миф',
+			'реальность',
+			'сравнение'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js'
+	),
 	'block-price-list' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -476,6 +523,29 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'editorScript' => 'file:./index.js',
 		'viewScript' => 'file:./view.js'
+	),
+	'block-quote' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/quote',
+		'title' => 'Цитата',
+		'category' => 'layout',
+		'icon' => 'format-quote',
+		'description' => 'Цитата с автором в стиле Спутник',
+		'keywords' => array(
+			'цитата',
+			'quote',
+			'автор'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js'
 	),
 	'block-reviews' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',

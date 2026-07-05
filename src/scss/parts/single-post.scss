@@ -112,8 +112,6 @@
 
     blockquote {
       margin: 2rem 0;
-      padding: 2rem 2.75rem;
-      border-left: 4px solid #e63946;
       background: none;
 
       p {
@@ -141,8 +139,6 @@
       }
 
       @media (max-width: 768px) {
-        padding: 1.25rem 1.5rem;
-
         p {
           font-size: 1.125rem;
         }
