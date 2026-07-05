@@ -19,8 +19,8 @@ foreach ( $results as $r ) {
 $filters = array(
 	'all'     => 'Все',
 	'service' => 'Услуги',
+	'branch'  => 'Отделения',
 	'article' => 'Статьи',
-	'branch'  => 'Клиники',
 	'doctor'  => 'Врачи',
 	'page'    => 'Страницы',
 );

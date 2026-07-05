@@ -33,10 +33,8 @@
 
 	&__filters-label {
 		font-size: .8125rem;
-		text-transform: uppercase;
-		letter-spacing: .04em;
 		color: var(--color-text-tertiary);
-		margin-bottom: .5rem;
+		margin-bottom: .75rem;
 	}
 
 	&__filter {
@@ -44,30 +42,41 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: .75rem;
-		padding: .625rem .875rem;
+		padding: .5rem 0;
 		border: 0;
 		background: transparent;
-		border-radius: .5rem;
 		cursor: pointer;
 		color: var(--color-text-secondary);
-		font-size: .9375rem;
+		font-size: 1rem;
 		text-align: left;
-		transition: background .15s, color .15s;
+		transition: color .15s;
 
 		&:hover {
-			background: var(--color-surface-50);
+			color: var(--color-brand-blue);
 		}
 
 		&.is-active {
-			background: var(--color-brand-tint);
 			color: var(--color-brand-blue);
 			font-weight: 600;
 		}
 	}
 
 	&__filter-count {
-		font-size: .8125rem;
+		flex: 0 0 auto;
+		min-width: 1.75rem;
+		padding: .125rem .5rem;
+		border-radius: 999px;
+		background: var(--color-brand-tint);
 		color: var(--color-text-tertiary);
+		font-size: .8125rem;
+		font-weight: 500;
+		line-height: 1.4;
+		text-align: center;
+	}
+
+	&__filter.is-active &__filter-count {
+		background: var(--color-brand-blue);
+		color: var(--color-white);
 	}
 
 	&__results {
