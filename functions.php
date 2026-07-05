@@ -394,6 +394,20 @@ add_action( 'wp_ajax_sputnik_search', 'sputnik_plus_ajax_search' );
 add_action( 'wp_ajax_nopriv_sputnik_search', 'sputnik_plus_ajax_search' );
 
 /**
+ * Регистрация стиля-вариации «Спутник» для ядрового блока «Цитата».
+ */
+function sputnik_plus_register_block_styles() {
+	register_block_style(
+		'core/quote',
+		[
+			'name'  => 'sputnik',
+			'label' => __( 'Спутник', 'sputnik-plus' ),
+		]
+	);
+}
+add_action( 'init', 'sputnik_plus_register_block_styles' );
+
+/**
  * Регистрация блоков через манифест (генерируется wp-scripts build-blocks-manifest).
  * Требуется WordPress 6.8+ для wp_register_block_types_from_metadata_collection.
  * Для WP 6.7 используйте wp_register_block_metadata_collection + ручная регистрация.

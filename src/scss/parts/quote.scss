@@ -1,24 +1,3 @@
-@use './mixins/vars' as v;
-@use './global/fonts.scss';
-
-:root {
-    --color-dark: #{v.$dark};
-    --color-blue: #{v.$blue};
-    --color-dark-blue: #{v.$dark-blue};
-    --color-white: #{v.$white};
-
-    --section-padding: 6rem;
-}
-
-html :where(.wp-block) {
-    max-width: 90%;
-    font-family: "Onest", sans-serif;
-    section {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-}
-
 .wp-block-quote.is-style-sputnik {
   margin: 2rem 0;
   padding: 0 0 0 2rem;
