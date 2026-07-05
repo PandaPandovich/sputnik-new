@@ -749,5 +749,17 @@ function sputnik_collect_search_results( $query ) {
 		}
 	}
 
+	// Порядок выдачи: страницы → отделения → услуги → врачи → статьи.
+	// usort стабилен (PHP 8.0+), поэтому порядок внутри каждого типа сохраняется.
+	$type_order = array( 'page' => 0, 'branch' => 1, 'service' => 2, 'doctor' => 3, 'article' => 4 );
+	usort(
+		$items,
+		function ( $a, $b ) use ( $type_order ) {
+			$pa = $type_order[ $a['type'] ] ?? 99;
+			$pb = $type_order[ $b['type'] ] ?? 99;
+			return $pa <=> $pb;
+		}
+	);
+
 	return $items;
 }
