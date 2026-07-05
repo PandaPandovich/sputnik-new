@@ -573,3 +573,144 @@ function sputnik_plus_breadcrumbs( array $items ) {
 	</nav>
 	<?php
 }
+
+/**
+ * Русская плюрализация числительных.
+ */
+function sputnik_plural( $n, $one, $few, $many ) {
+	$n  = abs( (int) $n ) % 100;
+	$n1 = $n % 10;
+	if ( $n > 10 && $n < 20 ) {
+		return $many;
+	}
+	if ( $n1 > 1 && $n1 < 5 ) {
+		return $few;
+	}
+	if ( 1 === $n1 ) {
+		return $one;
+	}
+	return $many;
+}
+
+/**
+ * Нормализованный телефон для tel:-ссылки (из настроек темы).
+ */
+function sputnik_search_phone_link() {
+	$phone = get_field( 'footer_phone', 'option' );
+	return preg_replace( '/[^\d+]/', '', (string) $phone );
+}
+
+/**
+ * Сбор и нормализация результатов поиска из всех источников:
+ * статьи (post), отделения (branch), врачи (опции team_members),
+ * услуги (опции price_categories → prices).
+ */
+function sputnik_collect_search_results( $query ) {
+	$query = trim( (string) $query );
+	$items = array();
+	if ( '' === $query ) {
+		return $items;
+	}
+
+	$match = function ( $haystack ) use ( $query ) {
+		return '' !== (string) $haystack && false !== mb_stripos( (string) $haystack, $query );
+	};
+
+	// Статьи и отделения — штатный поиск WordPress.
+	$post_map = array(
+		'post'   => array( 'type' => 'article', 'label' => 'Статья' ),
+		'branch' => array( 'type' => 'branch', 'label' => 'Отделение' ),
+	);
+	foreach ( $post_map as $pt => $meta ) {
+		if ( ! post_type_exists( $pt ) ) {
+			continue;
+		}
+		$q = new WP_Query(
+			array(
+				'post_type'      => $pt,
+				'post_status'    => 'publish',
+				's'              => $query,
+				'posts_per_page' => -1,
+				'no_found_rows'  => true,
+			)
+		);
+		while ( $q->have_posts() ) {
+			$q->the_post();
+			$items[] = array(
+				'type'       => $meta['type'],
+				'type_label' => $meta['label'],
+				'title'      => get_the_title(),
+				'breadcrumb' => 'article' === $meta['type'] ? get_the_date( 'j F Y' ) : null,
+				'excerpt'    => wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 24 ),
+				'url'        => get_permalink(),
+				'price'      => null,
+				'bookable'   => false,
+			);
+		}
+		wp_reset_postdata();
+	}
+
+	// Врачи — опции team_members.
+	$team = get_field( 'team_members', 'option' );
+	if ( is_array( $team ) ) {
+		foreach ( $team as $m ) {
+			$name   = (string) ( $m['name'] ?? '' );
+			$spec   = (string) ( $m['specialization'] ?? '' );
+			$tag    = (string) ( $m['tag'] ?? '' );
+			$branch = (string) ( $m['branch'] ?? '' );
+			$desc   = (string) ( $m['description'] ?? '' );
+			if ( $match( $name ) || $match( $spec ) || $match( $tag ) || $match( $branch ) || $match( $desc ) ) {
+				$crumb   = array_filter( array( $spec ?: $tag, $branch ) );
+				$items[] = array(
+					'type'       => 'doctor',
+					'type_label' => 'Врач',
+					'title'      => $name,
+					'breadcrumb' => $crumb ? implode( ' · ', $crumb ) : null,
+					'excerpt'    => $desc ? wp_trim_words( $desc, 24 ) : null,
+					'url'        => null,
+					'price'      => null,
+					'bookable'   => true,
+				);
+			}
+		}
+	}
+
+	// Услуги — опции price_categories → prices.
+	$categories = get_field( 'price_categories', 'option' );
+	if ( is_array( $categories ) ) {
+		foreach ( $categories as $cat ) {
+			$cat_name   = (string) ( $cat['name'] ?? '' );
+			$dept       = $cat['department'] ?? null;
+			$dept_title = '';
+			if ( is_object( $dept ) && isset( $dept->ID ) ) {
+				$dept_title = get_the_title( $dept->ID );
+			} elseif ( is_numeric( $dept ) ) {
+				$dept_title = get_the_title( (int) $dept );
+			}
+			$prices = $cat['prices'] ?? array();
+			if ( ! is_array( $prices ) ) {
+				continue;
+			}
+			foreach ( $prices as $p ) {
+				$service = (string) ( $p['price_category'] ?? '' );
+				$pdesc   = (string) ( $p['desc'] ?? '' );
+				$price   = (string) ( $p['price'] ?? '' );
+				if ( $match( $service ) || $match( $pdesc ) || $match( $cat_name ) || $match( $dept_title ) ) {
+					$crumb   = array_filter( array( $dept_title, $cat_name ) );
+					$items[] = array(
+						'type'       => 'service',
+						'type_label' => 'Услуга',
+						'title'      => $service,
+						'breadcrumb' => $crumb ? implode( ' · ', $crumb ) : null,
+						'excerpt'    => $pdesc ?: null,
+						'url'        => null,
+						'price'      => $price ?: null,
+						'bookable'   => true,
+					);
+				}
+			}
+		}
+	}
+
+	return $items;
+}
