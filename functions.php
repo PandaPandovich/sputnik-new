@@ -729,7 +729,10 @@ function sputnik_collect_search_results( $query ) {
 				$service = (string) ( $p['price_category'] ?? '' );
 				$pdesc   = (string) ( $p['desc'] ?? '' );
 				$price   = (string) ( $p['price'] ?? '' );
-				if ( $match( $service ) || $match( $pdesc ) || $match( $cat_name ) || $match( $dept_title ) ) {
+				// Матчим услугу по её собственному названию и описанию.
+				// Категория/отделение — только в хлебных крошках: иначе запрос по названию
+				// отделения («терапия») вытянул бы весь его прайс.
+				if ( $match( $service ) || $match( $pdesc ) ) {
 					$crumb   = array_filter( array( $dept_title, $cat_name ) );
 					$items[] = array(
 						'type'       => 'service',
