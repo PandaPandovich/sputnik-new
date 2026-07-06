@@ -57,7 +57,7 @@
     border-left: 2px solid #e4e9f0;
   }
 
-  // Вертикальная линия-прогресс: заполняется до текущего раздела
+  // Сегмент-индикатор: стоит рядом с активной ссылкой
   &__list-line {
     position: absolute;
     left: -2px;
@@ -65,7 +65,8 @@
     width: 2px;
     height: 0;
     background: #1e4976;
-    transition: height 0.2s ease;
+    opacity: 0;
+    transition: transform 0.25s ease, height 0.25s ease, opacity 0.25s ease;
   }
 
   &__link {
@@ -73,7 +74,7 @@
     padding: 0.5rem 0 0.5rem 1.125rem;
     font-size: 0.84375rem;
     line-height: 1.4;
-    color: #4a5568;
+    color: #8492a6;
     text-decoration: none;
     transition: color 0.15s ease;
 
@@ -81,10 +82,12 @@
       color: #1e4976;
     }
 
+    // Прочитанные разделы — приглушённо-тёмные
     &.is-read {
-      color: #1e4976;
+      color: #4a5568;
     }
 
+    // Текущий раздел — жирный и акцентный
     &.is-active {
       color: #1e4976;
       font-weight: 700;

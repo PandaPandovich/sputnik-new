@@ -289,11 +289,9 @@ console.log('Sputnik Plus theme loaded');
 	const toggle = toc.querySelector('[data-toc-toggle]');
 	const line = toc.querySelector('[data-toc-line]');
 
+	// id заголовков процент-кодированы (кириллица), поэтому ищем по «сырому» href
 	const headings = links
-		.map((l) => {
-			const id = decodeURIComponent(l.getAttribute('href').slice(1));
-			return document.getElementById(id);
-		})
+		.map((l) => document.getElementById(l.getAttribute('href').slice(1)))
 		.filter(Boolean);
 
 	let activeIndex = -1;
@@ -310,7 +308,14 @@ console.log('Sputnik Plus theme loaded');
 	function paintLine() {
 		if (!line) return;
 		const link = links[activeIndex];
-		line.style.height = link ? link.offsetTop + link.offsetHeight + 'px' : '0px';
+		if (!link) {
+			line.style.opacity = '0';
+			return;
+		}
+		// Сегмент линии стоит рядом с активной ссылкой
+		line.style.opacity = '1';
+		line.style.height = link.offsetHeight + 'px';
+		line.style.transform = 'translateY(' + link.offsetTop + 'px)';
 	}
 
 	function update() {
