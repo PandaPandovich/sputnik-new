@@ -289,6 +289,30 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'editorScript' => 'file:./index.js'
 	),
+	'block-documents' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/documents',
+		'title' => 'Документы',
+		'category' => 'layout',
+		'icon' => 'media-document',
+		'description' => 'Плитки документов с иконкой, названием, размером и ссылкой на скачивание',
+		'keywords' => array(
+			'документы',
+			'файлы',
+			'скачать',
+			'download'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js'
+	),
 	'block-faq' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
