@@ -1,1 +1,277 @@
-.price-list{padding:3.125rem 0 5rem}@media(max-width:768px){.price-list{padding:2rem 0 3rem}}.price-list__title{color:#1a2042;font-size:2.25rem;font-weight:700;letter-spacing:-1.5px;margin:0 0 2.5rem}@media(max-width:768px){.price-list__title{font-size:1.5rem;margin-bottom:1.5rem}}.price-list__layout{display:flex;gap:2rem}@media(max-width:768px){.price-list__layout{flex-direction:column;gap:1.5rem}}.price-list__sidebar{background:#f5f7fa;border-radius:0 1.25rem 0 0;flex-shrink:0;padding:2rem 1.5rem;width:16rem}@media(max-width:768px){.price-list__sidebar{background:none;border-radius:0;padding:0;width:100%}}.price-list__departments{display:flex;flex-direction:column;gap:1rem;list-style:none;margin:0;padding:0}@media(max-width:768px){.price-list__departments{display:flex;flex-wrap:wrap;gap:.5rem}}.price-list__department{color:#667b99;cursor:pointer;font-size:1.125rem;font-weight:500;line-height:1.34;opacity:.85;transition:color .2s}.price-list__department:hover{color:#172e45}.price-list__department.is-active{color:#172e45;font-weight:600;opacity:1}.price-list__department.has-results{color:#172e45;opacity:1}@media(max-width:768px){.price-list__department{background:#fff;border-radius:1.25rem;color:#627384;font-size:.75rem;font-weight:500;line-height:1;opacity:1;padding:.5625rem .9375rem}.price-list__department.is-active{background:#1d3658;color:#fff;font-weight:500}.price-list__department.has-results{color:#627384;opacity:1}}.price-list__category-arrow{margin-right:.25rem}@media(max-width:768px){.price-list__category-arrow{display:none}}.price-list__content{flex:1;min-width:0}.price-list__search{background:#fff;border:1px solid #e6e6e6;border-radius:.3125rem;margin-bottom:1.5rem;position:relative}.price-list__search-input{background:transparent;border:none;box-sizing:border-box;color:#333;font-family:Onest,sans-serif;font-size:.75rem;outline:none;padding:.75rem 2.75rem .75rem 1rem;width:100%}.price-list__search-input::-moz-placeholder{color:hsla(0,0%,71%,.8)}.price-list__search-input::placeholder{color:hsla(0,0%,71%,.8)}.price-list__search-icon{pointer-events:none;position:absolute;right:.75rem;top:50%;transform:translateY(-50%)}.price-list__dept-group{display:none}.price-list__dept-group.is-active{display:block}.price-list__table{margin-bottom:1.5rem}.price-list__table:last-child{margin-bottom:0}.price-list__table-header{align-items:center;border-bottom:1px solid #e3f0fd;display:flex;justify-content:space-between;margin-bottom:0;padding-bottom:.75rem}.price-list__table-name{color:#1a2042;font-size:1.125rem;font-weight:600;letter-spacing:.18px}.price-list__table-count{color:#172e45;font-size:1.125rem;font-weight:600;letter-spacing:-1.5px;white-space:nowrap}.price-list__row{align-items:center;border-bottom:1px solid #e0e7eb;display:flex;gap:1rem;justify-content:space-between;padding:.625rem .875rem}.price-list__row.is-hidden{display:none}@media(max-width:768px){.price-list__row{align-items:flex-start;flex-direction:column;gap:.25rem;padding:.75rem .5rem}}.price-list__row-name{color:#525d67;font-size:1rem;line-height:1.63}.price-list__row-price{color:#30373e;flex-shrink:0;font-size:1rem;line-height:1.63;white-space:nowrap}.price-list__show-all{background:none;border:none;color:#000;cursor:pointer;display:inline-block;font-family:Onest,sans-serif;font-size:1.0625rem;font-weight:500;padding:1rem 0;transition:opacity .2s}.price-list__show-all:hover{opacity:.7}.price-list__no-results{color:#667b99;font-size:1rem;padding:2rem 0;text-align:center}.price-list__cta{align-items:center;background:rgba(235,241,248,.7);border-radius:.4375rem;display:flex;gap:1.25rem;margin-top:2rem;padding:1.25rem 1.75rem}@media(max-width:768px){.price-list__cta{flex-direction:column;gap:.75rem;padding:1rem;text-align:center}}.price-list__cta-text{color:#172e45;font-size:1rem;font-weight:700}.price-list__cta-button{align-items:center;background:#172e45;border:1px solid #fff;border-radius:.3125rem;color:#fff;display:inline-flex;font-family:Onest,sans-serif;font-size:.875rem;font-weight:500;justify-content:center;line-height:1.5rem;padding:.5rem 1.5rem;text-decoration:none;transition:opacity .2s}.price-list__cta-button:hover{opacity:.85}
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/block-price-list/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+.price-list {
+  padding: 3.125rem 0 5rem;
+}
+@media (max-width: 768px) {
+  .price-list {
+    padding: 2rem 0 3rem;
+  }
+}
+.price-list__title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1A2042;
+  margin: 0 0 2.5rem;
+  letter-spacing: -1.5px;
+}
+@media (max-width: 768px) {
+  .price-list__title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+.price-list__layout {
+  display: flex;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .price-list__layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.price-list__sidebar {
+  flex-shrink: 0;
+  width: 16rem;
+  background: #F5F7FA;
+  border-radius: 0 1.25rem 0 0;
+  padding: 2rem 1.5rem;
+}
+@media (max-width: 768px) {
+  .price-list__sidebar {
+    width: 100%;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+  }
+}
+.price-list__departments {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 768px) {
+  .price-list__departments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+.price-list__department {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #667B99;
+  line-height: 1.34;
+  cursor: pointer;
+  transition: color 0.2s;
+  opacity: 0.85;
+}
+.price-list__department:hover {
+  color: #172E45;
+}
+.price-list__department.is-active {
+  font-weight: 600;
+  color: #172E45;
+  opacity: 1;
+}
+.price-list__department.has-results {
+  color: #172E45;
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .price-list__department {
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #627384;
+    background: #fff;
+    border-radius: 1.25rem;
+    padding: 0.5625rem 0.9375rem;
+    opacity: 1;
+  }
+  .price-list__department.is-active {
+    background: #1D3658;
+    color: #fff;
+    font-weight: 500;
+  }
+  .price-list__department.has-results {
+    color: #627384;
+    opacity: 1;
+  }
+}
+.price-list__category-arrow {
+  margin-right: 0.25rem;
+}
+@media (max-width: 768px) {
+  .price-list__category-arrow {
+    display: none;
+  }
+}
+.price-list__content {
+  flex: 1;
+  min-width: 0;
+}
+.price-list__search {
+  position: relative;
+  margin-bottom: 1.5rem;
+  border: 1px solid #E6E6E6;
+  border-radius: 0.3125rem;
+  background: #fff;
+}
+.price-list__search-input {
+  width: 100%;
+  padding: 0.75rem 2.75rem 0.75rem 1rem;
+  border: none;
+  outline: none;
+  font-family: "Onest", sans-serif;
+  font-size: 0.75rem;
+  color: #333;
+  background: transparent;
+  box-sizing: border-box;
+}
+.price-list__search-input::-moz-placeholder {
+  color: rgba(181, 181, 181, 0.8);
+}
+.price-list__search-input::placeholder {
+  color: rgba(181, 181, 181, 0.8);
+}
+.price-list__search-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.price-list__dept-group {
+  display: none;
+}
+.price-list__dept-group.is-active {
+  display: block;
+}
+.price-list__table {
+  margin-bottom: 1.5rem;
+}
+.price-list__table:last-child {
+  margin-bottom: 0;
+}
+.price-list__table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #E3F0FD;
+  margin-bottom: 0;
+}
+.price-list__table-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1A2042;
+  letter-spacing: 0.18px;
+}
+.price-list__table-count {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #172E45;
+  letter-spacing: -1.5px;
+  white-space: nowrap;
+}
+.price-list__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid #E0E7EB;
+  gap: 1rem;
+}
+.price-list__row.is-hidden {
+  display: none;
+}
+@media (max-width: 768px) {
+  .price-list__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0.75rem 0.5rem;
+  }
+}
+.price-list__row-name {
+  font-size: 1rem;
+  color: #525D67;
+  line-height: 1.63;
+}
+.price-list__row-price {
+  font-size: 1rem;
+  color: #30373E;
+  line-height: 1.63;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.price-list__show-all {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  font-family: "Onest", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.price-list__show-all:hover {
+  opacity: 0.7;
+}
+.price-list__no-results {
+  padding: 2rem 0;
+  font-size: 1rem;
+  color: #667B99;
+  text-align: center;
+}
+.price-list__cta {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(235, 241, 248, 0.7);
+  border-radius: 0.4375rem;
+  padding: 1.25rem 1.75rem;
+  margin-top: 2rem;
+}
+@media (max-width: 768px) {
+  .price-list__cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+}
+.price-list__cta-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #172E45;
+}
+.price-list__cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+  background: #172E45;
+  color: #fff;
+  font-family: "Onest", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #fff;
+  border-radius: 0.3125rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  line-height: 1.5rem;
+}
+.price-list__cta-button:hover {
+  opacity: 0.85;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

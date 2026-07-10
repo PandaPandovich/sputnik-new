@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/block-hero-services/index.css","mappings":";;;AACE;EACE;AAAJ,C","sources":["webpack://sputnik-plus/./src/blocks/block-hero-services/editor.scss"],"sourcesContent":[".services-hero {\n  &__image {\n    right: 0;\n  }\n}\n"],"names":[],"sourceRoot":""}

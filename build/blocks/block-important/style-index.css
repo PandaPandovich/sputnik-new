@@ -1,1 +1,54 @@
-.imp{align-items:flex-start;background:#fbf9f5;border-radius:.875rem;display:flex;gap:1rem;margin:2rem 0;padding:1.5rem 1.75rem}.imp__icon{align-items:center;background:#fff;border-radius:50%;color:#143358;display:flex;flex-shrink:0;font-family:Georgia,serif;font-size:1.125rem;font-style:italic;font-weight:700;height:2.5rem;justify-content:center;width:2.5rem}.imp__body{flex:1;min-width:0}.imp__title{color:#143358;font-size:.875rem;font-weight:700;letter-spacing:.5px;margin:0 0 .625rem!important;text-transform:uppercase}.imp__text,.imp__title{font-family:Onest,sans-serif}.imp__text{color:#2e3e55;font-size:.9375rem;line-height:1.6}.imp__text p{margin:0 0 .75rem}.imp__text p:last-child{margin-bottom:0}
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/block-important/style.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+.imp {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 2rem 0;
+  padding: 1.5rem 1.75rem;
+  background: #fbf9f5;
+  border-radius: 0.875rem;
+}
+.imp__icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 50%;
+  font-family: "Georgia", serif;
+  font-style: italic;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #143358;
+}
+.imp__body {
+  flex: 1;
+  min-width: 0;
+}
+.imp__title {
+  margin: 0 0 0.625rem !important;
+  font-family: "Onest", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #143358;
+  text-transform: uppercase;
+}
+.imp__text {
+  font-family: "Onest", sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #2e3e55;
+}
+.imp__text p {
+  margin: 0 0 0.75rem;
+}
+.imp__text p:last-child {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

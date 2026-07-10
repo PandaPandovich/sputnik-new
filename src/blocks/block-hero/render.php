@@ -1,4 +1,13 @@
 <?php
+// Нормализуем невидимые разделители строк (U+2028 / U+2029), которые попадают
+// в текст при вставке из макета. Safari на мобильных рендерит их нулевой шириной —
+// предлоги «склеиваются» с соседними словами. Заменяем на обычный пробел.
+if (!function_exists('sputnik_normalize_separators')) {
+    function sputnik_normalize_separators($value) {
+        return str_replace(["\xE2\x80\xA8", "\xE2\x80\xA9"], ' ', (string) $value);
+    }
+}
+
 $slides = get_field('slides');
 
 // Обратная совместимость: если репитер пустой, но есть старые поля — превращаем их в один слайд.
@@ -31,8 +40,8 @@ $multi = count($slides) > 1;
             <div class="hero__slider swiper<?php echo $multi ? ' hero__slider--multi' : ''; ?>">
                 <div class="swiper-wrapper">
                     <?php foreach ($slides as $slide):
-                        $title  = $slide['title']  ?? '';
-                        $text   = $slide['text']   ?? '';
+                        $title  = sputnik_normalize_separators($slide['title'] ?? '');
+                        $text   = sputnik_normalize_separators($slide['text']  ?? '');
                         $button = $slide['button'] ?? [];
                         $image  = $slide['image']  ?? 0;
                         ?>

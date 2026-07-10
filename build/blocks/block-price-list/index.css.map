@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/block-price-list/index.css","mappings":";;;AAAA;EACI;AACJ,C","sources":["webpack://sputnik-plus/./src/blocks/block-price-list/editor.scss"],"sourcesContent":[".price-list {\n    pointer-events: none;\n}\n"],"names":[],"sourceRoot":""}

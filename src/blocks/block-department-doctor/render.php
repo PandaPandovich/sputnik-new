@@ -94,11 +94,11 @@ if ( $doctor_ids ) {
             <div class="team-modal__window">
                 <div class="team-modal__left">
                     <img class="team-modal__photo" id="deptModalPhoto" src="" alt="">
-                </div>
-                <div class="team-modal__right">
                     <button class="team-modal__close" id="deptDoctorModalClose" aria-label="Закрыть">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="#1D3658" stroke-width="1.5"/></svg>
                     </button>
+                </div>
+                <div class="team-modal__right">
                     <div class="team-modal__content">
                         <span class="team-modal__tag" id="deptModalTag"></span>
                         <h2 class="team-modal__name" id="deptModalName"></h2>
