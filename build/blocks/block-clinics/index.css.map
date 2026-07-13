@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/block-clinics/index.css","mappings":";;;AACI;EACI;AAAR,C","sources":["webpack://sputnik-plus/./src/blocks/block-clinics/editor.scss"],"sourcesContent":[".hero {\n    &__bg {\n        right: 0;\n    }\n}"],"names":[],"sourceRoot":""}
