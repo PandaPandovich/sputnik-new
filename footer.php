@@ -100,16 +100,7 @@ $footer_links = get_field('footer_links', 'option');
     <div class="container">
         <div class="cookie-banner__inner">
             <p class="cookie-banner__text">
-                Мы используем файлы cookie и обрабатываем данные о посещении сайта,
-                чтобы улучшить его работу и сделать удобнее для вас. Продолжая пользоваться сайтом,
-                вы даёте согласие на обработку cookie и персональных данных в соответствии
-                с Федеральным законом № 152-ФЗ
-                <?php if ($privacy_url): ?>
-                    и <a href="<?php echo esc_url($privacy_url); ?>" class="cookie-banner__link">Политикой
-                        конфиденциальности</a>.
-                <?php else: ?>
-                    .
-                <?php endif; ?>
+               Мы используем файлы cookie и обрабатываем данные о посещении сайта, в том числе с передачей данных в ООО «Яндекс», чтобы улучшить его работу и сделать удобнее для вас. Продолжая пользоваться сайтом, вы даёте согласие на обработку cookie и персональных данных, а так же на их передачу в ООО «Яндекс», в соответствии с Федеральным законом № 152-ФЗ.
             </p>
             <div class="cookie-banner__actions">
                 <button type="button" class="cookie-banner__btn cookie-banner__btn--decline"
