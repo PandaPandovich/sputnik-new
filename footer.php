@@ -5,6 +5,8 @@ $footer_email = get_field('footer_email', 'option');
 $footer_worktime = get_field('footer_worktime', 'option');
 $footer_branches = get_field('footer_branches', 'option');
 $footer_links = get_field('footer_links', 'option');
+$footer_telegram = get_field('footer_telegram', 'option');
+$footer_vk = get_field('footer_vk', 'option');
 ?>
 
 <footer class="footer">
@@ -40,6 +42,32 @@ $footer_links = get_field('footer_links', 'option');
                             </a>
                         <?php endif; ?>
                     </div>
+                    <?php if ($footer_telegram || $footer_vk): ?>
+                        <div class="footer__socials">
+                            <?php if ($footer_telegram): ?>
+                                <a href="<?php echo esc_url($footer_telegram); ?>" class="footer__social" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Telegram">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+                                        focusable="false">
+                                        <path
+                                            d="M21.05 4.36 3.4 11.16c-1.2.48-1.2 1.17-.22 1.47l4.53 1.41 1.73 5.29c.21.58.11.81.72.81.47 0 .68-.22.94-.47l2.26-2.2 4.7 3.48c.87.48 1.49.23 1.71-.8l3.09-14.6c.32-1.27-.48-1.84-1.31-1.46l-.5.27ZM8.7 13.72l10.19-6.43c.51-.31.98-.14.6.2l-8.73 7.88-.34 3.63-1.72-5.28Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ($footer_vk): ?>
+                                <a href="<?php echo esc_url($footer_vk); ?>" class="footer__social" target="_blank"
+                                    rel="noopener noreferrer" aria-label="ВКонтакте">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+                                        focusable="false">
+                                        <path
+                                            d="M12.94 17.03c-5.53 0-8.9-3.83-9.04-10.2h2.79c.09 4.68 2.19 6.65 3.8 7.05V6.83h2.66v4.02c1.56-.17 3.19-1.98 3.74-4.02h2.6a7.53 7.53 0 0 1-3.42 4.93 7.8 7.8 0 0 1 4 5.27h-2.87c-.62-1.94-2.1-3.44-4.05-3.64v3.64h-.21Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <?php if ($footer_branches): ?>
                     <div class="footer__info-adresses">

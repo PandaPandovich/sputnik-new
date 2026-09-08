@@ -70,6 +70,8 @@ $first_dept = true;
 <section class="price-list">
     <div class="container">
         <h2 class="price-list__title">Наши услуги</h2>
+        <p class="price-list__note">Цены на сайте указаны для ознакомления и могут меняться. Чтобы узнать точную
+            стоимость, свяжитесь с нами удобным для вас способом</p>
 
         <div class="price-list__layout">
             <!-- Боковая навигация по отделениям -->

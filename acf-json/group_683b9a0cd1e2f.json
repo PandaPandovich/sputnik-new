@@ -151,6 +151,42 @@
             "append": ""
         },
         {
+            "key": "field_68f1a2b3c4d01",
+            "label": "Telegram",
+            "name": "footer_telegram",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Ссылка на канал в Telegram. Оставьте пустым, чтобы скрыть иконку",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": "https://t.me/"
+        },
+        {
+            "key": "field_68f1a2b3c4d02",
+            "label": "ВКонтакте",
+            "name": "footer_vk",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Ссылка на группу во ВКонтакте. Оставьте пустым, чтобы скрыть иконку",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": "https://vk.com/"
+        },
+        {
             "key": "field_683b9a0cd1002",
             "label": "Телефон",
             "name": "footer_phone",
@@ -343,5 +379,5 @@
     "display_title": "",
     "allow_ai_access": 1,
     "ai_description": "",
-    "modified": 1781481600
+    "modified": 1788134400
 }
