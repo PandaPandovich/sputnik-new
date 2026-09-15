@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sputnik/careers-why",
+    "title": "Careers Why Block",
+    "category": "layout",
+    "icon": "awards",
+    "description": "Преимущества работы в клинике — иконки с короткими подписями",
+    "keywords": ["careers", "вакансии", "преимущества"],
+    "acf": {
+        "blockVersion": 3,
+        "autoInlineEditing": true,
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "style": "file:./style-index.css",
+    "editorStyle": "file:./index.css",
+    "editorScript": "file:./index.js"
+}

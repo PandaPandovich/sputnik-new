@@ -1,0 +1,80 @@
+@use '../../scss/ui/button.scss' as *;
+
+.careers-cta {
+  padding: var(--section-padding) 0;
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: stretch;
+    gap: 0;
+    background: #ECF6FD;
+    border-radius: 1.125rem;
+    overflow: hidden;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+
+    // Фото не задано — текст занимает всю ширину.
+    &--no-media {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__media {
+    min-height: 17.5rem;
+    // Подложка видна, пока изображение грузится.
+    background: linear-gradient(150deg, #DAECF8 0%, #C9E2F4 100%);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      min-height: 12rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem;
+
+    @media (max-width: 900px) {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 120%;
+    color: #103559;
+    margin: 0;
+
+    @media (max-width: 800px) {
+      font-size: 1.375rem;
+    }
+  }
+
+  &__text {
+    font-size: 1rem;
+    line-height: 150%;
+    color: #3C4C5B;
+    margin: 1rem 0 0;
+    max-width: 26rem;
+  }
+
+  &__button {
+    @include button;
+    margin-top: 2rem;
+    padding: 0.9375rem 1.75rem;
+    font-size: 1rem;
+  }
+}

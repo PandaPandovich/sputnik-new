@@ -108,6 +108,124 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'editorScript' => 'file:./index.js'
 	),
+	'block-careers-cta' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/careers-cta',
+		'title' => 'Careers CTA Block',
+		'category' => 'layout',
+		'icon' => 'megaphone',
+		'description' => 'CTA-блок «Не нашли подходящую вакансию?» с отправкой резюме',
+		'keywords' => array(
+			'careers',
+			'cta',
+			'резюме',
+			'вакансии'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js'
+	),
+	'block-careers-hero' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/careers-hero',
+		'title' => 'Careers Hero Block',
+		'category' => 'layout',
+		'icon' => 'businessperson',
+		'description' => 'Первый экран страницы «Вакансии»',
+		'keywords' => array(
+			'careers',
+			'вакансии',
+			'работа',
+			'hero'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js'
+	),
+	'block-careers-steps' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/careers-steps',
+		'title' => 'Careers Steps Block',
+		'category' => 'layout',
+		'icon' => 'editor-ol',
+		'description' => 'Пошаговый процесс найма',
+		'keywords' => array(
+			'careers',
+			'найм',
+			'шаги',
+			'процесс'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js'
+	),
+	'block-careers-team' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/careers-team',
+		'title' => 'Careers Team Block',
+		'category' => 'layout',
+		'icon' => 'groups',
+		'description' => 'Тизер «Наша команда» — текст, фото сотрудников и ссылка на страницу команды',
+		'keywords' => array(
+			'careers',
+			'команда',
+			'team'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js'
+	),
+	'block-careers-why' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/careers-why',
+		'title' => 'Careers Why Block',
+		'category' => 'layout',
+		'icon' => 'awards',
+		'description' => 'Преимущества работы в клинике — иконки с короткими подписями',
+		'keywords' => array(
+			'careers',
+			'вакансии',
+			'преимущества'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js'
+	),
 	'block-clinics' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -672,6 +790,30 @@ return array(
 			'team',
 			'команда',
 			'врачи'
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'autoInlineEditing' => true,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'style' => 'file:./style-index.css',
+		'editorStyle' => 'file:./index.css',
+		'editorScript' => 'file:./index.js',
+		'viewScript' => 'file:./view.js'
+	),
+	'block-vacancies' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'sputnik/vacancies',
+		'title' => 'Vacancies Block',
+		'category' => 'layout',
+		'icon' => 'id-alt',
+		'description' => 'Открытые вакансии — фильтры по направлениям и список карточек',
+		'keywords' => array(
+			'vacancies',
+			'вакансии',
+			'работа'
 		),
 		'acf' => array(
 			'blockVersion' => 3,

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/vacancies",
+  "title": "Vacancies Block",
+  "category": "layout",
+  "icon": "id-alt",
+  "description": "Открытые вакансии — фильтры по направлениям и список карточек",
+  "keywords": [
+    "vacancies",
+    "вакансии",
+    "работа"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js"
+}

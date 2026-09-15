@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/careers-cta",
+  "title": "Careers CTA Block",
+  "category": "layout",
+  "icon": "megaphone",
+  "description": "CTA-блок «Не нашли подходящую вакансию?» с отправкой резюме",
+  "keywords": [
+    "careers",
+    "cta",
+    "резюме",
+    "вакансии"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}

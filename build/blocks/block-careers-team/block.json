@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/careers-team",
+  "title": "Careers Team Block",
+  "category": "layout",
+  "icon": "groups",
+  "description": "Тизер «Наша команда» — текст, фото сотрудников и ссылка на страницу команды",
+  "keywords": [
+    "careers",
+    "команда",
+    "team"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}

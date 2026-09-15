@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sputnik/careers-hero",
+  "title": "Careers Hero Block",
+  "category": "layout",
+  "icon": "businessperson",
+  "description": "Первый экран страницы «Вакансии»",
+  "keywords": [
+    "careers",
+    "вакансии",
+    "работа",
+    "hero"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js"
+}

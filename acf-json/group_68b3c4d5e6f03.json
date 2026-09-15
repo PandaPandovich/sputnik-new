@@ -1,0 +1,360 @@
+{
+    "key": "group_68b3c4d5e6f03",
+    "title": "Блок «Открытые вакансии»",
+    "fields": [
+        {
+            "key": "field_68b3c4d5e6001",
+            "label": "Заголовок",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68b3c4d5e6002",
+            "label": "Подзаголовок",
+            "name": "subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_68b3c4d5e6003",
+            "label": "Подпись кнопки «все направления»",
+            "name": "all_filter_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Остальные кнопки фильтра собираются автоматически из поля «Направление» у вакансий.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Все",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68b3c4d5e6004",
+            "label": "Вакансии",
+            "name": "items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_68b3c4d5e6005",
+            "button_label": "Добавить вакансию",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_68b3c4d5e6005",
+                    "label": "Название",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_68b3c4d5e6004"
+                },
+                {
+                    "key": "field_68b3c4d5e6006",
+                    "label": "Направление",
+                    "name": "group",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Формирует кнопку фильтра. У вакансий одного направления название должно совпадать буква в букву.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_68b3c4d5e6004"
+                },
+                {
+                    "key": "field_68b3c4d5e6007",
+                    "label": "Город",
+                    "name": "city",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_68b3c4d5e6004"
+                },
+                {
+                    "key": "field_68b3c4d5e6008",
+                    "label": "График",
+                    "name": "schedule",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_68b3c4d5e6004"
+                },
+                {
+                    "key": "field_68b3c4d5e6009",
+                    "label": "Зарплата",
+                    "name": "salary",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_68b3c4d5e6004"
+                },
+                {
+                    "key": "field_68b3c4d5e6010",
+                    "label": "Описание",
+                    "name": "about",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": 3,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_68b3c4d5e6004"
+                },
+                {
+                    "key": "field_68b3c4d5e6011",
+                    "label": "Что предстоит делать",
+                    "name": "duties",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Один пункт списка — одна строка.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": 5,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_68b3c4d5e6004"
+                },
+                {
+                    "key": "field_68b3c4d5e6012",
+                    "label": "Что мы ждём",
+                    "name": "requirements",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Один пункт списка — одна строка.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": 5,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_68b3c4d5e6004"
+                },
+                {
+                    "key": "field_68b3c4d5e6013",
+                    "label": "Что предлагаем",
+                    "name": "offer",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Один пункт списка — одна строка.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": 5,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_68b3c4d5e6004"
+                }
+            ]
+        },
+        {
+            "key": "field_68b3c4d5e6014",
+            "label": "Подпись под кнопкой «Откликнуться»",
+            "name": "apply_note",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ответим в течение двух рабочих дней",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68b3c4d5e6016",
+            "label": "Форма отклика",
+            "name": "form",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Форма Contact Form 7, которая открывается по кнопке «Откликнуться». Поля формы, текст согласия и письмо настраиваются в разделе «Контактная форма».",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": [],
+            "default_value": "",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "allow_in_bindings": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "sputnik\/vacancies"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": 1,
+    "ai_description": "",
+    "modified": 1789413783
+}
