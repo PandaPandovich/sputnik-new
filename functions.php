@@ -511,6 +511,121 @@ add_filter( 'acf/load_field/key=field_685b2c3d4e009', function( $field ) {
 } );
 
 /**
+ * Сотрудники из ACF options (Настройки темы → Команда) в виде «ФИО — специализация».
+ *
+ * Ключ — ФИО, а не порядковый номер, как в блоке врача отделения выше:
+ * перетасовка списка в настройках темы не должна переназначать уже выбранных
+ * сотрудников в блоках.
+ *
+ * @return array<string,string>
+ */
+function sputnik_plus_team_member_choices() {
+	static $choices = null;
+
+	if ( null !== $choices ) {
+		return $choices;
+	}
+
+	$choices = [];
+	$team    = get_field( 'team_members', 'option' );
+
+	if ( $team ) {
+		foreach ( $team as $member ) {
+			$name = isset( $member['name'] ) ? trim( $member['name'] ) : '';
+			if ( '' === $name ) {
+				continue;
+			}
+
+			$choices[ $name ] = ! empty( $member['specialization'] )
+				? $name . ' — ' . $member['specialization']
+				: $name;
+		}
+	}
+
+	return $choices;
+}
+
+/**
+ * Данные сотрудника из «Настройки темы → Команда» по ФИО.
+ *
+ * @param string $name ФИО, сохранённое в поле блока.
+ * @return array|null Строка репитера team_members либо null, если сотрудника
+ *                    переименовали или удалили.
+ */
+function sputnik_plus_get_team_member( $name ) {
+	static $index = null;
+
+	if ( null === $index ) {
+		$index = [];
+		$team  = get_field( 'team_members', 'option' );
+
+		if ( $team ) {
+			foreach ( $team as $member ) {
+				$key = isset( $member['name'] ) ? trim( $member['name'] ) : '';
+				if ( '' !== $key && ! isset( $index[ $key ] ) ) {
+					$index[ $key ] = $member;
+				}
+			}
+		}
+	}
+
+	return $index[ $name ] ?? null;
+}
+
+/**
+ * Динамическое заполнение выпадайки сотрудников
+ * в блоке «Наша команда» на странице вакансий.
+ */
+add_filter( 'acf/load_field/key=field_68b4d5e6f7006', function ( $field ) {
+	$field['choices'] = sputnik_plus_team_member_choices();
+
+	return $field;
+} );
+
+/**
+ * Динамическое заполнение выпадайки «Форма отклика» в блоке вакансий
+ * списком форм Contact Form 7. Значение — ID формы: заголовок могут переименовать.
+ */
+add_filter( 'acf/load_field/key=field_68b3c4d5e6016', function ( $field ) {
+	$field['choices'] = [];
+
+	if ( ! post_type_exists( 'wpcf7_contact_form' ) ) {
+		return $field;
+	}
+
+	$forms = get_posts(
+		[
+			'post_type'   => 'wpcf7_contact_form',
+			'post_status' => 'publish',
+			'numberposts' => -1,
+			'orderby'     => 'title',
+			'order'       => 'ASC',
+		]
+	);
+
+	foreach ( $forms as $form ) {
+		$field['choices'][ $form->ID ] = $form->post_title;
+	}
+
+	return $field;
+} );
+
+/**
+ * Форма отклика свёрстана вручную на классах темы, поэтому wpautop
+ * ей только мешает — он насыпал бы <p> внутрь разметки.
+ * Остальные формы продолжают форматироваться штатно.
+ */
+add_filter( 'wpcf7_autop_or_not', function ( $autop ) {
+	if ( ! class_exists( 'WPCF7_ContactForm' ) ) {
+		return $autop;
+	}
+
+	$form = WPCF7_ContactForm::get_current();
+
+	return ( $form && 'vacancy-application' === $form->name() ) ? false : $autop;
+} );
+
+/**
  * URL страницы блога (любая страница, использующая шаблон home.php).
  * Если такой страницы нет, возвращает главную.
  */
