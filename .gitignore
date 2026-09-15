@@ -1,3 +1,5 @@
 node_modules
 ./maket
 .npm-cache
+.playwright-mcp
+.DS_Store
