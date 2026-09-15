@@ -25,25 +25,18 @@
 
 ---
 
-### Task 1: Ветка и гигиена репозитория
+### Task 1: Гигиена репозитория
 
-Прод тянет `main`, поэтому работу ведём в ветке и вливаем перед выкаткой. Заодно закрываем мусор, который иначе уедет в коммит: в статусе висят 20 файлов `.playwright-mcp/` и `.DS_Store`.
+Работаем прямо в `main` — прод тянет именно его. Закрываем мусор, который иначе уедет в коммит: в статусе висят 20 файлов `.playwright-mcp/` и `.DS_Store`.
 
 **Files:**
 - Modify: `.gitignore`
 
 **Interfaces:**
 - Consumes: —
-- Produces: ветка `feature/careers-prod-migration`, из которой работают все последующие задачи.
+- Produces: чистый `git status`, в котором видны только файлы миграции.
 
-- [ ] **Step 1: Создать рабочую ветку**
-
-```bash
-cd /Volumes/Webwork/sputnik-vet/wp-content/themes/sputnik-new
-git checkout -b feature/careers-prod-migration
-```
-
-- [ ] **Step 2: Убедиться, что мусор действительно не игнорируется**
+- [ ] **Step 1: Убедиться, что мусор действительно не игнорируется**
 
 ```bash
 git status --porcelain | grep -c '^?? \.playwright-mcp/'
@@ -51,7 +44,7 @@ git status --porcelain | grep -c '^?? \.playwright-mcp/'
 
 Ожидается: число больше нуля (сейчас 20). Если ноль — шаг 3 всё равно выполнить, правило на будущее.
 
-- [ ] **Step 3: Дописать `.gitignore`**
+- [ ] **Step 2: Дописать `.gitignore`**
 
 Текущее содержимое — три строки (`node_modules`, `./maket`, `.npm-cache`). Привести к виду:
 
@@ -63,7 +56,7 @@ node_modules
 .DS_Store
 ```
 
-- [ ] **Step 4: Проверить, что мусор исчез из статуса**
+- [ ] **Step 3: Проверить, что мусор исчез из статуса**
 
 ```bash
 git status --porcelain | grep -E '^\?\? (\.playwright-mcp/|\.DS_Store)' | wc -l
@@ -71,7 +64,7 @@ git status --porcelain | grep -E '^\?\? (\.playwright-mcp/|\.DS_Store)' | wc -l
 
 Ожидается: `0`.
 
-- [ ] **Step 5: Коммит**
+- [ ] **Step 4: Коммит**
 
 ```bash
 git add .gitignore
@@ -797,17 +790,15 @@ git commit -m "feat(careers): выпадайки сотрудников и фо�
 - [ ] **Step 7: Убедиться, что посторонние файлы не уехали**
 
 ```bash
-git log --oneline main..HEAD
-git diff --stat main..HEAD -- docs/superpowers
+git status --porcelain
+git log --oneline origin/main..HEAD
 ```
 
-Ожидается: список коммитов задач 1–5, и **пустой** вывод второй команды — файлы `docs/superpowers/*search-results-page*` относятся к ветке `feature/search-results-page` и в этой миграции не участвуют.
+Ожидается: в первой команде остались только untracked `docs/superpowers/*search-results-page*` — они относятся к ветке `feature/search-results-page` и в этой миграции не участвуют. Во второй — коммиты задач 1–5.
 
-- [ ] **Step 8: Влить в `main` и отправить**
+- [ ] **Step 8: Отправить в `main`**
 
 ```bash
-git checkout main
-git merge --no-ff feature/careers-prod-migration -m "merge: миграция страницы вакансий на прод"
 git push origin main
 ```
 
@@ -1003,6 +994,6 @@ curl -so /dev/null -w '%{http_code}\n' "$(wp eval 'echo get_permalink( get_page_
 
 ## Откат
 
-- **Код:** `git revert <хеш merge-коммита>` в `main`, затем `git pull` на проде.
+- **Код:** `git revert` коммитов задач 1–5 в `main`, затем `git pull` на проде. Ключевой — коммит `feat(careers): шесть блоков страницы вакансий и ACF-группы`: без него страница перестанет рендериться, даже если остальное останется.
 - **Контент:** вернуть страницу в черновик (`wp post update <ID> --post_status=draft`) либо в корзину. Форма CF7 и четыре иконки безвредны сами по себе; удаляются вручную при необходимости.
 - **Полный откат:** восстановить дамп из Task 6, шаг 6.
