@@ -373,3 +373,56 @@ console.log('Sputnik Plus theme loaded');
 		})
 	);
 })();
+
+/**
+ * Онлайн-запись с предвыбранной услугой.
+ *
+ * Видимые кнопки в блоках услуг несут только ключ; название услуги и имя поля
+ * формы лежат на скрытом триггере в подвале (см. sputnik_crm_booking_triggers()).
+ * Перехватываем клик на фазе погружения — раньше обработчика, который Битрикс
+ * вешает на сам триггер, — и кладём значение в window.b24form.user: загрузчик
+ * читает его в момент создания формы (app.bundle.js, getUserProvider24) и
+ * передаёт в form.setValues().
+ */
+(function () {
+	const PROXY = '.crm-booking-triggers__item';
+
+	document.addEventListener(
+		'click',
+		function (e) {
+			const target = e.target instanceof Element ? e.target : null;
+			const trigger = target && target.closest('[data-b24-key]');
+
+			// b24form.user глобальный и живёт до следующего клика: без сброса
+			// услуга утечёт в форму, открытую кнопкой без услуги, — например
+			// «Связаться» в шапке.
+			if (!trigger) {
+				if (window.b24form) delete window.b24form.user;
+				return;
+			}
+
+			const proxy = document.querySelector(
+				PROXY + '[data-b24-key="' + trigger.dataset.b24Key + '"]'
+			);
+			if (!proxy) return;
+
+			const field = proxy.dataset.b24Field;
+			// Поле «Услуга» в форме — список, и предзаполняется он id пункта,
+			// а не подписью: передача названия не срабатывает. Id проставляет
+			// PHP по карте категорий; пусто — значит категории в карте нет,
+			// тогда просто открываем форму без подстановки.
+			const value = proxy.dataset.b24Service;
+			window.b24form = window.b24form || {};
+
+			if (field && value) {
+				window.b24form.user = { fields: { [field]: value } };
+			} else {
+				delete window.b24form.user;
+			}
+
+			// Клик по самому триггеру — это уже проброс, замыкать его не нужно.
+			if (trigger !== proxy) proxy.click();
+		},
+		true
+	);
+})();

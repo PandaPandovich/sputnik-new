@@ -20,8 +20,12 @@ $image = get_field('image');
                         <p class="hero-inner__desc"><?php echo $desc; ?></p>
                     <?php endif; ?>
                 </div>
+                <?php // Кнопка открывает форму онлайн-записи; из ACF-ссылки берётся только подпись. ?>
                 <?php if (is_array($button) && !empty($button['url'])): ?>
-                    <a href="<?php echo esc_url($button['url']); ?>" class="hero-inner__button" <?php echo !empty($button['target']) ? 'target="' . esc_attr($button['target']) . '"' : ''; ?>><?php echo esc_html($button['title']); ?></a>
+                    <?php sputnik_crm_booking_open_button(
+                        !empty($button['title']) ? $button['title'] : 'Записаться',
+                        'hero-inner__button'
+                    ); ?>
                 <?php endif; ?>
             </div>
             <?php if ($image): ?>

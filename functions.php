@@ -975,3 +975,310 @@ function sputnik_collect_search_results( $query ) {
 
 	return $items;
 }
+
+/**
+ * Онлайн-запись: параметры CRM-формы Битрикс24.
+ *
+ * По умолчанию — локальное окружение. Для прода переопределяются константами
+ * в wp-config.php, код темы править не нужно.
+ */
+if ( ! defined( 'SPUTNIK_CRM_URL' ) ) {
+	define( 'SPUTNIK_CRM_URL', 'http://sputnik.crm' );
+}
+if ( ! defined( 'SPUTNIK_CRM_FORM_ID' ) ) {
+	define( 'SPUTNIK_CRM_FORM_ID', '15' );
+}
+if ( ! defined( 'SPUTNIK_CRM_FORM_SEC' ) ) {
+	define( 'SPUTNIK_CRM_FORM_SEC', '5asnhp' );
+}
+/**
+ * Имя поля «Услуга» в форме №15 — в него подставляется услуга, с кнопки которой
+ * открыли запись. Берётся из конфига формы (loader_<id>_<sec>.js, data.fields[].name)
+ * и меняется при пересборке формы, поэтому вынесено в константу.
+ * Пустое значение отключает подстановку: кнопки продолжают открывать форму как есть.
+ */
+if ( ! defined( 'SPUTNIK_CRM_FORM_SERVICE_FIELD' ) ) {
+	define( 'SPUTNIK_CRM_FORM_SERVICE_FIELD', 'DEAL_UF_CRM_SITE_SERVICE' );
+}
+
+/**
+ * Соответствие «категория прайса сайта → id пункта списка в форме».
+ *
+ * Поле «Услуга» в форме — список, и предзаполняется он именно id пункта:
+ * передача названия не срабатывает (проверено на живой форме). Пункты списка —
+ * рубрики раздела «Прайс с сайта» в CRM, то есть те же категории, что в ACF
+ * options price_categories, поэтому ключ здесь — название категории с сайта.
+ *
+ * Id выдаются при создании перечисления и на разных порталах разные: локальные
+ * значения ниже, для прода переопределяются фильтром sputnik_crm_service_map
+ * (например из wp-config.php или mu-plugin), код темы править не нужно.
+ *
+ * @return array<string,string>
+ */
+function sputnik_crm_service_map() {
+	static $map = null;
+
+	if ( null !== $map ) {
+		return $map;
+	}
+
+	$map = apply_filters(
+		'sputnik_crm_service_map',
+		[
+			'Вакцинация кошек и собак'                => '358',
+			'Ветеринарные профилактические услуги'    => '359',
+			'Ветеринарные услуги для собак и кошек'   => '360',
+			'Дерматолог'                              => '361',
+			'Кардиолог'                               => '362',
+			'Кастрация и стерилизация'                => '363',
+			'Кремация животных'                       => '364',
+			'Лаборатория'                             => '365',
+			'Лечение переломов у животных'            => '366',
+			'МРТ'                                     => '367',
+			'Ортопед'                                 => '368',
+			'Офтальмолог'                             => '369',
+			'Рентгенография'                          => '370',
+			'Стоматолог'                              => '371',
+			'Стрижка когтей/колтунов у кошек и собак' => '372',
+			'Удаление опухоли у животных'             => '373',
+			'УЗИ брюшной полости'                     => '374',
+			'Услуги ветеринарной диагностики'         => '375',
+			'Услуги ветеринарной терапии'             => '376',
+			'Услуги ветеринарной хирургии'            => '377',
+			'Услуги неотложной помощи'                => '378',
+			'Услуги узкопрофильных специалистов'      => '379',
+			'Усыпление животных'                      => '380',
+			'Чипирование'                             => '381',
+		]
+	);
+
+	return $map;
+}
+
+/**
+ * Включена ли онлайн-запись (Настройки темы → Онлайн-запись).
+ *
+ * Выключенный флаг превращает все кнопки записи в звонок: якоря формы не
+ * печатаются, а с ними не подключается и загрузчик CRM.
+ * Пока настройки ни разу не сохраняли, ACF отдаёт default_value поля — запись включена.
+ *
+ * Администраторы видят онлайн-запись всегда, даже в режиме «Телефон», —
+ * чтобы проверять форму на живом сайте, пока посетителям показан звонок.
+ *
+ * @return bool
+ */
+function sputnik_crm_booking_enabled() {
+	if ( ! function_exists( 'get_field' ) ) {
+		return true;
+	}
+
+	$enabled = (bool) get_field( 'online_booking_enabled', 'option' ) || current_user_can( 'manage_options' );
+
+	return (bool) apply_filters( 'sputnik_crm_booking_enabled', $enabled );
+}
+
+/**
+ * Ссылка-звонок вместо кнопки записи — когда онлайн-запись выключена.
+ *
+ * @param string $label Подпись кнопки.
+ * @param string $class CSS-класс кнопки.
+ */
+function sputnik_crm_booking_phone_link( $label, $class = '' ) {
+	$phone = sputnik_search_phone_link();
+	if ( '' === $phone ) {
+		$phone = '+74954450120';
+	}
+	?>
+	<a href="<?php echo esc_attr( 'tel:' . $phone ); ?>" class="<?php echo esc_attr( $class ); ?>"><?php echo esc_html( $label ); ?></a>
+	<?php
+}
+
+/**
+ * Печатает якорь CRM-формы онлайн-записи.
+ *
+ * В режиме click загрузчик Битрикса вешает обработчик на элемент, идущий сразу
+ * за этим <script> (crm/site/form/src/app.js: node.nextElementSibling), поэтому
+ * тег обязан стоять непосредственно перед кнопкой-триггером.
+ *
+ * Сам загрузчик один на страницу и подключается в подвале — см.
+ * sputnik_crm_booking_loader().
+ *
+ * @param string $action Режим встраивания: click | inline | auto.
+ */
+function sputnik_crm_booking_script( $action = 'click' ) {
+	sputnik_crm_booking_used( true );
+	?>
+	<script
+		data-b24-form="<?php echo esc_attr( $action . '/' . SPUTNIK_CRM_FORM_ID . '/' . SPUTNIK_CRM_FORM_SEC ); ?>"
+		data-skip-moving="true"
+	></script>
+	<?php
+}
+
+/**
+ * Флаг «на странице есть хотя бы один якорь формы».
+ *
+ * @param bool $set Передать true, чтобы поднять флаг.
+ * @return bool
+ */
+function sputnik_crm_booking_used( $set = false ) {
+	static $used = false;
+
+	if ( $set ) {
+		$used = true;
+	}
+
+	return $used;
+}
+
+/**
+ * Реестр услуг, для которых на странице нужна кнопка записи.
+ *
+ * Ключ — стабильный хеш названия, поэтому одна и та же услуга, выведенная
+ * дважды, получает один триггер.
+ *
+ * @param string $service Название услуги; пустая строка — только чтение реестра.
+ * @return array|string Реестр целиком либо ключ добавленной услуги.
+ */
+function sputnik_crm_booking_services( $service = '' ) {
+	static $services = [];
+
+	if ( '' === $service ) {
+		return $services;
+	}
+
+	$key = substr( md5( $service ), 0, 10 );
+
+	$services[ $key ] = [
+		'name' => $service,
+		// Пусто, если категории нет в карте: кнопка тогда просто открывает форму.
+		'id'   => sputnik_crm_service_map()[ $service ] ?? '',
+	];
+
+	return $key;
+}
+
+/**
+ * Кнопка «Записаться» с привязкой к конкретной услуге.
+ *
+ * Кнопка — только видимая обёртка: сам якорь Битрикса живёт в подвале, потому
+ * что якорь обязан стоять вплотную к своему триггеру, а разметку блоков это
+ * ограничение ломает (в слайдере услуг Swiper ещё и клонирует слайды, из-за
+ * чего клон-кнопка остаётся без обработчика). Клик проксируется на скрытый
+ * триггер — см. sputnik_crm_booking_triggers() и обработчик в main.js.
+ *
+ * @param string $label   Подпись кнопки.
+ * @param string $service Название услуги.
+ * @param string $class   CSS-класс кнопки.
+ */
+function sputnik_crm_booking_button( $label, $service, $class = '' ) {
+	if ( '' === trim( (string) $service ) ) {
+		return;
+	}
+
+	if ( ! sputnik_crm_booking_enabled() ) {
+		sputnik_crm_booking_phone_link( $label, $class );
+		return;
+	}
+
+	$key = sputnik_crm_booking_services( $service );
+	?>
+	<button
+		type="button"
+		class="<?php echo esc_attr( $class ); ?>"
+		data-b24-key="<?php echo esc_attr( $key ); ?>"
+	><?php echo esc_html( $label ); ?></button>
+	<?php
+}
+
+/**
+ * Кнопка, просто открывающая форму записи — без предвыбранной услуги.
+ *
+ * Якорь печатается прямо перед кнопкой, поэтому вызывать там, где разметку
+ * не клонируют (не внутри слайдов Swiper) — иначе нужна
+ * sputnik_crm_booking_button().
+ *
+ * @param string $label Подпись кнопки.
+ * @param string $class CSS-класс кнопки.
+ */
+function sputnik_crm_booking_open_button( $label, $class = '' ) {
+	if ( ! sputnik_crm_booking_enabled() ) {
+		sputnik_crm_booking_phone_link( $label, $class );
+		return;
+	}
+
+	sputnik_crm_booking_script();
+	?>
+	<button type="button" class="<?php echo esc_attr( $class ); ?>"><?php echo esc_html( $label ); ?></button>
+	<?php
+}
+
+/**
+ * Выводит в подвале скрытые триггеры — по одному на услугу.
+ *
+ * Каждый триггер это пара «якорь + кнопка»: загрузчик обходит все теги
+ * script[data-b24-form] и для каждого создаёт отдельный экземпляр формы, так что
+ * услуги не перетекают между кнопками.
+ */
+function sputnik_crm_booking_triggers() {
+	$services = sputnik_crm_booking_services();
+
+	if ( ! $services ) {
+		return;
+	}
+	?>
+	<div class="crm-booking-triggers" hidden>
+		<?php foreach ( $services as $key => $service ) : ?>
+			<?php sputnik_crm_booking_script(); ?>
+			<button
+				type="button"
+				class="crm-booking-triggers__item"
+				data-b24-key="<?php echo esc_attr( $key ); ?>"
+				data-b24-service="<?php echo esc_attr( $service['id'] ); ?>"
+				data-b24-name="<?php echo esc_attr( $service['name'] ); ?>"
+				data-b24-field="<?php echo esc_attr( SPUTNIK_CRM_FORM_SERVICE_FIELD ); ?>"
+				tabindex="-1"
+				aria-hidden="true"
+			></button>
+		<?php endforeach; ?>
+	</div>
+	<?php
+}
+add_action( 'wp_footer', 'sputnik_crm_booking_triggers', 5 );
+
+/**
+ * Подключает загрузчик CRM-формы — один на страницу, в самом конце подвала.
+ *
+ * Порядок важен: загрузчик обходит теги script[data-b24-form] один раз, сразу
+ * после загрузки, поэтому он обязан идти после всех якорей — включая те, что
+ * печатает sputnik_crm_booking_triggers().
+ *
+ * Подключается не штатный loader_<id>_<sec>.js, а обёртка портала
+ * /local/assets/booking-form/loader.php. Она тянет тот же штатный загрузчик, а
+ * сверху даёт бренд-слой (form.css) и две правки виджета: фото врача в списке
+ * выбора (штатный виджет его не рисует) и абсолютные пути к аватарам — иначе
+ * браузер ищет /upload/booking/... на домене сайта и получает 404.
+ */
+function sputnik_crm_booking_loader() {
+	if ( ! sputnik_crm_booking_used() ) {
+		return;
+	}
+
+	$origin = rtrim( SPUTNIK_CRM_URL, '/' );
+	?>
+	<div class="crm-booking-loader" hidden>
+		<script
+			src="<?php echo esc_url( $origin . '/local/assets/booking-form/loader.php' ); ?>" async
+			data-b24-origin="<?php echo esc_attr( $origin ); ?>"
+			data-b24-form="<?php echo esc_attr( 'click/' . SPUTNIK_CRM_FORM_ID . '/' . SPUTNIK_CRM_FORM_SEC ); ?>"
+			data-skip-moving="true"
+		></script>
+		<?php // Тег загрузчика заодно остаётся якорем — так было до разделения, и обёртка
+		      // портала может читать data-b24-form со своего же тега. Раз якорь есть,
+		      // Битрикс повесит обработчик на следующий элемент, поэтому следом идёт
+		      // кнопка-пустышка: иначе обработчик достанется случайному узлу страницы. ?>
+		<button type="button" tabindex="-1" aria-hidden="true"></button>
+	</div>
+	<?php
+}
+add_action( 'wp_footer', 'sputnik_crm_booking_loader', 99 );

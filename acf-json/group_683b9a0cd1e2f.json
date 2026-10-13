@@ -356,6 +356,45 @@
                     "parent_repeater": "field_683b9a0cd1008"
                 }
             ]
+        },
+        {
+            "key": "field_683b9a0cd1300",
+            "label": "Онлайн-запись",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_683b9a0cd1301",
+            "label": "Онлайн-запись через CRM",
+            "name": "online_booking_enabled",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Включено — кнопки «Записаться» открывают форму онлайн-записи. Выключено — у посетителей кнопки ведут на звонок по телефону из вкладки «Футер»; администраторы по-прежнему видят онлайн-запись.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "allow_in_bindings": 0,
+            "ui": 1,
+            "ui_on_text": "Онлайн-запись",
+            "ui_off_text": "Телефон"
         }
     ],
     "location": [
@@ -379,5 +418,5 @@
     "display_title": "",
     "allow_ai_access": 1,
     "ai_description": "",
-    "modified": 1788134400
+    "modified": 1791928604
 }

@@ -9,6 +9,9 @@
     text-decoration: none;
     transition: 0.3s ease all;
     font-size: 0.875rem;
+    // Нужно для <button>: иначе он берёт системный шрифт и курсор по умолчанию.
+    font-family: inherit;
+    cursor: pointer;
 
     &:hover {
         background: var(--color-dark-blue);
