@@ -39,6 +39,32 @@
       height: 33.125rem;
       padding: 1.25rem 1.875rem;
     }
+
+    // Слайд-баннер: одна картинка на всю площадь, без отступов и текста.
+    // Высота — по пропорциям картинки; в слайдере с текстовыми слайдами
+    // растягивается до общей высоты, картинка тогда обрезается по cover.
+    &--image {
+      display: block;
+      padding: 0;
+      overflow: hidden;
+
+      @media (max-width:1024px) {
+        height: auto;
+        padding: 0;
+      }
+
+      picture {
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+
+  &__banner-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   &__content {

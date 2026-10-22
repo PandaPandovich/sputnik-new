@@ -27,6 +27,13 @@ if (empty($slides)) {
     }
 }
 
+// Баннер без картинки показывать нечем — выкидываем, чтобы не сбить счётчик слайдов.
+$slides = array_values(array_filter((array) $slides, function ($slide) {
+    return ($slide['type'] ?? '') !== 'banner'
+        || !empty($slide['banner_image'])
+        || !empty($slide['banner_image_mobile']);
+}));
+
 if (empty($slides)) {
     return;
 }
@@ -40,6 +47,28 @@ $multi = count($slides) > 1;
             <div class="hero__slider swiper<?php echo $multi ? ' hero__slider--multi' : ''; ?>">
                 <div class="swiper-wrapper">
                     <?php foreach ($slides as $slide):
+                        // Слайд-баннер: только картинка, без текста и кнопки.
+                        if (($slide['type'] ?? '') === 'banner'):
+                            $banner        = $slide['banner_image'] ?? 0;
+                            $banner_mobile = $slide['banner_image_mobile'] ?? 0;
+                            $banner_link   = $slide['banner_link'] ?? [];
+                            $has_link      = is_array($banner_link) && !empty($banner_link['url']);
+                            $tag           = $has_link ? 'a' : 'div';
+                            ?>
+                            <div class="swiper-slide">
+                                <<?php echo $tag; ?> class="hero__banner hero__banner--image"<?php if ($has_link): ?> href="<?php echo esc_url($banner_link['url']); ?>"<?php echo !empty($banner_link['target']) ? ' target="' . esc_attr($banner_link['target']) . '"' : ''; ?><?php echo !empty($banner_link['title']) ? ' aria-label="' . esc_attr($banner_link['title']) . '"' : ''; ?><?php endif; ?>>
+                                    <picture>
+                                        <?php if ($banner && $banner_mobile): ?>
+                                            <source media="(max-width: 1024px)" srcset="<?php echo esc_url(wp_get_attachment_image_url($banner_mobile, 'full')); ?>">
+                                        <?php endif; ?>
+                                        <?php echo wp_get_attachment_image($banner ?: $banner_mobile, 'full', false, ['class' => 'hero__banner-img']); ?>
+                                    </picture>
+                                </<?php echo $tag; ?>>
+                            </div>
+                            <?php
+                            continue;
+                        endif;
+
                         $title  = sputnik_normalize_separators($slide['title'] ?? '');
                         $text   = sputnik_normalize_separators($slide['text']  ?? '');
                         $button = $slide['button'] ?? [];
@@ -52,7 +81,14 @@ $multi = count($slides) > 1;
                                         <h1 class="hero__title"><?php echo $title; ?></h1>
                                         <p class="hero__desc"><?php echo $text; ?></p>
                                     </div>
-                                    <?php if (is_array($button) && !empty($button['url'])): ?>
+                                    <?php if (!empty($slide['button_booking'])): ?>
+                                        <?php // Слайды клонирует Swiper (loop), поэтому кнопка — прокси на скрытый триггер в подвале. ?>
+                                        <?php sputnik_crm_booking_button(
+                                            is_array($button) && !empty($button['title']) ? $button['title'] : 'Записаться на консультацию',
+                                            '',
+                                            'hero__button hero__button--red'
+                                        ); ?>
+                                    <?php elseif (is_array($button) && !empty($button['url'])): ?>
                                         <a href="<?php echo esc_url($button['url']); ?>" class="hero__button hero__button--red" <?php echo !empty($button['target']) ? 'target="' . esc_attr($button['target']) . '"' : ''; ?>>
                                             <?php echo esc_html(!empty($button['title']) ? $button['title'] : 'Записаться на консультацию'); ?>
                                         </a>

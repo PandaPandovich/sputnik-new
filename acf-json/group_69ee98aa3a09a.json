@@ -25,6 +25,30 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_6a1c0e5b2f001",
+                    "label": "Тип слайда",
+                    "name": "type",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "«Баннер» — только картинка во всю ширину блока, без заголовка, текста и кнопки.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "content": "С текстом",
+                        "banner": "Баннер"
+                    },
+                    "default_value": "content",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "layout": "horizontal"
+                },
+                {
                     "key": "field_69ee98fbc2029",
                     "label": "Картинка",
                     "name": "image",
@@ -32,7 +56,15 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1c0e5b2f001",
+                                "operator": "!=",
+                                "value": "banner"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -58,7 +90,15 @@
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1c0e5b2f001",
+                                "operator": "!=",
+                                "value": "banner"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -79,7 +119,15 @@
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1c0e5b2f001",
+                                "operator": "!=",
+                                "value": "banner"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -98,9 +146,139 @@
                     "name": "button",
                     "aria-label": "",
                     "type": "link",
-                    "instructions": "",
+                    "instructions": "Если включена «Онлайн-запись», из ссылки берётся только подпись кнопки.",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1c0e5b2f001",
+                                "operator": "!=",
+                                "value": "banner"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0
+                },
+                {
+                    "key": "field_6a1c0e5b2f005",
+                    "label": "Онлайн-запись",
+                    "name": "button_booking",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Кнопка будет открывать форму онлайн-записи вместо перехода по ссылке.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1c0e5b2f001",
+                                "operator": "!=",
+                                "value": "banner"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "Кнопка открывает форму записи",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_6a1c0e5b2f002",
+                    "label": "Баннер",
+                    "name": "banner_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Картинка на всю ширину блока. Рекомендуемый размер — 2400×1000 px. Подпись для слепых и поисковиков берётся из поля «Атрибут alt» картинки в медиатеке.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1c0e5b2f001",
+                                "operator": "==",
+                                "value": "banner"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_6a1c0e5b2f003",
+                    "label": "Баннер для мобильных",
+                    "name": "banner_image_mobile",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Показывается на экранах уже 1024 px. Если не задана — используется основная картинка. Рекомендуемый размер — 1000×1200 px.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1c0e5b2f001",
+                                "operator": "==",
+                                "value": "banner"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_6a1c0e5b2f004",
+                    "label": "Ссылка с баннера",
+                    "name": "banner_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Необязательно: весь баннер станет кликабельным.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1c0e5b2f001",
+                                "operator": "==",
+                                "value": "banner"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -133,5 +311,5 @@
     "display_title": "",
     "allow_ai_access": 1,
     "ai_description": "",
-    "modified": 1778972500
+    "modified": 1792671718
 }

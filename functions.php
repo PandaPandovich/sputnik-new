@@ -1135,15 +1135,16 @@ function sputnik_crm_booking_used( $set = false ) {
  * Реестр услуг, для которых на странице нужна кнопка записи.
  *
  * Ключ — стабильный хеш названия, поэтому одна и та же услуга, выведенная
- * дважды, получает один триггер.
+ * дважды, получает один триггер. Пустая строка — общий триггер без услуги:
+ * он просто открывает форму.
  *
- * @param string $service Название услуги; пустая строка — только чтение реестра.
+ * @param string|null $service Название услуги; null — только чтение реестра.
  * @return array|string Реестр целиком либо ключ добавленной услуги.
  */
-function sputnik_crm_booking_services( $service = '' ) {
+function sputnik_crm_booking_services( $service = null ) {
 	static $services = [];
 
-	if ( '' === $service ) {
+	if ( null === $service ) {
 		return $services;
 	}
 
@@ -1167,14 +1168,15 @@ function sputnik_crm_booking_services( $service = '' ) {
  * чего клон-кнопка остаётся без обработчика). Клик проксируется на скрытый
  * триггер — см. sputnik_crm_booking_triggers() и обработчик в main.js.
  *
+ * Без услуги кнопка просто открывает форму — так её ставят туда, где
+ * разметку клонируют и sputnik_crm_booking_open_button() не годится.
+ *
  * @param string $label   Подпись кнопки.
- * @param string $service Название услуги.
+ * @param string $service Название услуги; пусто — форма без предвыбранной услуги.
  * @param string $class   CSS-класс кнопки.
  */
-function sputnik_crm_booking_button( $label, $service, $class = '' ) {
-	if ( '' === trim( (string) $service ) ) {
-		return;
-	}
+function sputnik_crm_booking_button( $label, $service = '', $class = '' ) {
+	$service = trim( (string) $service );
 
 	if ( ! sputnik_crm_booking_enabled() ) {
 		sputnik_crm_booking_phone_link( $label, $class );
